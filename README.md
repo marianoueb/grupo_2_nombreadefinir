@@ -15,7 +15,12 @@
 
 ### Aylen Martinez
 > Yo soy Aylén y soy una mujer transgénero de 21 años de Adrogué, Buenos Aires. Actualmente estoy desempleada. Practico arquería y soy bailarina de danzas folklóricas argentinas.
-
+#
+#
+***
+#
+#
+## [Tablero de tareas en Trello]
 #
 #
 ***
@@ -81,6 +86,7 @@
 #
 #
 
+[Tablero de tareas en Trello]: https://trello.com/toolboxpi
 [aquí (click)]: https://www.figma.com/file/PTwFi5GzMJNi2bQSKVBUsN/Boceto-Toolbox?node-id=0%3A1;
 [Rubik (Ligth 300 o Regular 400, para textos, descripciones, etc.)]: https://fonts.google.com/specimen/Rubik
 [Cabin (Regular 400, para títulos)]: https://fonts.google.com/specimen/Cabin
