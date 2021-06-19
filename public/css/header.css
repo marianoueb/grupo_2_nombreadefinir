@@ -10,7 +10,8 @@
 }
 /* Ajuste de tamaño del logo */
 #barra-principal img {
-    max-width: 20vw;
+    max-width: 100px;
+    text-decoration: none;
 }
 
 /* Formato de la barra de busqueda*/
@@ -30,10 +31,10 @@
     background: #f2f2f2;
     border-radius: 20px 0 0 20px;
     padding: 2px;
-    width: 30%;
+    width: 20%;
 }
 #linea {
-    width: 55%;
+    width: 70%;
 }
 /* Formato del botón de busqueda */
 #buscar {
@@ -41,8 +42,22 @@
     border: 0;
     border-radius: 0 20px 20px 0;
     margin: 2px;
-    width: 15%;
+    width: 10%;
     text-align: center;
+}
+
+.fa-bars {
+    color: #383838;
+    background-color: #efefef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #383838;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 35px;
+    padding: 10px;
+    box-shadow: 0px 1px 0.7px 1px rgba(38, 38, 38, 0.4);
 }
 
 /* Formato del botón del carrito de compras*/
@@ -50,12 +65,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2vw;
-    border: solid 2px #383838;
-    border-radius: 50px;
+    font-size: 35px;
+    padding: 10px;
+    border: solid 3px #383838;
+    border-radius: 20px;
     box-shadow: 0px 1px 0.7px 1px rgba(38, 38, 38, 0.4);
-    max-width: 20vw;
-    max-height: 20vw;
 }
 .fa-shopping-cart {
     font-size: 30px;
@@ -71,6 +85,10 @@
     background-color: #f2f2f2;
     color: #383838;
     border: solid 2px #383838;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    
 }
 
 /* Arreglo de color y decoración de los enlaces */
@@ -84,4 +102,29 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+}
+
+#sesion {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+@media (max-width: 767px) {
+    #barra-menu {
+        display: none;
+    }
+    .formulario-busqueda {
+        display: none;
+    }
+    
+}
+
+@media (min-width: 768px) {
+    #mobile-burger {
+        display: none;
+    }
 }
