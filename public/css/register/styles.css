@@ -1,0 +1,23 @@
+
+/* Formato para la seccion Por que Registrarse?*/
+
+#whyRegister{
+  background-color: #f2f2f2;
+  border: solid 2px #383838;  
+}
+/* Formato para el formulario*/
+
+form{
+    background: #f2f2f2; 
+    
+}
+/* Formato para el button REGISTRARME*/
+
+button{
+    background: #f2f2f2;
+    border: solid 1px #383838 ;
+    margin: 2px;
+    width: 30%;
+    text-align: center;
+}
+
