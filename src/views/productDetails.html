@@ -13,13 +13,125 @@
         <link rel="stylesheet" href="/css/footer.css">
         <link rel="stylesheet" href="/css/productDetails.css">
     </head>
+
+    <header>
+        <nav id="barra-principal">
+            <img src="/img/Logo.png" alt="Toolbox">
+            
+                <form class="formulario-busqueda" action="#" method="get">
+                    <div class="barra-busqueda">
+                        <select name="busqueda" id="categoria">
+                            <option value="ferreteria">Ferretería</option>
+                            <option value="pintureria">Pinturería</option>
+                            <option value="plomeria">Plomería</option>
+                            <option value="jardineria">Jardinería</option>
+                            <option value="maquinaria">Maquinaria</option>
+                        </select>
+                        <input id="linea" type="search" placeholder="¿Que buscas?">
+                    
+                        <input id="buscar" type="submit" value="&#10140;"/>
+                    </div>
+                </form>
+            
+            <p id="carrito"><i class="fas fa-shopping-cart"></i></p>
+        </nav>
+        <div id="barra-menu">
+            <nav id="navegacion">
+                <a href="">Página principal</a>
+                <a href="/productDetails">Productos</a>
+                <a href="">Marcas</a>
+                <a href="">Sobre nosotros</a>
+            </nav>
+            <nav id="sesion">
+                <a href="/login">Iniciar sesión</a>
+                <p>o</p>
+                <a href="/register">Registrarse</a>
+            </nav>
+        </div>
+    </header>
+
     <body>
-        <header>
-
-        </header>
+      
         <main>
+<div class="section-primera">
+            <section>
+                       <figure>
+            <img src="/img/Foto-del-Producto-reemplazar.jpg">
+        </figure>
+        <!--Contenido del carrusel-->
+               </section>
 
-        </main>
+               <section>
+       <article class="descripcion-del-producto">
+        <h2> Nombre del producto</h2>
+        <h4>$Precio</h4>
+        <div class="stars">
+        <i class="far fa-star"></i>
+        <i class="far fa-star"></i>
+        <i class="far fa-star"></i>
+        <i class="far fa-star"></i>
+        <i class="far fa-star"></i>
+        </div>
+<span>15</span>
+ <p>
+ <h2>Descripción del producto:</h2>
+Lorem ipsum dolor sit amet, 
+consectetur adipiscing elit. Maecenas 
+fringilla commodo bibendum. Morbi laoreet 
+nibh lectus, in pulvinar neque vestibulum a. 
+Morbi quis placerat ligula, in semper libero. 
+Interdum et malesuada fames ac ante 
+ipsum primis in faucibus. Phasellus aliquet 
+dui non turpis euismod, volutpat convallis 
+eros vestibulum. Aenean consequat neque 
+a vulputate efficitur.
+</p>
+
+<div class="elegir">
+    <p class="para-elegir">
+<form action="#" method="get">
+ 
+    <fieldset>
+        <label>Variante</label>
+               <select name="variante" id="variante">
+                
+            <option value="Variante1">Variante1</option>
+            <option value="Variante2">Variante2</option>
+        </select>
+            </fieldset>
+
+    <fieldset>
+        <label>Cantidad</label>
+        <select name="cantidad" id="cantidad">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+        </p>
+        </select>
+        </fieldset>
+
+       <span class="anadir">Anadir al carrito
+        <p><i class="fas fa-shopping-cart"></i></p>
+       </span>
+    </div>
+  </section>
+</div>
+       
+<section>
+    <h3> Productos relacionados </h3>
+    <article class="Productos-relacionados">
+        <img src="/img/fotoproducto.jpg" alt= "Foto Producto">
+        <p>$Precio</p>
+    </article>
+</section>
+
+    </main>
         <footer>
             
         </footer>

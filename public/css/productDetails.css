@@ -1,0 +1,45 @@
+.section-primera   {
+    display: flex;
+ 
+}
+
+.descripcion-del-producto{
+    background-color: #f2f2f2;
+        border-color: black;
+    display: flex;
+   flex-direction: column;
+   height: 70vh;
+   width: 50vw;
+}
+
+.star{
+    display: flex;
+    justify-content: center;
+   border: black
+}
+
+.elegir{
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+}
+
+.para-elegir{
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+}
+
+.anadir{
+    color: white;
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    padding: 10px;
+    border: solid 3px #383838;
+    border-radius: 8px;
+    box-shadow: 0px 1px 0.7px 1px rgba(38, 38, 38, 0.4);
+}
+
