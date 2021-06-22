@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 .section-primera   {
     display: flex;
  
@@ -10,7 +14,17 @@
    flex-direction: column;
    height: 70vh;
    width: 50vw;
+   margin: auto;
+   padding: 20px;
+   text-align: center;
 }
+
+.fotoproducto{
+    display: flex;
+    margin: auto;
+    height: 70vh;
+    width: 50vw;
+    }
 
 .star{
     display: flex;
@@ -36,10 +50,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 50px;
+    font-size: 20px;
     padding: 10px;
     border: solid 3px #383838;
     border-radius: 8px;
     box-shadow: 0px 1px 0.7px 1px rgba(38, 38, 38, 0.4);
+    display: flex;
+
 }
 
