@@ -38,7 +38,7 @@
         <div id="barra-menu">
             <nav id="navegacion">
                 <a href="">Página principal</a>
-                <a href="/productDetails">Productos</a>
+                <a href="/productDetails/">Productos</a>
                 <a href="">Marcas</a>
                 <a href="">Sobre nosotros</a>
             </nav>
@@ -53,29 +53,34 @@
     <body>
       
         <main>
-<div class="section-primera">
-            <section>
+ <section class="primera-parte">
+     
+    <article class="izquierda">
                        <figure>
-            <img class="fotoproducto" src="/img/Foto-del-Producto-reemplazar.jpg">
+            <img class="/img/fotoproducto.jpg/" src="" alt="">
         </figure>
-        <!--Contenido del carrusel-->
-               </section>
+                    </article>
 
-               <section>
-       <article class="descripcion-del-producto">
+
+
+                    
+               <article class="derecha">
+       <div class="descripcion-del-producto">
         <h2> Nombre del producto</h2>
         <h4>$Precio</h4>
-        <div class="stars">
+        <span>
         <i class="far fa-star"></i>
         <i class="far fa-star"></i>
         <i class="far fa-star"></i>
         <i class="far fa-star"></i>
         <i class="far fa-star"></i>
+        <p>15</p>
+    </span>
         </div>
-<span>15</span>
- <p>
- <h2>Descripción del producto:</h2>
- <p>
+
+ 
+ <h3> Descripción del producto:</h3>
+ <p class="comentario-del-producto">
 Lorem ipsum dolor sit amet, 
 consectetur adipiscing elit. Maecenas 
 fringilla commodo bibendum. Morbi laoreet 
@@ -87,52 +92,71 @@ dui non turpis euismod, volutpat convallis
 eros vestibulum. Aenean consequat neque 
 a vulputate efficitur.
 </p>
-</p>
+
 
 <div class="elegir">
-    <p class="para-elegir">
-<form action="#" method="get">
- 
-    <fieldset>
-        <label>Variante</label>
-               <select name="variante" id="variante">
-                
-            <option value="Variante1">Variante1</option>
+    
+        <article class="para-elegir">
+       <span class="opciones">
+        <fieldset>
+<form action="resultado.html" method="POST"></form>
+       <select name="variante" id="variante">
+        <option value="Variante">Variante</option>
+        <option value="Variante1">Variante1</option>
             <option value="Variante2">Variante2</option>
         </select>
+    
             </fieldset>
+        
 
-    <fieldset>
-        <label>Cantidad</label>
-        <select name="cantidad" id="cantidad">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-        </p>
-        </select>
+            <fieldset>
+        <form action="resultado.html" method="POST"></form>
+               <select name="cantidad" id="cantidad">
+            <option value="1">Cantidad</option>
+            <option value="2">1</option>
+            <option value="3">2</option>
+            <option value="4">3</option>
+            <option value="5">4</option>
+            <option value="6">5</option>
+            <option value="7">6</option>
+            <option value="8">7</option>
+            <option value="9">8</option>
+            <option value="10">9</option>
+              </select>
         </fieldset>
+    </span>
+  
 
        <span class="anadir">Anadir al 
            carrito
         <p><i class="fas fa-shopping-cart"></i></p>
-       </span>
-    </div>
+  
+
+       </article>
   </section>
-</div>
-       
-<section>
-    <h3> Productos relacionados </h3>
-    <article class="Productos-relacionados">
-        <img src="/img/fotoproducto.jpg" alt= "Foto Producto">
-        <p>$Precio</p>
-    </article>
+
+  <section class="relacionados">
+    <h1 class="productos-relacionados">Productos relacionados</h1>
+    <div id="galeria-relacionados">
+        <article class="relacionado">
+            <img class="foto-producto" src="" alt="">
+            <div class="descripcion">
+                <p class="precio-producto">Precio</p>
+                <p class="nombre-producto">Nombre</p>
+            </div>
+
+            <div id="galeria-relacionados">
+                <article class="relacionado">
+                    <img class="foto-producto" src="" alt="">
+                    <div class="descripcion">
+                        <p class="precio-producto">Precio</p>
+                        <p class="nombre-producto">Nombre</p>
+                    </div>
+
+                </article>
 </section>
+
+
 
     </main>
         <footer>
