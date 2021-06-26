@@ -15,51 +15,88 @@
     </head>
     <body>
         <header>
-           
-             
+            <nav id="barra-principal">
+                <a id="mobile-burger"><i class="fas fa-bars"></i></a>
+                <img href="" src="/img/Logo.png" alt="Toolbox">
+                <form class="formulario-busqueda" action="#" method="get">
+                    <div class="barra-busqueda">
+                        <select name="busqueda" id="categoria">
+                            <option value="ferreteria">Ferretería</option>
+                            <option value="pintureria">Pinturería</option>
+                            <option value="plomeria">Plomería</option>
+                            <option value="jardineria">Jardinería</option>
+                            <option value="maquinaria">Maquinaria</option>
+                        </select>
+                        <input id="linea" type="search" placeholder="¿Que buscas?">
+                        <button id="buscar" type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                </form>
+                <a id="carrito"><i class="fas fa-shopping-cart"></i></a>
+            </nav>
+            <div id="barra-menu">
+                <nav id="navegacion">
+                    <a href="">Página principal</a>
+                    <a href="/productDetails/">Productos</a>
+                    <a href="">Marcas</a>
+                    <a href="">Sobre nosotros</a>
+                </nav>
+                <nav id="sesion">
+                    <a href="">Iniciar sesión</a>
+                    <p>o</p>
+                    <a href="">Registrarse</a>
+                </nav>
+            </div>          
             </header>
 <main>   
 <section id =register-main>  
-
+    <form class="register"action="" method="POST">
+        <p class="titulo-register">Crea tu Cuenta</p>
 <section id = registerForm>
+    <input type="text" id="name" name="name" placeholder="Nombre:" required >
+    <input type="text" id="surname" name="surname" placeholder="Apellido:" required>
+    <input type="email" id="email" name="email" placeholder="E-Mail:" required>
+    <input type="password" id="password" name="password" placeholder="Contraseña:" required>
+    <input type="tel" id="tel" name="tel" placeholder="Telefono:" required>
+  </section>
+  
+  <section id="botones">
+    <button type="submit">Registrarme</button>
+    <button type="button">Ya estoy registrado</button>
+  </section>  
 
-    <form action="#.html" method="POST">
-
-    <h3>Crea tu Cuenta</h3>
-    <br>
-    <br>
-
-    <input type="text" name="name" placeholder="Nombre">
-    <input type="text" name="surname" placeholder="Apellido"><br><br>
-    <input type="email" name="email" placeholder="E-Mail">
-    <input type="password" name="password" placeholder="Contraseña"><br><br>
-    <input type="tel" name="tel" placeholder="Telefono"><br><br>
-    
-    <button type="submit">Registrarme</button><br><br>
-
-    <label>Ya sos Cliente?</label> <a href = "/login"> Click Aqui</a>
-    <br>
-    <br>
     </form> 
 </section>
 
 
 <section id="whyRegister">
-    <h3>Por que Registrarse?</h3>
-    <br>
-
+    <p class="titulo-why">Por que Registrarse?</p><br><br>
+  
+<section id="lista-whyRegister">
     <ul>
-        <li>Respuesta mas rapida</li>
-        <li>Cotizacion preferencial</li>
-        <li>Asistencia personalizada</li>
+        <li>
+        <a id="resp-fast"><i class="fas fa-shipping-fast"></i></a>
+            Respuesta mas rapida
+        </li><br>
+        <li>
+        <a id="coti-prefe"><i class="fas fa-angle-double-up"></i></a>  
+            Cotizacion preferencial
+        </li><br>
+        <li>
+        <a id="asist-person"><i class="fas fa-hands-helping"></i></a>
+            Asistencia personalizada
+        </li>
     </ul>
+
+</section>
+
+<div class="foto-producto">
 <figure>	
-    <img src="#" alt="Foto de producto">
+    <img src="/img/fotoproducto.jpg" alt="Foto de producto">
 </figure>
+</div>
 
 </section>
 
-</section>
 <main>
         </main>
         <footer>

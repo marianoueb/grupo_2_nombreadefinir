@@ -1,33 +1,106 @@
 
 
 #register-main {
-  width: 880px;
+background-color: #fbfbfb;
+}
+.register {
+  display: flex;
+  width: 100vw;
+  flex-direction: column;
+  justify-content: center;
   margin: auto;
-  padding: 40px 0;
+  align-items: center;
+  padding: 5px;
+  border: solid 2px #383838;;
 }
-/* Formato para la seccion main que contiene Form y Por que registrarse?*/
-
-#register-main{
-  background-color: #f5f7fa;
-  box-shadow: 0 1px 3px rgb(0, 0, 0 /10%);
-  background-position: right bottom;
-  background-repeat: no-repeat;
+.titulo-register{
+font-size: 24px;
+font-weight: bold;
+text-align: center;
+}
+#registerForm{
+border-radius: 10px;
+border: none;
+width: 100%;
+padding: 18px;
+margin: 15px 0px;
+justify-content: center;
+}
+input{
+  border-radius: 10px;
+  padding: 10px;
+  margin: 15px 0 px;
+  width: 100%;
+  border: solid 1px #383838;
+}
+#botones {
+  display: flex;
+  margin: 2px;
+  width: 80%;
+  text-align: center;
+  height: auto;
+  line-height: inherit;
+  padding: 5px;
+  justify-content: center;
+}
+#whyRegister{
+  display: flex;
+  background-color: #f2f2f2;
+  border: solid 2px #383838;  
+  padding: 5px;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  margin: 15px 0px;
+}
+.titulo-why{
+font-size: 24px;
+font-weight: bold;
+text-align: center;
+}
+#lista-whyRegister{
+  font-size: 1rem;
+  font-style: italic;
+  text-align:center;
+}
+.foto-producto{
+  width: 50%;
+  height: 50%;
+  align-items: center;
 }
 
+
+/* @media (max-width: 767px) {
+  #barra-menu {
+      display: none;
+  }
+  .formulario-busqueda {
+      display: none;
+  }
+  
+}
+
+@media (min-width: 768px) {
+  #mobile-burger {
+      display: none;
+  }
+} */
 /* Formato para la seccion Por que Registrarse?*/
 
-#whyRegister{
+/* #whyRegister{
   background-color: #f2f2f2;
   border: solid 3px #383838;  
   width: 380px;
   height: 420px;
-  float: right;
   padding: 30px;
-}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
 
-#whyRegister h3{
+/* #whyRegister h3{
 font-weight: bold;
-text-align: justify;
+text-align: justify; 
 }
 #whyRegister li{
   padding: 20px;
@@ -39,19 +112,21 @@ text-align: justify;
 
 /* Formato para el formulario*/
 
-#registerForm{
+/* #registerForm{
     background: #f2f2f2; 
     padding: 30px;
     width: 500px;
-    float: left;
+
     word-wrap: break-word;
     min-height: 420px;
-  /* border: solid 3px #383838;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
    border-top: solid 3px #383838 ;
    border-right: solid 0.5px #383838;
    border-bottom: solid 3px #383838;
    border-left: solid 3px #383838;
-}
+} 
 
 #registerForm h3{
   font-weight: bold;
@@ -60,7 +135,7 @@ text-align: justify;
 
 /* Formato para el button REGISTRARME*/
 
-button{
+/* button{
     background: #f2f2f2;
     border: solid 1px #383838 ;
     margin: 2px;
@@ -69,5 +144,28 @@ button{
     height: auto;
     line-height: inherit;
     padding: 10px;
+} */
+
+
+/* Para @media desktop
+#registerForm{
+  background: #f2f2f2; 
+  padding: 30px;
+  width: 500px;
+  float: left;
+  word-wrap: break-word;
+  min-height: 420px; 
+  
+  
+  
+#whyRegister{
+  background-color: #f2f2f2;
+  border: solid 3px #383838;  
+  width: 380px;
+  height: 420px;
+  float: right;
+  padding: 30px;
 }
+  
+  */
 
