@@ -35,18 +35,21 @@ main {
     width: 70%;
     text-align: center;
     z-index: 2;
+    
 }
 #categoria-actual h2 {
     font-size: 25px;
     font-weight: 600;
-    color: #8f8f8f;
+    color: #f2f2f2;
+    text-shadow: 2px 2px 5px 1px rgba(38, 38, 38, 0.4);
+    
 }
 #categoria-actual h3 {
     font-size: 20px;
     font-weight: 500;
-    color: #8f8f8f;
+    color: #f2f2f2;
+    text-shadow: 2px 2px 5px 1px rgba(38, 38, 38, 0.4);
 }
-
 #slide {
     align-self: center;
     display: flex;
@@ -60,18 +63,20 @@ main {
 .fa-chevron-left {
     margin-right: 30%;
     font-size: 20px;
+    color: #f2f2f2;
     padding: 5px;
-    border: solid 3px #383838;
+    border: solid 3px #f2f2f2;
     border-radius: 50px;
-    box-shadow: 0px 1px 0.7px 1px rgba(38, 38, 38, 0.4);
+    box-shadow: 2px 2px 5px 1px rgba(38, 38, 38, 0.4);
 }
 .fa-chevron-right {
     margin-left: 30%;
     font-size: 20px;
     padding: 5px;
-    border: solid 3px #383838;
+    color: #f2f2f2;
+    border: solid 3px #f2f2f2;
     border-radius: 50px;
-    box-shadow: 0px 1px 0.7px 1px rgba(38, 38, 38, 0.4);
+    box-shadow: 2px 2px 5px 1px rgba(38, 38, 38, 0.4);
 }
 
 .fa-chevron-left:active {
@@ -81,11 +86,11 @@ main {
     box-shadow: 0px 0px 0px 0px;
 }
 .fa-circle {
-    color: #383838;
+    color: #f2f2f2;
 }
 
 .fa-dot-circle {
-    color: #383838;
+    color: #f2f2f2;
 }
 
 /* Productos recomendados */
