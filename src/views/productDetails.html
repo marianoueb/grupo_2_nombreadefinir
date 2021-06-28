@@ -16,36 +16,36 @@
 
     <header>
         <nav id="barra-principal">
-            <img src="/img/Logo.png" alt="Toolbox">
-            
-                <form class="formulario-busqueda" action="#" method="get">
-                    <div class="barra-busqueda">
-                        <select name="busqueda" id="categoria">
-                            <option value="ferreteria">Ferretería</option>
-                            <option value="pintureria">Pinturería</option>
-                            <option value="plomeria">Plomería</option>
-                            <option value="jardineria">Jardinería</option>
-                            <option value="maquinaria">Maquinaria</option>
-                        </select>
-                        <input id="linea" type="search" placeholder="¿Que buscas?">
-                    
-                        <input id="buscar" type="submit" value="&#10140;"/>
-                    </div>
-                </form>
-            
-            <p id="carrito"><i class="fas fa-shopping-cart"></i></p>
+            <div id="mobile-burger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <a href="/home/"><img src="/img/Logo.png" alt="Toolbox"></a>
+            <form class="formulario-busqueda" action="#" method="get">
+                <div class="barra-busqueda">
+                    <select name="busqueda" id="categoria">
+                        <option value="ferreteria">Ferretería</option>
+                        <option value="pintureria">Pinturería</option>
+                        <option value="plomeria">Plomería</option>
+                        <option value="jardineria">Jardinería</option>
+                        <option value="maquinaria">Maquinaria</option>
+                    </select>
+                    <input id="linea" type="search" placeholder="¿Que buscas?">
+                    <button id="buscar" type="submit"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+            <a id="carrito" href="/productCart/"><i class="fas fa-shopping-cart"></i></a>
         </nav>
         <div id="barra-menu">
             <nav id="navegacion">
-                <a href="">Página principal</a>
+                <a href="/home/">Página principal</a>
                 <a href="/productDetails/">Productos</a>
                 <a href="">Marcas</a>
                 <a href="">Sobre nosotros</a>
             </nav>
             <nav id="sesion">
-                <a href="/login">Iniciar sesión</a>
+                <a href="/login/">Iniciar sesión</a>
                 <p>o</p>
-                <a href="/register">Registrarse</a>
+                <a href="/register/">Registrarse</a>
             </nav>
         </div>
     </header>
@@ -153,9 +153,15 @@ a vulputate efficitur.
 
 
     </main>
-        <footer>
-            
-        </footer>
+    <footer>
+        <section>
+            <a href="">Preguntas Frecuentes</a>
+            <a href="">Contacto</a>
+            <a href="">Terminos y Condiciones</a>
+            <a href="">Política de Privacidad</a>
+        </section>
+        <p>Copyright © 2021 Toolbox Industrias, derechos reservados</p>
+    </footer>
   
     </body>
 

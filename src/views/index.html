@@ -16,8 +16,10 @@
     <body>
         <header>
             <nav id="barra-principal">
-                <a id="mobile-burger"><i class="fas fa-bars"></i></a>
-                <img href="" src="/img/Logo.png" alt="Toolbox">
+                <div id="mobile-burger">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <a href="/home/"><img src="/img/Logo.png" alt="Toolbox"></a>
                 <form class="formulario-busqueda" action="#" method="get">
                     <div class="barra-busqueda">
                         <select name="busqueda" id="categoria">
@@ -31,32 +33,33 @@
                         <button id="buscar" type="submit"><i class="fas fa-search"></i></button>
                     </div>
                 </form>
-                <a id="carrito"><i class="fas fa-shopping-cart"></i></a>
+                <a id="carrito" href="/productCart/"><i class="fas fa-shopping-cart"></i></a>
             </nav>
             <div id="barra-menu">
                 <nav id="navegacion">
-                    <a href="">Página principal</a>
+                    <a href="/home/">Página principal</a>
                     <a href="/productDetails/">Productos</a>
                     <a href="">Marcas</a>
                     <a href="">Sobre nosotros</a>
                 </nav>
                 <nav id="sesion">
-                    <a href="">Iniciar sesión</a>
+                    <a href="/login/">Iniciar sesión</a>
                     <p>o</p>
-                    <a href="">Registrarse</a>
+                    <a href="/register/">Registrarse</a>
                 </nav>
             </div>
         </header>
         <main>
             <section>
                 <div id="carrousel-categorias">
+                    <img src="/img/jardineria-banner.jpg" alt="">
                     <div id="slide">
                         <i class="fa fa-chevron-left"></i>
                         <i class="fa fa-chevron-right"></i>
                     </div>
                     <div id="categoria-actual">
-                        <p>Jardinería</p>
-                        <p>Mira toda nuestra variedad de artículos para el jardín</p>
+                        <h2>Jardinería</h2>
+                        <h3>Mira toda nuestra variedad de artículos para el jardín</h3>
                         <div id="dots">
                             <i class="far fa-circle"></i><i class="far fa-circle"></i><i class="far fa-dot-circle"></i><i class="far fa-circle"></i><i class="far fa-circle"></i>
                         </div>
@@ -67,45 +70,51 @@
                 <h1>Productos recomendados</h1>
                 <div id="galeria-recomendados">
                     <article class="recomendado">
-                        <img class="foto-producto" src="" alt="">
+                        <img class="foto-producto" src="/img/alicate-7-bremen.jpg" alt="">
                         <div class="descripcion">
-                            <p class="precio-producto">Precio</p>
-                            <p class="nombre-producto">Nombre</p>
+                            <p class="precio-producto">$954,27</p>
+                            <p class="nombre-producto">Alicate Bremen</p>
+                            <p class="desc-producto">Alicate c.oblicuo Bremen 7"</p>
                         </div>
                     </article>
                     <article class="recomendado">
-                        <img class="foto-producto" src="" alt="">
+                        <img class="foto-producto" src="/img/balde-plastico.jpg" alt="">
                         <div class="descripcion">
-                            <p class="precio-producto">Precio</p>
-                            <p class="nombre-producto">Nombre</p>
+                            <p class="precio-producto">$181,66</p>
+                            <p class="nombre-producto">Balde</p>
+                            <p class="desc-producto">Balde plástico de albañil reforzado</p>
                         </div>
                     </article>
                     <article class="recomendado">
-                        <img class="foto-producto" src="" alt="">
+                        <img class="foto-producto" src="/img/caja-plastica.jpg" alt="">
                         <div class="descripcion">
-                            <p class="precio-producto">Precio</p>
-                            <p class="nombre-producto">Nombre</p>
+                            <p class="precio-producto">$3.696,87</p>
+                            <p class="nombre-producto">Caja de herramientas</p>
+                            <p class="desc-producto">Caja plastica 500x260x250 20.5″ t/metal.-2040</p>
                         </div>
                     </article>
                     <article class="recomendado">
-                        <img class="foto-producto" src="" alt="">
+                        <img class="foto-producto" src="/img/calibre-metalico.jpg" alt="">
                         <div class="descripcion">
-                            <p class="precio-producto">Precio</p>
-                            <p class="nombre-producto">Nombre</p>
+                            <p class="precio-producto">$1.462,74</p>
+                            <p class="nombre-producto">Calibre metálico</p>
+                            <p class="desc-producto">Calibre metálico importado cromado mate c/freno</p>
                         </div>
                     </article>
                     <article class="recomendado">
-                        <img class="foto-producto" src="" alt="">
+                        <img class="foto-producto" src="/img/candado-dubai-32mm.jpg" alt="">
                         <div class="descripcion">
-                            <p class="precio-producto">Precio</p>
-                            <p class="nombre-producto">Nombre</p>
+                            <p class="precio-producto">$309,30</p>
+                            <p class="nombre-producto">Candado 32mm</p>
+                            <p class="desc-producto">Candado bronceado Dubai 32mm</p>
                         </div>
                     </article>
                     <article class="recomendado">
-                        <img class="foto-producto" src="" alt="">
+                        <img class="foto-producto" src="/img/cinta-metrica-3m-bremen.jpg" alt="">
                         <div class="descripcion">
-                            <p class="precio-producto">Precio</p>
-                            <p class="nombre-producto">Nombre</p>
+                            <p class="precio-producto">$1.152,11</p>
+                            <p class="nombre-producto">Cinta métrica</p>
+                            <p class="desc-producto">Cinta métrica auto-frenante 3mx19mm Bremen</p>
                         </div>
                     </article>
                 </div>
@@ -114,25 +123,36 @@
                 <h1>Nuestras categorías</h1>
                 <div id="categorias">
                     <article class="ferreteria">
-                        <a class="titulo">Ferretería</a>
+                        <i class="fas fa-hammer"></i>
+                        <a href="" class="titulo">Ferretería</a>
                     </article>
                     <article class="pintureria">
-                        <a class="titulo">Pinturería</a>
+                        <i class="fas fa-paint-roller"></i>
+                        <a href="" class="titulo">Pinturería</a>
                     </article>
                     <article class="plomeria">
-                        <a class="titulo">Plomería</a>
+                        <i class="fas fa-sink"></i>
+                        <a href="" class="titulo">Plomería</a>
                     </article>
                     <article class="jardineria">
-                        <a class="titulo">Jardinería</a>
+                        <i class="fas fa-fan"></i>
+                        <a href="" class="titulo">Jardinería</a>
                     </article>
                     <article class="maquinaria">
-                        <a class="titulo">Maquinaria</a>
+                        
+                        <a href="" class="titulo">Maquinaria</a>
                     </article>
                 </div>
             </section>
         </main>
         <footer>
-            
+            <section>
+                <a href="">Preguntas Frecuentes</a>
+                <a href="">Contacto</a>
+                <a href="">Terminos y Condiciones</a>
+                <a href="">Política de Privacidad</a>
+            </section>
+            <p>Copyright © 2021 Toolbox Industrias, derechos reservados</p>
         </footer>
     </body>
 </html>

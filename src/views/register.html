@@ -16,8 +16,10 @@
     <body>
         <header>
             <nav id="barra-principal">
-                <a id="mobile-burger"><i class="fas fa-bars"></i></a>
-                <img href="" src="/img/Logo.png" alt="Toolbox">
+                <div id="mobile-burger">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <a href="/home/"><img src="/img/Logo.png" alt="Toolbox"></a>
                 <form class="formulario-busqueda" action="#" method="get">
                     <div class="barra-busqueda">
                         <select name="busqueda" id="categoria">
@@ -31,22 +33,22 @@
                         <button id="buscar" type="submit"><i class="fas fa-search"></i></button>
                     </div>
                 </form>
-                <a id="carrito"><i class="fas fa-shopping-cart"></i></a>
+                <a id="carrito" href="/productCart/"><i class="fas fa-shopping-cart"></i></a>
             </nav>
             <div id="barra-menu">
                 <nav id="navegacion">
-                    <a href="">Página principal</a>
+                    <a href="/home/">Página principal</a>
                     <a href="/productDetails/">Productos</a>
                     <a href="">Marcas</a>
                     <a href="">Sobre nosotros</a>
                 </nav>
                 <nav id="sesion">
-                    <a href="">Iniciar sesión</a>
+                    <a href="/login/">Iniciar sesión</a>
                     <p>o</p>
-                    <a href="">Registrarse</a>
+                    <a href="/register/">Registrarse</a>
                 </nav>
-            </div>          
-            </header>
+            </div>
+        </header>
 <main>   
                    <!-- SECCION QUE CONTIENE FORM Y POR QUE REGISTRARSE -->
 <section id =register-main>  
@@ -102,7 +104,13 @@
 <main>
         </main>
         <footer>
-            
+            <section>
+                <a href="">Preguntas Frecuentes</a>
+                <a href="">Contacto</a>
+                <a href="">Terminos y Condiciones</a>
+                <a href="">Política de Privacidad</a>
+            </section>
+            <p>Copyright © 2021 Toolbox Industrias, derechos reservados</p>
         </footer>
     </body>
 </html>

@@ -15,13 +15,156 @@
     </head>
     <body>
         <header>
-
+            <nav id="barra-principal">
+                <div id="mobile-burger">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <a href="/home/"><img src="/img/Logo.png" alt="Toolbox"></a>
+                <form class="formulario-busqueda" action="#" method="get">
+                    <div class="barra-busqueda">
+                        <select name="busqueda" id="categoria">
+                            <option value="ferreteria">Ferretería</option>
+                            <option value="pintureria">Pinturería</option>
+                            <option value="plomeria">Plomería</option>
+                            <option value="jardineria">Jardinería</option>
+                            <option value="maquinaria">Maquinaria</option>
+                        </select>
+                        <input id="linea" type="search" placeholder="¿Que buscas?">
+                        <button id="buscar" type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                </form>
+                <a id="carrito" href="/productCart/"><i class="fas fa-shopping-cart"></i></a>
+            </nav>
+            <div id="barra-menu">
+                <nav id="navegacion">
+                    <a href="/home/">Página principal</a>
+                    <a href="/productDetails/">Productos</a>
+                    <a href="">Marcas</a>
+                    <a href="">Sobre nosotros</a>
+                </nav>
+                <nav id="sesion">
+                    <a href="/login/">Iniciar sesión</a>
+                    <p>o</p>
+                    <a href="/register/">Registrarse</a>
+                </nav>
+            </div>
         </header>
         <main>
-
+            <section id="lista">
+                <section id="texto-carrito">
+                    <h1>Carrito de compras</h1>
+                    <section id="remover">
+                        <p>3 Objetos</p>
+                        <p>|</p>
+                        <a href="">Remover todos</a>
+                    </section>
+                </section>
+                <section class="elemento">
+                    <img src="/img/Foto-del-Producto-reemplazar.jpg" alt="">
+                    <section class="producto">
+                        <h3>Elemento del carrito</h3>
+                        <h4>Datos específicos</h4>
+                        <section class="remover">
+                            <a href="">Agregar</a>
+                            <p> | </p>
+                            <a href="">Remover</a>
+                        </section>
+                        <section class="garantia">
+                            <input type="checkbox">
+                            <h4>Agregar garantía extendida</h4>
+                            <h4><i>(+ $monto)</i></h4>
+                        </section>
+                    </section>
+                    <section class="cantidad">
+                        <h1 class="cant">1</h1>
+                        <i class="precio-ind">$Monto c/u</i>
+                    </section>
+                    <h1 class="final">$Monto</h1>
+                </section>
+                <section class="elemento">
+                    <img src="/img/Foto-del-Producto-reemplazar.jpg" alt="">
+                    <section class="producto">
+                        <h3>Elemento del carrito</h3>
+                        <h4>Datos específicos</h4>
+                        <section class="remover">
+                            <a href="">Agregar</a>
+                            <p> | </p>
+                            <a href="">Remover</a>
+                        </section>
+                        <section class="garantia">
+                            <input type="checkbox">
+                            <h4>Agregar garantía extendida</h4>
+                            <h4><i>(+ $monto)</i></h4>
+                        </section>
+                    </section>
+                    <section class="cantidad">
+                        <h1 class="cant">1</h1>
+                        <i class="precio-ind">$Monto c/u</i>
+                    </section>
+                    <h1 class="final">$Monto</h1>
+                </section>
+                <section class="elemento">
+                    <img src="/img/Foto-del-Producto-reemplazar.jpg" alt="">
+                    <section class="producto">
+                        <h3>Elemento del carrito</h3>
+                        <h4>Datos específicos</h4>
+                        <section class="remover">
+                            <a href="">Agregar</a>
+                            <p> | </p>
+                            <a href="">Remover</a>
+                        </section>
+                        <section class="garantia">
+                            <input type="checkbox">
+                            <h4>Agregar garantía extendida</h4>
+                            <h4><i>(+ $monto)</i></h4>
+                        </section>
+                    </section>
+                    <section class="cantidad">
+                        <h1 class="cant">1</h1>
+                        <i class="precio-ind">$Monto c/u</i>
+                    </section>
+                    <h1 class="final">$Monto</h1>
+                </section>
+            </section>
+            <section id="resumen">
+                <br>
+                <h1>Total de compra</h1>
+                <section id="division">
+                    <section id="lista-productos">
+                        <h2>Subtotal (3)</h2>
+                        <p>Producto 1</p>
+                        <p>Producto 2</p>
+                        <p>Producto 3</p>
+                    </section>
+                    <section id="lista-montos">
+                        <h2>$Monto</h2>
+                        <p>$Monto1</p>
+                        <p>$Monto2</p>
+                        <p>$Monto3</p>
+                    </section>
+                </section>
+                <section id="envio">
+                    <input type="checkbox">
+                    <h2>Envío</h2>
+                    <h2>$ValorEnvío</h2>
+                </section>
+                <section id="resumen-final">
+                    <section>
+                        <h1>Total</h1>
+                        <h1>$Total</h1>
+                    </section>
+                    <button>Finaliza tu compra</button>
+                </section>
+            </section>
         </main>
         <footer>
-            
+            <section>
+                <a href="">Preguntas Frecuentes</a>
+                <a href="">Contacto</a>
+                <a href="">Terminos y Condiciones</a>
+                <a href="">Política de Privacidad</a>
+            </section>
+            <p>Copyright © 2021 Toolbox Industrias, derechos reservados</p>
         </footer>
     </body>
 </html>
