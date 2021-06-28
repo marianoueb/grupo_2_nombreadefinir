@@ -1,169 +1,138 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Detalles del producto</title>
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-        <link rel="stylesheet" href="/css/normalize.css">
-        <link rel="stylesheet" href="/css/reset.css">
-        <link rel="stylesheet" href="/css/header.css">
-        <link rel="stylesheet" href="/css/footer.css">
-        <link rel="stylesheet" href="/css/productDetails.css">
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Detalles del producto</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/productDetails.css" />
+  </head>
 
-    <header>
-        <nav id="barra-principal">
-            <div id="mobile-burger">
-                <i class="fas fa-bars"></i>
-            </div>
-            <a href="/home/"><img src="/img/Logo.png" alt="Toolbox"></a>
-            <form class="formulario-busqueda" action="#" method="get">
-                <div class="barra-busqueda">
-                    <select name="busqueda" id="categoria">
-                        <option value="ferreteria">Ferretería</option>
-                        <option value="pintureria">Pinturería</option>
-                        <option value="plomeria">Plomería</option>
-                        <option value="jardineria">Jardinería</option>
-                        <option value="maquinaria">Maquinaria</option>
-                    </select>
-                    <input id="linea" type="search" placeholder="¿Que buscas?">
-                    <button id="buscar" type="submit"><i class="fas fa-search"></i></button>
-                </div>
-            </form>
-            <a id="carrito" href="/productCart/"><i class="fas fa-shopping-cart"></i></a>
-        </nav>
-        <div id="barra-menu">
-            <nav id="navegacion">
-                <a href="/home/">Página principal</a>
-                <a href="/productDetails/">Productos</a>
-                <a href="">Marcas</a>
-                <a href="">Sobre nosotros</a>
-            </nav>
-            <nav id="sesion">
-                <a href="/login/">Iniciar sesión</a>
-                <p>o</p>
-                <a href="/register/">Registrarse</a>
-            </nav>
+  <header>
+    <nav id="barra-principal">
+      <div id="mobile-burger">
+        <i class="fas fa-bars"></i>
+      </div>
+      <a href="/home/"><img src="/img/Logo.png" alt="Toolbox" /></a>
+      <form class="formulario-busqueda" action="#" method="get">
+        <div class="barra-busqueda">
+          <select name="busqueda" id="categoria">
+            <option value="ferreteria">Ferretería</option>
+            <option value="pintureria">Pinturería</option>
+            <option value="plomeria">Plomería</option>
+            <option value="jardineria">Jardinería</option>
+            <option value="maquinaria">Maquinaria</option>
+          </select>
+          <input id="linea" type="search" placeholder="¿Que buscas?" />
+          <button id="buscar" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
         </div>
-    </header>
+      </form>
+      <a id="carrito" href="/productCart/"
+        ><i class="fas fa-shopping-cart"></i
+      ></a>
+    </nav>
+    <div id="barra-menu">
+      <nav id="navegacion">
+        <a href="/home/">Página principal</a>
+        <a href="/productDetails/">Productos</a>
+        <a href="">Marcas</a>
+        <a href="">Sobre nosotros</a>
+      </nav>
+      <nav id="sesion">
+        <a href="/login/">Iniciar sesión</a>
+        <p>o</p>
+        <a href="/register/">Registrarse</a>
+      </nav>
+    </div>
+  </header>
 
-    <body>
-      
-        <main>
- <section class="primera-parte">
-     
-    <article class="izquierda">
-        <figure class="foto-producto">
-        <img src="/img/Foto-del-Producto-reemplazar.jpg" alt="">
-    </figure>
-    </article>
-
-
-
-                    
-               <article class="derecha">
-       <div class="descripcion-del-producto">
-        <h2> Nombre del producto</h2>
-        <h4>$Precio</h4>
-        <span>
-        <i class="far fa-star"></i>
-        <i class="far fa-star"></i>
-        <i class="far fa-star"></i>
-        <i class="far fa-star"></i>
-        <i class="far fa-star"></i>
-        <p class="resena">15</p>
-    </span>
-        </div>
-
- 
- <h3> Descripción del producto:</h3>
- <p class="comentario-del-producto">
-Lorem ipsum dolor sit amet, 
-consectetur adipiscing elit. Maecenas 
-fringilla commodo bibendum. Morbi laoreet 
-nibh lectus, in pulvinar neque vestibulum a. 
-Morbi quis placerat ligula, in semper libero. 
-Interdum et malesuada fames ac ante 
-ipsum primis in faucibus. Phasellus aliquet 
-dui non turpis euismod, volutpat convallis 
-eros vestibulum. Aenean consequat neque 
-a vulputate efficitur.
-</p>
-
-
-<div class="elegir">
-    
-        <article class="para-elegir">
-       <span class="opciones">
-        <fieldset>
-<form action="resultado.html" method="POST"></form>
-       <select name="variante" id="variante">
-        <option value="Variante">Variante</option>
-        <option value="Variante1">Variante1</option>
-            <option value="Variante2">Variante2</option>
-        </select>
-    
-            </fieldset>
-        
-
-            <fieldset>
-        <form action="resultado.html" method="POST"></form>
-               <select name="cantidad" id="cantidad">
-            <option value="1">Cantidad</option>
-            <option value="2">1</option>
-            <option value="3">2</option>
-            <option value="4">3</option>
-            <option value="5">4</option>
-            <option value="6">5</option>
-            <option value="7">6</option>
-            <option value="8">7</option>
-            <option value="9">8</option>
-            <option value="10">9</option>
-              </select>
-        </fieldset>
-    </span>
-  <br>
-
-       <button class="anadir">Anadir al 
-           carrito
-        <p><i class="fas fa-shopping-cart"></i></p>
-  </button>
-
-       </article>
-  </section>
-
-  <section class="relacionados">
-    <h1 class="productos-relacionados">Productos relacionados</h1>
-    <div id="galeria-relacionados">
-        <article class="relacionado">
-            <img class="foto-producto" src="" alt="">
-            <div class="descripcion">
-                <p class="precio-producto">Precio</p>
-                <p class="nombre-producto">Nombre</p>
-            </div>
-
-            
-
-                </article>
-</section>
-
-
-
-    </main>
-    <footer>
-        <section>
-            <a href="">Preguntas Frecuentes</a>
-            <a href="">Contacto</a>
-            <a href="">Terminos y Condiciones</a>
-            <a href="">Política de Privacidad</a>
+  <body>
+    <main id="detail" class="flex-container">
+        <section id="galery" class="flex-container">
+          <figure><img src="/img/fotoproducto.jpg" alt="imagen del producto"></figure>
+          <ul class="flex-container">
+            <li>
+              <figure><img src="/img/fotoproducto.jpg" alt=""></figure>
+            </li>
+            <li>
+              <figure><img src="/img/fotoproducto.jpg" alt=""></figure>
+            </li>
+            <li>
+              <figure><img src="/img/fotoproducto.jpg" alt=""></figure>
+            </li>
+            <li>
+              <figure><img src="/img/fotoproducto.jpg" alt=""></figure>
+            </li>
+          </ul>
         </section>
-        <p>Copyright © 2021 Toolbox Industrias, derechos reservados</p>
-    </footer>
   
-    </body>
-
-
+        <article class="flex-container" id="product">
+          <h2>Nombre del producto</h2>
+          <p>$4000</p>
+          <section id="puntacion" class="flex-container">
+            <ul class="flex-container">
+              <li><i class="far fa-star"></i></li>
+              <li><i class="far fa-star"></i></li>
+              <li><i class="far fa-star"></i></li>
+              <li><i class="far fa-star"></i></li>
+            </ul>
+            <p>15</p>
+          </section>
+          <section id="descripcion" class="flex-container">
+            <h3>Descripción</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus molestias sapiente explicabo ad quidem natus nam architecto praesentium incidunt quisquam, unde repellat ipsam iusto. Itaque debitis at ratione qui ducimus, recusandae laborum. Quod obcaecati earum dolorum modi officia, facilis quasi laboriosam voluptatum nam blanditiis accusamus eveniet unde cupiditate quaerat deleniti.
+            </p>
+          </section>
+          <form action="" method="post" class="flex-container">
+            <fieldset class="flex-container form-control">
+              <select name="variante" id="variante">
+               <option value="1">1</option>
+               <option value="2">2</option>
+              </select>
+              <select name="cantidad" id="cantidad">
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+              </select>
+            </fieldset>
+            <fieldset class="flex-container form-control">
+              <button type="submit">
+                Agregar al Carrito
+                <i class="fas fa-shopping-cart"></i>
+              </button>
+            </fieldset>
+          </form>
+        </article>
+      </main>
+    <footer>
+      <section>
+        <a href="">Preguntas Frecuentes</a>
+        <a href="">Contacto</a>
+        <a href="">Terminos y Condiciones</a>
+        <a href="">Política de Privacidad</a>
+      </section>
+      <p>Copyright © 2021 Toolbox Industrias, derechos reservados</p>
+    </footer>
+  </body>
 </html>

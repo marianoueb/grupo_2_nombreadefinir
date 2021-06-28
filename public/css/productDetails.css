@@ -1,207 +1,82 @@
-main{
+/* Mobile Firts*/
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-}
-
-.primera-parte{
+  }
+  .flex-container{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content:space-around;
-}
-
-.izquierda{
-    
-    height: 30vh;
-    width: 60vw;
-}
-
-.foto-producto{
-    display: flex;
-    height: 30vh;
-    width: 60vw;
-    }
-
-.derecha {
-    border: solid 3px #383838;
-    height: 40vh;
-    width: 65vw;
-        background-color: #f2f2f2;
-        margin: 20px 20px;
-        padding-bottom: 10px;
-        flex-direction: column;
-     
-            
-}
-
-.descripcion-del-producto{
-    margin: auto;
-      text-align: center;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+  main img{
+    max-width: 100%;
+    height: auto;
+  }
+  #galery ul{ display: none}
+  #product{
+    background-color: rgb(150, 150, 150);
+    border: 0.1rem solid rgb(15, 15, 15);
+    padding: 1rem;
+    width: 90vw;
+  }
+  #rating{}
+  #description{}
+  
+  #product form{
+    align-items: stretch;
  }
+ 
+ .form-control{
+   flex-flow: column wrap;
+ }
+ 
 
-
-h2{
-    display: block;
-    font-size: 15px;
-    font-weight: 400;
-}
-
-h4{
-    display: block;
-   padding: 5px;
-    font-size: 25px;
-    font-weight: 400;
-    font-weight: normal;
-    text-align: center;
-}
-
-
-
-.far.fa-star{
-color:black;
-font-size: 10px;
-font-weight:lighter;
-}
-
-
-.resena{
-    font-size: 5px;
-}
-
-h3{
-    display: block;
-    font-size: 10px;
-    margin: 10px;
-    text-align: center;
-}
-
-
-.comentario-del-producto{
-font-size: 10px;
-text-align: center;
-padding: 10px;
-}
-
-.elegir{
+  #product form button[type="submit"]{
+    background: rgb(5, 130, 45);
+    color: rgb(250, 250, 250);
+    border: 0.25rem solid rgb(15, 15, 15);
+    box-shadow: 0 0 0.25rem 0 rgb(15, 15, 15);
+    border-radius: 1rem; 
     display: flex;
-    flex-direction:column;
-justify-content: space-between;
-}
-
-.para-elegir{
-    display: flex;
-   justify-content: space-between;
-    margin: auto;
-    flex-direction:column;
-}
-
-.opciones{
-    display: flex;
-       flex-direction: column;
-      
-       align-items: center;
-       font-size: 15px;
-}
-
-.anadir{
-    color: white;
-    background-color: green;
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    font-size: 10px;
-    padding: 5px;
-    border: solid 3px #383838;
-    border-radius: 8px;
-    box-shadow: 0px 1px 0.7px 1px rgba(38, 38, 38, 0.4);
-}
-
-.fas.fa-shopping-cart{
-font-size: 10px;
-}
-
-
-.relacionados {
-    display: flex;
-    text-align: center;
-    justify-content: flex-end;
-}
-
-#galeria-relacionados {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    width: 90%;
-    margin: auto;
-}
-.productos-relacionados {
-    display: block;
-    background-color: #f2f2f2;
-    border: solid 3px #383838;
-    font-size: 30px;
-    width: 300px;
-    text-align: center;
-    border-radius: 20px;
-    margin: auto;
-    margin-bottom: 20px;
-    padding: 10px;
-}
+    font-size: 1.5rem;
+   }
 
-
-
-    .relacionado {
-        width: 180px;
-        height: 300px;
-        background-color: #f2f2f2;
-       /* border: #383838 3px solid;*/
-        margin-left: 15px;
-        margin-bottom: 15px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: center;
+  /*table*/
+  @media screen and (min-width: 768px) {
+    #galery ul{ 
+      display: flex; 
+      width: 100vw 
     }
+    #galery ul li{  
+      width: 22.5%;
+      display: flex;
+      justify-content: center;
+    }
+  }
+  
+  /*Dektop Mini*/
+  @media screen and (min-width: 1200px) {
+    #galery{
+      width: 50vw
+    }
+    #galery ul{ 
+      display: flex;
+      width: 75% 
+    }
+    #product{
+      width: 45vw;
+    }
+#detail{
+    align-items: stretch;
+}
+
+  }
+  
+  /*Dektop PC*/
+  @media screen and (min-width: 1920px) {
     
-   
-
-@media (min-width: 768px) {
-   
-    .primera-parte{
-                flex-direction: row;
-                    }
-
-    .izquierda{
-        height: 100vh;
-    width: 100vw;
-    }
-    .foto-producto{
-        display: flex;
-        height: 30vh;
-        width: 60vw;
-        align-items: center;
-    }
-
-    .elegir{
-        display: flex;
-        flex-direction:row;
-    justify-content: space-between;
-    }
-
-    .para-elegir{
-      flex-direction: row;
-      margin-right: 10px;
-    }
-
-    .anadir{
-       
-        font-size: 20px;
-        padding: 10px;
-     
-    }
-    .fas.fa-shopping-cart{
-        font-size: 35px;
-        }
-
-}
-
+  }
