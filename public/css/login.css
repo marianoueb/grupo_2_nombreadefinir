@@ -1,10 +1,10 @@
 
 
-#register-main {
+#login-main {
   display: flex;
   background-color: #fbfbfb;
   }
-  .register {
+  .login {
     display: flex;
     width: 100vw;
     max-width: 400px;
@@ -18,12 +18,12 @@
     border: solid 2px #383838;
     height: 50vh;
   }
-  .titulo-register{
+  .titulo-login{
   font-size: 24px;
   font-weight: bold;
   text-align: center;
   }
-  #registerForm{
+  #loginForm{
   border-radius: 10px;
   border: none;
   width: 100%;
@@ -49,7 +49,7 @@
     justify-content: center;
   }
   
-  #whyRegister{
+  #creaCuenta{
     display: flex;
     background-color: #f2f2f2;
     border: solid 2px #383838;  
@@ -63,16 +63,12 @@
     max-width: 400px;
     justify-content: center;
   }
-  .titulo-why{
+  .titulo-crea{
   font-size: 24px;
   font-weight: bold;
   text-align: center;
   }
-  #lista-whyRegister{
-    font-size: 1rem;
-    font-style: italic;
-    text-align:center;
-  }
+
   .foto-producto figure{
     display: flex;
     justify-content: center;
@@ -91,16 +87,40 @@
     main{
     display: flex;  
   }
-  #register-main{
+  #login-main{
     margin: auto;
   }
   }
   
     @media (max-width: 320px) {
-    #whyRegister{
+    #creaCuenta{
     border:transparent
   }
     }
+
+    /* MEDIA QUERIE PARA TABLET SUBE SECCION POR QUE REGISTRARSE */
+@media (min-width: 768px) {
+  main{
+  display: flex;
+  margin-left: 100px;  
+}
+#login-main{
+  margin: auto;
+}
+#creaCuenta{
+  max-width: 400px;
+}
+}
+/* MEDIA QUERIE PARA DESKTOP SUBE SECCION POR QUE REGISTRARSE Y JUNTA A FORM */
+@media (min-width:1024px){
+  #creaCuenta{
+    max-width: 100vw;
+}
+#login-main{
+  max-width: 100vw;
+}
+}
+
   
   
   
