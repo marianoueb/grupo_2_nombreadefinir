@@ -15,21 +15,42 @@
     height: auto;
   }
   #galery ul{ display: none}
+
   #product{
     background-color: #f2f2f2;
     border: 0.1rem solid rgb(15, 15, 15);
     padding: 1rem;
     width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    
     
   }
 
   h2{
       font-size: 20px;
       align-items: center;
+      padding: 10px;
   }
+
+.precio-prod{
+  padding: 10px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
   #rating{}
-  #description{}
+
+  #description{
+    margin: 10px;
+  }
   
+h3{
+  margin: 10px;
+}
+
   #product form{
     align-items: stretch;
  }
@@ -79,7 +100,7 @@ h1 {
     padding: 10px;
 }
 
-.recomendado {
+.relacionado {
     width: 180px;
     height: 300px;
     background-color: #f2f2f2;
@@ -91,7 +112,7 @@ h1 {
     justify-content: flex-end;
     align-items: center;
 }
-.recomendado:hover {
+.relacionado:hover {
     box-shadow: 2px 2px 5px 0px #383838;
 }
 
