@@ -10,3 +10,5 @@ app.listen(puerto, () => console.log("Servidor iniciado exitosamente en el puert
 app.use(express.static(path.resolve(__dirname, "../public")));
 
 app.use(require("./routes/web.js"));
+
+app.set("view engines", "ejs");
