@@ -2,9 +2,6 @@ const express = require("express");
 const app = express.Router();
 const fs = require("fs");
 const path = require("path");
-const footer = require('../../controllers/footer.js')
-const head = require('../../controllers/head.js')
-const header = require('../../controllers/header.js')
 
 const indexController = require('../../controllers/index');
 app.get("/", indexController.index);
@@ -20,6 +17,12 @@ app.get("/productDetails/", productDetails.index);
 
 const register = require('../../controllers/register.js')
 app.get("/register/", register.index);
+
+const createProduct = require("../../controllers/createProduct.js")
+app.get("/create/", createProduct.index);
+
+const editProduct = require("../../controllers/editProduct.js")
+app.get("/edit/", editProduct.index);
 
 module.exports = app;
 

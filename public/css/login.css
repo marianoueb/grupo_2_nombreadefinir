@@ -1,9 +1,9 @@
 
 
-#login-main {
-  display: flex;
-  background-color: #fbfbfb;
-  }
+  #login-main {
+    display: flex;
+    background-color: #fbfbfb;
+    }
   .login {
     display: flex;
     width: 100vw;
@@ -78,6 +78,8 @@
   .foto-producto img{
     width: 50%;
     height: 50%;
+    max-height: 150px;
+    max-width: 150px;
     margin: auto;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -87,9 +89,9 @@
     main{
     display: flex;  
   }
-  #login-main{
+  /* #login-main{
     margin: auto;
-  }
+  } */
   }
   
     @media (max-width: 320px) {
@@ -102,13 +104,20 @@
 @media (min-width: 768px) {
   main{
   display: flex;
-  margin-left: 100px;  
+  margin-left: 100px;
+  margin-right: 100px;  
+  justify-content: center;
 }
-#login-main{
+/* #login-main{
   margin: auto;
-}
+} */
 #creaCuenta{
-  max-width: 400px;
+  width: 300px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.login {
+  width: 500px;
 }
 }
 /* MEDIA QUERIE PARA DESKTOP SUBE SECCION POR QUE REGISTRARSE Y JUNTA A FORM */
