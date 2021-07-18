@@ -1,7 +1,6 @@
-const head = require("./head");
-const header = require("./header");
-const footer = require("./footer");
-
 module.exports = {
-    
+    index: (req, res) => res.render("login", {
+        title: "Ingreso",
+        styles: "/css/login.css"
+    })
 }

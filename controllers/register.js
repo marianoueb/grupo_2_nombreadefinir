@@ -1,8 +1,6 @@
-const head = require("./head");
-const header = require("./header");
-const footer = require("./footer");
-
-
 module.exports = {
-    
+    index: (req, res) => res.render("register", {
+        title: "Registro",
+        styles: "/css/register.css"
+    })
 }

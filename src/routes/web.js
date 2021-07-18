@@ -5,27 +5,21 @@ const path = require("path");
 const footer = require('../../controllers/footer.js')
 const head = require('../../controllers/head.js')
 const header = require('../../controllers/header.js')
-const index = require('../../controllers/index.js')
+
+const indexController = require('../../controllers/index');
+app.get("/", indexController.index);
+
 const login = require('../../controllers/login.js')
+app.get("/login/", login.index);
+
 const productCart = require('../../controllers/productCart.js')
+app.get("/productCart/", productCart.index);
+
 const productDetails = require('../../controllers/productDetails.js')
+app.get("/productDetails/", productDetails.index);
+
 const register = require('../../controllers/register.js')
-
-app.get("/", index);
-app.get("/login/", login);
-app.get("/register/", register);
-app.get("/productCart/", productCart);
-app.get("/productDetails/", productDetails);
-
-
-/* app.get("/", (req, res) => res.sendFile(path.resolve(__dirname, "../views/index.html")))
-app.get("/productDetails/", (req, res) => res.sendFile(path.resolve(__dirname, "../views/productDetails.html")))
-app.get("/productCart/", (req, res) => res.sendFile(path.resolve(__dirname, "../views/productCart.html")))
-app.get("/register/", (req, res) => res.sendFile(path.resolve(__dirname, "../views/register.html")))
-app.get("/login/", (req, res) => res.sendFile(path.resolve(__dirname, "../views/login.html"))) */
-
-// Adicional para poder redirigir los enlaces al home
-/* app.get("/home/", (req, res) => res.sendFile(path.resolve(__dirname, "../views/index.html"))) */
+app.get("/register/", register.index);
 
 module.exports = app;
 
