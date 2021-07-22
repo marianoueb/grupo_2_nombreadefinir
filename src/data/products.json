@@ -1,0 +1,61 @@
+[{
+  "id": 1,
+  "name": "Alicate Bremen",
+  "description": "Alicate c.oblicuo Bremen 7\"",
+  "price": "$954.27",
+  "colours": null,
+  "variants": null,
+  "brand": "Bremen",
+  "category": "Ferretería",
+  "image": "alicate-7-bremen.jpg"
+  }, {
+    "id": 2,
+    "name": "Balde",
+    "description": "Balde plástico de albañil reforzado",
+    "price": "$181.66",
+    "colours": null,
+    "variants": null,
+    "brand": "Varios",
+    "category": "Ferretería",
+    "image": "balde-plastico.jpg"
+  }, {
+    "id": 3,
+    "name": "Caja de herramientas",
+    "description": "Caja plastica 500x260x250 20.5″ t/metal.-2040",
+    "price": "$3696.87",
+    "colours": null,
+    "variants": null,
+    "brand": "Dogo",
+    "category": "Ferretería",
+    "image": "caja-plastica.jpg"
+  }, {
+    "id": 4,
+    "name": "Calibre metálico",
+    "description": "Calibre metálico importado cromado mate c/freno",
+    "price": "$1462.74",
+    "colours": null,
+    "variants": null,
+    "brand": "Varios",
+    "category": "Ferretería",
+    "image": "calibre-metalico.jpg"
+  }, {
+    "id": 5,
+    "name": "Candado 32mm",
+    "description": "Candado bronceado Dubai 32mm",
+    "price": "$309.30",
+    "colours": null,
+    "variants": null,
+    "brand": "Dubai",
+    "category": "Ferretería",
+    "image": "candado-dubai-32mm.jpg"
+  }, {
+    "id": 6,
+    "name": "Cinta métrica",
+    "description": "Cinta métrica auto-frenante 3mx19mm Bremen",
+    "price": "$1152.11",
+    "colours": null,
+    "variants": null,
+    "brand": "Bremen",
+    "category": "Ferretería",
+    "image": "cinta-metrica-3m-bremen.jpg"
+  }]
