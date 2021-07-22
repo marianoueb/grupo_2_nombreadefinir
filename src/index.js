@@ -4,12 +4,11 @@ const fs = require("fs");
 const path = require("path");
 const method = require('method-override');
 
-const puerto = 3000;
-
 app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, "./views"))
 
-app.listen(puerto, () => console.log("Servidor iniciado exitosamente en el puerto", puerto))
+app.set("port",process.env.PORT || 3000)
+app.listen(app.get("port"), () => console.log("Server started http://localhost:"+app.get("port")))
 
 app.use(express.static(path.resolve(__dirname, "../public")));
 
