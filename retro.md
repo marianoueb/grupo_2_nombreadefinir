@@ -25,3 +25,31 @@ Dedicarle tiempo a la búsqueda de soluciones o elementos de funcionalidad que n
 No pedir ayuda o soporte al equipo.
 
 ---
+
+# Retrospectiva Sprint 2
+---
+## 1. Comenzar a hacer.
+
+Probar el sitio en heroku para poder compartir el sitio a otros públicos y poder recibir feedback de usuarios que pueden "usar el sitio" y dar una devolución dela principales funcionalidades.
+
+---
+## 2. Hacer más.
+
+Pedir ayuda y apoyarnos en el equipo. Seguir apalancando la retroalimentación entre los integrantes del equipo. Dividir las tareas.
+
+---
+## 3. Continuar haciendo.
+
+Las reuniones periódicas y la revisión de lo trabajado. Plasmar los avances en trello y en las minutas de las reuniones.
+
+---
+## 4. Hacer menos.
+
+Centralizar las tareas. 
+
+---
+## 5. Dejar de hacer.
+
+Dedicarle tiempo a la búsqueda de soluciones o elementos de funcionalidad que no le agregan valor.
+
+---

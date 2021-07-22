@@ -6,7 +6,7 @@
 <main>   
                    <!-- SECCION QUE CONTIENE FORM Y POR QUE REGISTRARSE -->
 <section id =register-main>  
-    <form class="register"action="" method="POST">
+    <form class="register"action="" method="POST" enctype="multipart/form-data">
         <p class="titulo-register">Crea tu Cuenta</p>
 <section id = registerForm>
     <input type="text" id="name" name="name" placeholder="Nombre:" required >
@@ -17,8 +17,9 @@
   </section>
                     <!-- SECCION QUE CONTIENE BOTONES -->
   <section id="botones">
-    <button type="submit">Registrarme</button>
-    <button type="button">Ya estoy registrado </button>
+    <button type="submit" id="submit">Registrarme</button><br>
+    <!-- <button type="button">Ya estoy registrado </button> -->
+    <a href="/login">Ya estoy regitrado!</a>
   </section>  
 
     </form> 
@@ -27,7 +28,7 @@
 
                     <!-- INICIO SECCION DE POR QUE REGISTRARSE -->
 <section id="whyRegister">
-    <p class="titulo-why">Por que Registrarse?</p><br>
+    <p class="titulo-why">¿Por que Registrarse?</p><br>
   
 <section id="lista-whyRegister">
     <ul>
@@ -35,10 +36,12 @@
         <a id="resp-fast"><i class="fas fa-shipping-fast"></i></a>
             Respuesta mas rapida
         </li>
+        <br><br>
         <li>
         <a id="coti-prefe"><i class="fas fa-angle-double-up"></i></a>  
             Cotizacion preferencial
         </li>
+        <br><br>
         <li>
         <a id="asist-person"><i class="fas fa-hands-helping"></i></a>
             Asistencia personalizada

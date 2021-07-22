@@ -5,8 +5,8 @@
         <%- include("./partials/header.ejs") %>
         <main>   
 <section id =login-main>  
-    <form class="login"action="" method="POST">
-        <p class="titulo-login">Crea tu Cuenta</p>
+    <form class="login"action="" method="POST" enctype="multipart/form-data">
+        <p class="titulo-login">Bienvenido a Toolbox!</p>
 
 <section id = loginForm>
         <input type="email" id="email" name="email" placeholder="E-Mail:" required>
@@ -14,21 +14,22 @@
 </section>
               
 <section id="botones">
-        <button type="submit">Registrarme</button>
-        <button type="button">Olvide mi Contraseña</button>
+        <button type="submit" id="submit">Ingresar</button><br>
+        <!-- <button type="button">Olvide mi Contraseña</button> -->
+        <a href="/#">¿Olvidaste tu Contraseña?</a>
 </section>  
             
     </form> 
 </section>
             
 <section id="creaCuenta">
-        <p class="titulo-crea">Crea tu Cuenta</p><br>
-        <button type="submit">Registrarse</button><br><br>
-            
-            <div class="foto-producto">
-            <figure>	
-                <img src="/img/fotoproducto.jpg" alt="Foto de producto">
-            </figure>
+        <p class="titulo-crea">¿No estas registrado?</p><br>
+        <!-- <button type="submit">Registrarse</button><br><br> -->
+        <figure>	
+           <div class="foto-producto">
+           <img src="/img/fotoproducto.jpg" alt="Foto de producto">
+        </figure>
+            <a href="/register">Registarte!</a>
             </div>
 </section>
                     
