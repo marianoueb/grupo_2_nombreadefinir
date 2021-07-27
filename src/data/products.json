@@ -1,61 +1,71 @@
-[{
-  "id": 1,
-  "name": "Alicate Bremen",
-  "description": "Alicate c.oblicuo Bremen 7\"",
-  "price": "$954.27",
-  "colours": null,
-  "variants": null,
-  "brand": "Bremen",
-  "category": "Ferretería",
-  "image": "alicate-7-bremen.jpg"
-  }, {
+[
+  {
+    "id": 1,
+    "name": "Alicate Bremen",
+    "description": "Alicate c.oblicuo Bremen 7\"",
+    "price": "$954.27",
+    "variants": null,
+    "brand": "Bremen",
+    "category": "Ferretería",
+    "image": "alicate-7-bremen.jpg"
+  },
+  {
     "id": 2,
     "name": "Balde",
     "description": "Balde plástico de albañil reforzado",
     "price": "$181.66",
-    "colours": null,
     "variants": null,
     "brand": "Varios",
     "category": "Ferretería",
     "image": "balde-plastico.jpg"
-  }, {
+  },
+  {
     "id": 3,
     "name": "Caja de herramientas",
     "description": "Caja plastica 500x260x250 20.5″ t/metal.-2040",
     "price": "$3696.87",
-    "colours": null,
     "variants": null,
     "brand": "Dogo",
     "category": "Ferretería",
     "image": "caja-plastica.jpg"
-  }, {
+  },
+  {
     "id": 4,
     "name": "Calibre metálico",
     "description": "Calibre metálico importado cromado mate c/freno",
     "price": "$1462.74",
-    "colours": null,
     "variants": null,
     "brand": "Varios",
     "category": "Ferretería",
     "image": "calibre-metalico.jpg"
-  }, {
+  },
+  {
     "id": 5,
     "name": "Candado 32mm",
     "description": "Candado bronceado Dubai 32mm",
     "price": "$309.30",
-    "colours": null,
     "variants": null,
     "brand": "Dubai",
     "category": "Ferretería",
     "image": "candado-dubai-32mm.jpg"
-  }, {
+  },
+  {
     "id": 6,
     "name": "Cinta métrica",
     "description": "Cinta métrica auto-frenante 3mx19mm Bremen",
     "price": "$1152.11",
-    "colours": null,
     "variants": null,
     "brand": "Bremen",
     "category": "Ferretería",
     "image": "cinta-metrica-3m-bremen.jpg"
-  }]
+  },
+  {
+    "id": 7,
+    "name": "Hidrolavadora Black & Decker PW1370",
+    "description": "HIDROLAVADORA ELÉCTRICA 1300 W • Marca: Black+Decker. • Modelo: Pw1370td. ESPECIFICACIONES - • Potencia: 1300w. • Caudal máximo: 6,5 L/min. • Caudal de trabajo: 5 L/min. • Presión máxima: 110 bar (1595 Psi) • Manguera: 3 m. • Cable: 5 m. • Apagado automático. • Almacenaje para accesorios. • Filtro de entrada de agua para más vida útil. • Origen: China. - INCLUYE - • Hidrolavadora Black+Decker pw1370td. • Lanza ajustable. ",
+    "brand": "Black & Decker",
+    "image": "productImage-1627417753739.jpg",
+    "price": "$11.558",
+    "category": "Maquinaria"
+  }
+]

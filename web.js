@@ -13,9 +13,6 @@ app.get("/login/", login.index);
 const productCart = require('../../controllers/productCart.js')
 app.get("/productCart/", productCart.index);
 
-const productDetails = require('../../controllers/productDetails.js')
-app.get("/productDetails/", productDetails.index);
-
 const register = require('../../controllers/register.js')
 app.get("/register/", register.index);
 
@@ -26,5 +23,3 @@ const editProduct = require("../../controllers/editProduct.js")
 app.get("/edit/", editProduct.index);
 
 module.exports = app;
-
-

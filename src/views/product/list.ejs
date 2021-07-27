@@ -6,7 +6,7 @@
     <section id="galeria-recomendados">
         <% list.forEach(product => { %>
         <article class="recomendado">
-            <figure><img class="foto-producto" src="/img/<%= product.image%>" alt=""></figure>
+            <figure><img class="foto-producto" src="/img/products/<%= product.image%>" alt=""></figure>
             <div class="descripcion">
                 <p class="precio-producto"><%= product.price%></p>
                 <p class="nombre-producto"><a href="/product/<%= product.id %>"><%= product.name%></a></p>
@@ -14,5 +14,6 @@
         </article>
         <% }) %>
     </section>
+    <a href="/product/create"><button>Añadir producto</button></a>
 </body>
 </html>

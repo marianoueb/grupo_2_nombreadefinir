@@ -23,38 +23,39 @@ const model = {
         return productos;
     },*/
     one: function (id) {
-        let productos = this.allWithExtra();
+        let productos = this.all();
         let resultado = productos.find(producto => producto.id == id)
         return resultado;
-    }/*,
+    },
     new: function (data,file) {
         const directory = path.resolve(__dirname,"../data","products.json")
         let productos = this.all();
         let nuevo = {
             id: productos.length > 0 ? productos[productos.length -1].id + 1: 1,
             name: data.name,
-            brand: parseInt(data.brand),
-            colors: data.colors.map(color => parseInt(color)),
-            image: file.filename
+            description: data.description,
+            brand: data.brand,
+            image: data.filename,
+            price: data.price,
+            category: data.category
         }    
         productos.push(nuevo)
         fs.writeFileSync(directory,JSON.stringify(productos,null,2));
         return true;    
     },
-    */
-   /*
     edit: function (data,file,id) {
         const directory = path.resolve(__dirname,"../data","products.json")
         let productos = this.all();
-        let updated = this.one(id);
-        // eliminamos la imagen de la carpeta upload
-        fs.unlinkSync(path.resolve(__dirname,"../../public/img/products",updated.image))
+        let updated = this.one([id]);
+
         productos.map(producto => {
             if(producto.id == id ){
                 producto.name = data.name,
-                producto.brand = parseInt(data.brand),
-                producto.colors = data.colors.map(color => parseInt(color)),
-                producto.image = file.filename
+                producto.description = data.description,
+                producto.brand = data.brand,
+                producto.image = file.filename,
+                producto.price = data.price,
+                producto.category = data.category
                 return producto
             }
             return producto
@@ -62,20 +63,21 @@ const model = {
         fs.writeFileSync(directory,JSON.stringify(productos,null,2));
         return true;
     },
-    */
-   /*
+   
     delete: function (id) {
+        console.log("Inicio del borrado");
         const directory = path.resolve(__dirname,"../data","products.json")
         let productos = this.all();
-        let deleted = this.one(id);
+        let deleted = this.one([id]);
+        console.log("deleted", deleted);
         // eliminamos la imagen de la carpeta upload
-        fs.unlinkSync(path.resolve(__dirname,"../../public/uploads/products",deleted.image))
+        fs.unlinkSync(path.resolve(__dirname,"../../public/img/",deleted.image))
         // filtarmos el producto que deaseamos eliminar
         productos = productos.filter(producto => producto.id != deleted.id )
         fs.writeFileSync(directory,JSON.stringify(productos,null,2));
+        console.log("Borrado exitoso");
         return true;
     }
-    */
 
 };
 module.exports = model;
