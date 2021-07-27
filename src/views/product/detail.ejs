@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <%- include("../partials/head.ejs") %> 
+    <body>
+         <%- include("../partials/header.ejs") %> 
+         
+  <body>
+    <% var thisId = product.id %> 
+    <main id="detail" class="flex-container">
+        <section id="galery" class="flex-container">
+          <figure><img class="foto-producto" src="/img/products/<%= product.image%>" alt=""></figure>
+          <ul class="flex-container">
+            <li>
+              <figure><img src="/img/fotoproducto.jpg" alt=""></figure>
+            </li>
+            <li>
+              <figure><img src="/img/fotoproducto.jpg" alt=""></figure>
+            </li>
+            <li>
+              <figure><img src="/img/fotoproducto.jpg" alt=""></figure>
+            </li>
+            <li>
+              <figure><img src="/img/fotoproducto.jpg" alt=""></figure>
+            </li>
+          </ul>
+        </section>
+  
+        <article class="flex-container" id="product">
+          <h2><%= product.name%></h2>
+          <p class="precio-prod"><%= product.price%></p>
+          <section id="puntacion" class="flex-container">
+            <ul class="flex-container">
+              <li><i class="far fa-star"></i></li>
+              <li><i class="far fa-star"></i></li>
+              <li><i class="far fa-star"></i></li>
+              <li><i class="far fa-star"></i></li>
+            </ul>
+            <p>15</p>
+          </section>
+          <section id="description" class="flex-container">
+            <h3>Descripción del Producto</h3>
+            <p>
+              <%= product.description%>
+            </p>
+          </section>
+          <form action="" method="post" class="flex-container">
+            <fieldset class="flex-container form-control">
+              </select>
+              <select name="cantidad" id="cantidad">
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+              </select>
+            </fieldset>
+            <fieldset class="flex-container form-control">
+              <button id="carro" type="submit">
+                Agregar al Carrito
+                <i class="fas fa-shopping-cart"></i>
+              </button>
+              <form action="/product/:id/delete" method="GET">
+                <button type="submit">Borrar</button>
+              </form>
+              <form action="/product/edit/<%= product.id %>" method="GET">
+                <button type="submit">Editar</button>
+              </form>
+
+            </fieldset>
+          </form>
+        </article>
+      </main>
+
+      <section>
+        <h1>Productos relacionados</h1>
+        <div id="galeria-recomendados">
+          <% list.forEach(product => { 
+            if( product.id != thisId ){ %>
+            <article class="relacionado">
+                <figure><img class="foto-producto" src="/img/products/<%= product.image%>" alt=""></figure>
+                <div class="descripcion">
+                    <p class="precio-producto"><%= product.price%></p>
+                    <p class="nombre-producto"><a href="/product/<%= product.id %>"><%= product.name%></a></p>
+                </div>
+            </article>
+            <% }
+          }) %>
+        </div>
+    </section>
+
+    <section>
+      <h1>Otros productos que te pueden 
+        interesar</h1>
+      <div id="galeria-recomendados">
+        <% list.forEach(product => { 
+            if( product.id != thisId ){ %>
+            <article class="relacionado">
+                <figure><img class="foto-producto" src="/img/<%= product.image%>" alt=""></figure>
+                <div class="descripcion">
+                    <p class="precio-producto"><%= product.price%></p>
+                    <p class="nombre-producto"><a href="/product/<%= product.id %>"><%= product.name%></a></p>
+                    <button></button>
+                </div>
+            </article>
+            <% }
+          }) %>
+
+      </div>
+  </section>
+
+
+  <%- include("../partials/footer.ejs") %>
+  </body>
+</html>
