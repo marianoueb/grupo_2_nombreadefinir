@@ -35,7 +35,7 @@ const model = {
             name: data.name,
             description: data.description,
             brand: data.brand,
-            image: data.filename,
+            image: file.filename,
             price: data.price,
             category: data.category
         }    
@@ -71,7 +71,7 @@ const model = {
         let deleted = this.one([id]);
         console.log("deleted", deleted);
         // eliminamos la imagen de la carpeta upload
-        fs.unlinkSync(path.resolve(__dirname,"../../public/img/",deleted.image))
+        fs.unlinkSync(path.resolve(__dirname,"../../public/img/products",deleted.image))
         // filtarmos el producto que deaseamos eliminar
         productos = productos.filter(producto => producto.id != deleted.id )
         fs.writeFileSync(directory,JSON.stringify(productos,null,2));

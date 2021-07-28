@@ -14,7 +14,7 @@
     max-width: 100%;
     height: auto;
   }
-  #galery ul{ display: none}
+  #galery section.flex-container{ display: none}
 
   #product{
     background-color: #f2f2f2;
@@ -23,16 +23,21 @@
     width: 90vw;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: center;
-    
-    
   }
+
+
 
   h2{
       font-size: 20px;
       align-items: center;
       padding: 10px;
+  }
+
+  #product h2 {
+    font-size: 30px;
+    font-weight: 600;
   }
 
 .precio-prod{
@@ -63,13 +68,14 @@ h3{
   #carro {
     background: rgb(5, 130, 45);
     color: rgb(250, 250, 250);
-    border: 0.25rem solid rgb(15, 15, 15);
+    border: 3px solid rgb(15, 15, 15);
     box-shadow: 0 0 0.25rem 0 rgb(15, 15, 15);
-    border-radius: 1rem; 
+    border-radius: 25px; 
     display: flex;
     justify-content: space-around;
     align-items: center;
     font-size: 1.5rem;
+    padding: 10px;
    }
 
 
@@ -104,28 +110,34 @@ h1 {
   width: 180px;
   max-height: 300px;
   background-color: #f2f2f2;
- /* border: #383838 3px solid;*/
   margin-left: 15px;
   margin-bottom: 15px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+  border-radius: 25px;
 }
-.relacionado:hover {
+.relacionado:hover  {
     box-shadow: 2px 2px 5px 0px #383838;
+}
+
+.relacionado figure {
+  margin-bottom: -5px;
 }
 
 .foto-producto {
     border: solid 3px #383838;
+    border-radius: 25px 25px 0 0;
     width: 100%;
     height: 100%;
 }
 
 .precio-producto {
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 600;
-    color: #fbfbfb;
+    color: #383838;
+    margin-bottom: 5px;
 }
 
 .nombre-producto {
@@ -138,9 +150,21 @@ h1 {
 }
 
 .descripcion {
-    background-color: #8f8f8f;
-    border: solid 3px #383838;
+    background-color: #dbdbdb;
+    border: solid 2px #383838;
+    border-radius: 0 0 25px 25px;
     width: 100%;
+}
+
+.nombre-producto {
+  margin: 8px 0;
+}
+
+.nombre-producto a {
+  text-decoration: none;
+  color: #383838;
+  font-size: 20px;
+  font-weight: 400;
 }
 
 
@@ -148,16 +172,92 @@ h1 {
     display: block;
 }
 
+#description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+#other-pics {
+  display: none;
+}
 
+#other-pics img {
+  max-height: 78px;
+  max-width: 78px;
+}
+
+main {
+  margin-top: 10px;
+}
+
+#product {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main .fa-shopping-cart {
+  color: #f2f2f2;
+  font-size: 25px;
+  margin: 0px 5px;
+}
+
+#cantidad {
+  max-height: 20px;
+  width: 40px;
+  align-self: center;
+}
+
+#product-low {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#amount-addcart {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#crud-forms {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 10px;
+}
+
+#erase {
+  background: rgb(255, 34, 34);
+  color: rgb(250, 250, 250);
+  border: 2px solid rgb(15, 15, 15);
+  box-shadow: 0 0 0.25rem 0 rgb(15, 15, 15);
+  border-radius: 25px; 
+  font-size: 18px;
+  padding: 4px;
+}
+
+#edit {
+  background: rgb(255, 233, 34);
+  color: rgb(38, 38, 38);
+  border: 2px solid rgb(15, 15, 15);
+  box-shadow: 0 0 0.25rem 0 rgb(15, 15, 15);
+  border-radius: 25px; 
+  font-size: 18px;
+  padding: 4px;
+}
 
   /*table*/
   @media screen and (min-width: 768px) {
-    #galery ul{ 
+    #galery .flex-container{ 
       display: flex; 
       width: 100vw 
     }
-    #galery ul li{  
+    #galery .flex-container figure{  
       width: 22.5%;
       display: flex;
       justify-content: center;
@@ -165,24 +265,44 @@ h1 {
   }
   
   /*Dektop Mini*/
-  @media screen and (min-width: 1200px) {
-    #galery{
-      width: 50vw
+  @media screen and (min-width: 1024px) {
+    #galery .foto-producto{
+      width: 40vw;
+      max-height: 65vh;
+      max-width: 65vh;
     }
-    #galery ul{ 
+    #galery div{ 
       display: flex;
       width: 75% 
     }
+
     #product{
       width: 45vw;
+      max-height: 71vh;
     }
+
+#other-pics {
+  display: flex;
+  flex-direction: column;
+  max-height: 65vh;
+  margin: 3vh;
+}
+
+#other-pics img {
+  max-height: 12vh;
+  max-width: 12vh;
+  margin: 0.25vh;
+}
+
 #detail{
     align-items: stretch;
 }
 
-  }
-  
-  /*Dektop PC*/
-  @media screen and (min-width: 1920px) {
-    
-  }
+#galery {
+  flex-direction: row-reverse;
+  align-items:center;
+  justify-content: space-around;
+}
+
+
+}
