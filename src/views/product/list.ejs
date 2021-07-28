@@ -8,12 +8,12 @@
         <article class="recomendado">
             <figure><img class="foto-producto" src="/img/products/<%= product.image%>" alt=""></figure>
             <div class="descripcion">
-                <p class="precio-producto"><%= product.price%></p>
                 <p class="nombre-producto"><a href="/product/<%= product.id %>"><%= product.name%></a></p>
+                <p class="precio-producto"><%= product.price%></p>
             </div>
         </article>
         <% }) %>
     </section>
-    <a href="/product/create"><button>Añadir producto</button></a>
+    <a href="/product/create" id="add-product">+</a>
 </body>
 </html>
