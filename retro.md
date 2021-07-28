@@ -53,3 +53,29 @@ Centralizar las tareas. 
 Dedicarle tiempo a la búsqueda de soluciones o elementos de funcionalidad que no le agregan valor.
 
 ---
+# Retrospectiva Sprint 3
+---
+## 1. Comenzar a hacer.
+
+Division de tareas mas agiles. Apoyarnos en lo profesores si lo creemos necesario dado el cambio en los integrantes del proyecto.
+
+---
+## 2. Hacer más.
+
+Aumentar las reuniones virtuales, frente a la modificacion en los integrantes del equipo. Setear espectativas sobre lo que cada integrante podra hacer durante el siguiente sprint. 
+
+---
+## 3. Continuar haciendo.
+
+Seguir cumpliendo con los plazos y fechas establecidas para el cumplimientos de los sprints, seguir con el continuo apoyo entre los integrantes del equipo.
+
+---
+## 4. Hacer menos.
+
+Centralizar las tareas. 
+
+---
+## 5. Dejar de hacer.
+
+
+---
