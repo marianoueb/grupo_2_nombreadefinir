@@ -1,4 +1,4 @@
-const product = require('../src/models/product');
+const product = require('../models/product');
 
 module.exports = {
     index:(req,res) => res.render("product/list",{
