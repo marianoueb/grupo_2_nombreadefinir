@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <%- include("../partials/head.ejs") %> 
+    <body>
+        <%- include("../partials/header.ejs") %>
+<main>   
+                   <!-- SECCION QUE CONTIENE FORM Y POR QUE REGISTRARSE -->
+<section id =register-main>  
+    <form class="register"action="" method="POST" enctype="multipart/form-data">
+        <p class="titulo-register">Edita tus datos</p>
+<section id = registerForm>
+    <input type="file" name="avatar" id="avatar" required>
+    <input type="text" id="name" name="name" placeholder="Nombre:" value="<%= user.name %>" required >
+    <input type="text" id="surname" name="surname" placeholder="Apellido:" value="<%= user.surname %>" required>
+    <input type="email" id="email" name="email" placeholder="E-Mail:" value="<%= user.email %>" required>
+    <input type="password" id="password" name="password" placeholder="Contraseña:" value="<%= user.password %>" required>
+    <input type="tel" id="tel" name="tel" placeholder="Telefono:" value="<%= user.tel %>" required>
+  </section>
+                    <!-- SECCION QUE CONTIENE BOTONES -->
+  <section id="botones">
+    <button type="submit" id="submit">Guardar cambios</button>
+  </section>  
+
+    </form> 
+                    <!-- FIN DE FORMULARIO -->
+</section>
+        </main>
+        <%- include("../partials/footer.ejs") %>
+    </body>
+</html>

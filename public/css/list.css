@@ -114,6 +114,12 @@ figure {
     }
 }
 
+a {
+    text-decoration: none;
+    color: #383838;
+}
+
+
 #add-product {
     display: flex;
     flex-direction: row;
