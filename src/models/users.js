@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const bcrypt = require("bcrypt")
 
 const model = {
     all: function() {
@@ -21,8 +22,8 @@ const model = {
             name: data.name,
             surname: data.surname,
             email: data.email,
-            image: file.filename,
-            password: data.password,
+            avatar: file.filename,
+            password: bcrypt.hashSync(data.password, 10),
             tel: data.tel
         }    
         usuarios.push(nuevo)
@@ -39,8 +40,8 @@ const model = {
                 usuario.name = data.name,
                 usuario.surname = data.surname,
                 usuario.email = data.email,
-                usuario.image = file.filename,
-                usuario.password = data.password,
+                usuario.avatar = file.filename,
+                usuario.password = bcrypt.hashSync(data.password, 10),
                 usuario.tel = data.tel
                 return usuario
             }
@@ -56,7 +57,7 @@ const model = {
         let usuarios = this.all();
         let deleted = this.one([id]);
         // eliminamos la imagen de la carpeta upload
-        fs.unlinkSync(path.resolve(__dirname,"../../public/img/users",deleted.image))
+        fs.unlinkSync(path.resolve(__dirname,"../../public/img/users",deleted.avatar))
         // filtarmos el usuario que deaseamos eliminar
         usuarios = usuarios.filter(usuario => usuario.id != deleted.id )
         fs.writeFileSync(directory,JSON.stringify(usuarios,null,2));

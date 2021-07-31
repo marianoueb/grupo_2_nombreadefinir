@@ -6,11 +6,13 @@
     <section id="galeria-recomendados">
         <% list.forEach(product => { %>
         <article class="recomendado">
-            <figure><img class="foto-producto" src="/img/products/<%= product.image%>" alt=""></figure>
-            <div class="descripcion">
-                <p class="nombre-producto"><a href="/product/<%= product.id %>"><%= product.name%></a></p>
-                <p class="precio-producto"><%= product.price%></p>
-            </div>
+            <a href="/product/<%= product.id %>">
+                <figure><img class="foto-producto" src="/img/products/<%= product.image%>" alt=""></figure>
+                <div class="descripcion">
+                    <p class="nombre-producto"><%= product.name%></p>
+                    <p class="precio-producto"><%= product.price%></p>
+                </div>
+            </a>
         </article>
         <% }) %>
     </section>

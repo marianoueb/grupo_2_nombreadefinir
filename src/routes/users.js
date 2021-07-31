@@ -23,12 +23,12 @@ router.get("/register/",users.create) // Registro de usuarios
 
 router.get("/users/:id",users.show) // Vista del perfil de un usuario
 
-router.get("/users/edit/:id",users.edit) // Edición del perfil
+router.get("/users/:id/edit",users.edit) // Edición del perfil
 
 router.post("/register/", [upload.single("avatar")],users.save) // Envío del formulario de registro
 
-router.post("/users/edit/:id", [upload.single("avatar")],users.update) // Envío del formulario de edición
+router.post("/users/:id/edit", [upload.single("avatar")],users.update) // Envío del formulario de edición
 
-router.post("/users/:id/", users.delete) // Eliminación de un usuario
+router.post("/users/:id/delete", users.delete) // Eliminación de un usuario
 
 module.exports = router

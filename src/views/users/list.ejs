@@ -1,7 +1,21 @@
+<!DOCTYPE html>
 <html>
     <%- include("../partials/head.ejs") %> 
     <body>
         <%- include("../partials/header.ejs") %>
+        <main>
+            <% list.forEach(user => { %>
+                <a href="/users/<%= user.id %>">
+                    <article class="usuario">
+                        <figure><img class="avatar" src="/img/users/<%= user.avatar %>" alt=""></figure>
+                        <div class="datos">
+                            <p class="nombre"><%= user.name%></p>
+                            <p class="apellido"><%= user.surname %></p>
+                        </div>
+                    </article>
+                </a>
+            <% }) %>
+        </main>
         <%- include("../partials/footer.ejs") %>
     </body>
 </html>

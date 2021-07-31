@@ -1,52 +1,57 @@
 [
-    {
-      "id": 1,
-      "name": "Aylen",
-      "surname": "Martinez",
-      "email": "luluaylen00@gmail.com",
-      "password": " " ,
-      "tel": "114261010",
-      "admin": true,
-      "active": true
-    },
-    {
-        "id": 2,
-        "name": "Mariano",
-        "surname": "Moranchel",
-        "email": "mariano.moranchel76@gmail.com",
-        "password": " " ,
-        "tel": "2234261010",
-        "admin": true,
-        "active": true
-    },
-    {
-        "id": 3,
-        "name": "Juan",
-        "surname": "Prez",
-        "email": "juan.perez@gmail.com",
-        "password": " ",
-        "tel": "114261011",
-        "admin": false,
-        "active": true
-    },
-    {
-        "id": 4,
-        "name": "Lionel",
-        "surname": "Messi",
-        "email": "lio.messi@gmail.com",
-        "password": " " ,
-        "tel": "114261012",
-        "admin": false,
-        "active": true
-    },
-    {
-        "id": 5,
-        "name": "Emanuel",
-        "surname": "Ginobili",
-        "email": "el23_delospurs@gmail.com",
-        "password": " " ,
-        "tel": "114261013",
-        "admin": false,
-        "active": true
-    }
-  ]
+  {
+    "id": 1,
+    "avatar": "avatar-1627750726903.jpg",
+    "name": "Aylen",
+    "surname": "Martinez",
+    "email": "luluaylen00@gmail.com",
+    "password": " ",
+    "tel": "114261010",
+    "admin": true,
+    "active": true
+  },
+  {
+    "id": 2,
+    "avatar": "empty-profile-icon.png",
+    "name": "Mariano",
+    "surname": "Moranchel",
+    "email": "mariano.moranchel76@gmail.com",
+    "password": " ",
+    "tel": "2234261010",
+    "admin": true,
+    "active": true
+  },
+  {
+    "id": 3,
+    "avatar": "empty-profile-icon.png",
+    "name": "Juan",
+    "surname": "Prez",
+    "email": "juan.perez@gmail.com",
+    "password": " ",
+    "tel": "114261011",
+    "admin": false,
+    "active": true
+  },
+  {
+    "id": 4,
+    "avatar": "empty-profile-icon.png",
+    "name": "Lionel",
+    "surname": "Messi",
+    "email": "lio.messi@gmail.com",
+    "password": " ",
+    "tel": "114261012",
+    "admin": false,
+    "active": true
+  },
+  {
+    "id": 5,
+    "avatar": "empty-profile-icon.png",
+    "name": "Emanuel",
+    "surname": "Ginobili",
+    "email": "el23_delospurs@gmail.com",
+    "password": " ",
+    "tel": "114261013",
+    "admin": false,
+    "active": true
+  }
+]
