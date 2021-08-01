@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "brand": "Varios",
+      "logo": "varios-logo.jpg"
+    },
+    {
+        "id": 2,
+        "brand": "Bremen",
+        "logo": "bremen-logo.jpg"
+    },
+    {
+        "id": 3,
+        "brand": "Black & Decker",
+        "logo": "blackdecker-logo.jpg"
+    },
+    {
+        "id": 4,
+        "brand": "Dubai",
+        "logo": "dubai-logo.jpg"
+    },
+    {
+        "id": 5,
+        "brand": "Dogo",
+        "logo": "dogo-logo.jpg"
+    }
+  ]

@@ -27,3 +27,6 @@ app.use(product)
 
 const users = require("./routes/users");
 app.use(users)
+
+const brands = require("./routes/brands");
+app.use(brands)
