@@ -50,8 +50,10 @@ figure {
     align-items: center;
     border-radius: 25px;
 }
-.recomendado:hover  {
-    box-shadow: 2px 2px 5px 0px #383838;
+.recomendado:hover {
+    animation-name: sombreado;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
 }
 
 .foto-producto {
@@ -151,9 +153,11 @@ a {
     align-items: center;
     border-radius: 25px;
   }
-  .relacionado:hover  {
-      box-shadow: 2px 2px 5px 0px #383838;
-  }
+  .relacionado:hover {
+    animation-name: sombreado;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+}
   
   .relacionado figure {
     margin-bottom: -5px;

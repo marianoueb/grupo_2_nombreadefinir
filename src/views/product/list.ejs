@@ -3,19 +3,22 @@
 <%- include("../partials/head.ejs") %>
 <body>
     <%- include ("../partials/header") %> 
-    <section id="galeria-recomendados">
-        <% list.forEach(product => { %>
-        <article class="recomendado">
-            <a href="/product/<%= product.id %>">
-                <figure><img class="foto-producto" src="/img/products/<%= product.image%>" alt=""></figure>
-                <div class="descripcion">
-                    <p class="nombre-producto"><%= product.name%></p>
-                    <p class="precio-producto"><%= product.price%></p>
-                </div>
-            </a>
-        </article>
-        <% }) %>
-    </section>
-    <a href="/product/create" id="add-product">+</a>
+    <main>
+        <section id="galeria-recomendados">
+            <% list.forEach(product => { %>
+            <article class="recomendado">
+                <a href="/product/<%= product.id %>">
+                    <figure><img class="foto-producto" src="/img/products/<%= product.image%>" alt=""></figure>
+                    <div class="descripcion">
+                        <p class="nombre-producto"><%= product.name%></p>
+                        <p class="precio-producto"><%= product.price%></p>
+                    </div>
+                </a>
+            </article>
+            <% }) %>
+        </section>
+        <a href="/product/create" id="add-product">+</a>
+    </main>
+    <%- include("../partials/footer.ejs") %>
 </body>
 </html>
