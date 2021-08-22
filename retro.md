@@ -79,3 +79,28 @@ Centralizar las tareas. 
 
 
 ---
+# Retrospectiva Sprint 4
+---
+## 1. Comenzar a hacer.
+
+Mejorar el estilo del sitio en gral, agregandole elementos visuales que lo hagan mas atractivo.
+
+---
+## 2. Hacer más.
+
+Division de tareas. Apoyarnos en lo profesores si lo creemos necesario dado el cambio en los integrantes del proyecto.
+
+---
+## 3. Continuar haciendo.
+
+Las reuniones virtuales periodicas. Seguir cumpliendo con los plazos y fechas establecidas para el cumplimientos de los sprints, seguir con el continuo apoyo entre los integrantes del equipo.
+
+---
+## 4. Hacer menos.
+
+Concentrarnos en las mejoras del sitio, antes de finalizar las consignas del sprint.
+
+---
+## 5. Dejar de hacer.
+
+---
