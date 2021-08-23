@@ -14,6 +14,11 @@ const model = {
         let resultado = usuarios.find(usuario => usuario.id == id)
         return resultado;
     },
+    oneEmail: function (email) {
+        let usuarios = this.all();
+        let resultado = usuarios.find(usuario => usuario.email == email)
+        return resultado;
+    },
     new: function (data,file) {
         const directory = path.resolve(__dirname,"../data","users.json")
         let usuarios = this.all();
@@ -24,7 +29,8 @@ const model = {
             email: data.email,
             avatar: file.filename,
             password: bcrypt.hashSync(data.password, 10),
-            tel: data.tel
+            tel: data.tel,
+            admin: false
         }    
         usuarios.push(nuevo)
         fs.writeFileSync(directory,JSON.stringify(usuarios,null,2));
@@ -41,7 +47,6 @@ const model = {
                 usuario.surname = data.surname,
                 usuario.email = data.email,
                 usuario.avatar = file.filename,
-                usuario.password = bcrypt.hashSync(data.password, 10),
                 usuario.tel = data.tel
                 return usuario
             }
@@ -62,6 +67,34 @@ const model = {
         usuarios = usuarios.filter(usuario => usuario.id != deleted.id )
         fs.writeFileSync(directory,JSON.stringify(usuarios,null,2));
         console.log("Borrado exitoso");
+        return true;
+    },
+    makeAdmin: function (id) {
+        const directory = path.resolve(__dirname,"../data","users.json")
+        let usuarios = this.all();
+
+        usuarios.map(usuario => {
+            if(usuario.id == id ){
+                usuario.admin = true;
+                return usuario
+            }
+            return usuario;
+        })
+        fs.writeFileSync(directory,JSON.stringify(usuarios,null,2));
+        return true;
+    },
+    removeAdmin: function (id) {
+        const directory = path.resolve(__dirname,"../data","users.json")
+        let usuarios = this.all();
+
+        usuarios.map(usuario => {
+            if(usuario.id == id ){
+                usuario.admin = false;
+                return usuario
+            }
+            return usuario;
+        })
+        fs.writeFileSync(directory,JSON.stringify(usuarios,null,2));
         return true;
     }
 

@@ -38,43 +38,45 @@
               </p>
             </section>
           </section>
-          
-          <form action="" method="post" class="flex-container" id="product-low">
+          <div>
+            <section>
+              <form action="" method="post" class="flex-container" id="product-low">
 
-            <section id="amount-addcart">
-              <div id="amount">
-                <p>Cantidad</p>
-                <select name="cantidad" id="cantidad">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                </select>
-              </div>
-              <button id="carro" type="submit">
-                Agregar al Carrito
-                <i class="fas fa-shopping-cart"></i>
-              </button>
-            </section>
-            
-
-            <section id="crud-forms">
-              <form action="/product/:id/delete" method="GET">
-                <button type="submit" id="erase">Borrar producto</button>
-              </form>
-              <form action="/product/edit/<%= product.id %>" method="GET">
-                <button type="submit" id="edit">Editar producto</button>
+                <section id="amount-addcart">
+                  <div id="amount">
+                    <p>Cantidad</p>
+                    <select name="cantidad" id="cantidad">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                    </select>
+                  </div>
+                  <button id="carro" type="submit">
+                    Agregar al Carrito
+                    <i class="fas fa-shopping-cart"></i>
+                  </button>
+                </section>
               </form>
             </section>
-            
-
-            
-          </form>
+            <% if ( isLogged ) { %>
+              <% if (loggedUser.admin) { %>
+                <section id="crud-forms">
+                  <form action="/product/deleted/<%= product.id %>" method="POST">
+                    <button type="submit" id="erase">Borrar producto</button>
+                  </form>
+                  <form action="/product/edit/<%= product.id %>" method="GET">
+                    <button type="submit" id="edit">Editar producto</button>
+                  </form>
+                </section>
+              <% } %>
+          <% } %>
+        </div>
         </article>
       </main>
 

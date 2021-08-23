@@ -17,7 +17,12 @@
             </article>
             <% }) %>
         </section>
-        <a href="/product/create" id="add-product">+</a>
+        <% if ( isLogged ) { %>
+            <% if (loggedUser.admin) { %>
+                <a href="/product/create" id="add-product">+</a>
+            <% } %>
+        <% } %>
+         
     </main>
     <%- include("../partials/footer.ejs") %>
 </body>

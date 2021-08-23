@@ -6,10 +6,10 @@ const path = require("path");
 const indexController = require('../controllers/index');
 app.get("/", indexController.index);
 app.get("/home/", indexController.home)
-
+/* 
 const login = require('../controllers/login.js')
 app.get("/login/", login.index);
-
+ */
 const productCart = require('../controllers/productCart.js')
 app.get("/productCart/", productCart.index);
 /*

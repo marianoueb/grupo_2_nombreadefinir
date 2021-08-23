@@ -1,57 +1,22 @@
 [
   {
     "id": 1,
-    "avatar": "avatar-1627750726903.jpg",
-    "name": "Aylen",
-    "surname": "Martinez",
-    "email": "luluaylen00@gmail.com",
-    "password": " ",
-    "tel": "114261010",
-    "admin": true,
-    "active": true
+    "name": "Administrador",
+    "surname": "Uno",
+    "email": "admin@toolbox.com",
+    "avatar": "avatar-1628982675962.jpg",
+    "password": "$2b$10$NWNIF4FnBk1tO.NMBgrBv.Xk4QBxU4/kcZlXlx4/2UO18kLS8BuAC",
+    "tel": "1122334455",
+    "admin": true
   },
   {
     "id": 2,
-    "avatar": "empty-profile-icon.png",
-    "name": "Mariano",
-    "surname": "Moranchel",
-    "email": "mariano.moranchel76@gmail.com",
-    "password": " ",
-    "tel": "2234261010",
-    "admin": true,
-    "active": true
-  },
-  {
-    "id": 3,
-    "avatar": "empty-profile-icon.png",
-    "name": "Juan",
-    "surname": "Prez",
-    "email": "juan.perez@gmail.com",
-    "password": " ",
-    "tel": "114261011",
-    "admin": false,
-    "active": true
-  },
-  {
-    "id": 4,
-    "avatar": "empty-profile-icon.png",
-    "name": "Lionel",
-    "surname": "Messi",
-    "email": "lio.messi@gmail.com",
-    "password": " ",
-    "tel": "114261012",
-    "admin": false,
-    "active": true
-  },
-  {
-    "id": 5,
-    "avatar": "empty-profile-icon.png",
-    "name": "Emanuel",
-    "surname": "Ginobili",
-    "email": "el23_delospurs@gmail.com",
-    "password": " ",
-    "tel": "114261013",
-    "admin": false,
-    "active": true
+    "name": "Usuario",
+    "surname": "Uno",
+    "email": "usuario@toolbox.com",
+    "avatar": "avatar-1628982868933.jpg",
+    "password": "$2b$10$.Kb15.Nal5zUrAS1T9eJ9e2lZq1xnq9GfXlBf4sAt8CXawkG00JpW",
+    "tel": "1122334456",
+    "admin": false
   }
 ]
