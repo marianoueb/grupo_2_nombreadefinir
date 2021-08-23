@@ -29,6 +29,16 @@ router.post("/register/", [upload.single("avatar")],users.save) // Envío del fo
 
 router.post("/users/:id/edit", [upload.single("avatar")],users.update) // Envío del formulario de edición
 
+router.get("/login/", users.loginForm) // Vista del formulario de login
+
+router.post("/login/", users.loginProcess) // Envío del formulario de login 
+
+router.post("/logout/", users.logout) // Cierre de sesión
+
 router.post("/users/:id/delete", users.delete) // Eliminación de un usuario
+
+router.post("/admin/:id/", users.admin) // Hacer administrador
+
+router.post("/remove/:id/", users.remove) // Quitar administrador
 
 module.exports = router

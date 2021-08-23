@@ -1,7 +1,15 @@
 <header>
     <nav id="barra-principal">
-        <div id="mobile-burger">
-            <i class="fas fa-bars"></i>
+        <div id="mobile-burger" class="respmenu">
+            <input type="checkbox">
+            <i class="fas fa-bars" id="burger-icon"></i>
+            <i class="fas fa-times"></i>
+            <nav id="navegacion">
+                <a href="/home/">Página principal</a>
+                <a href="/product/">Productos</a>
+                <a href="/brands/">Marcas</a>
+                <a href="/home/">Sobre nosotros</a>
+            </nav>
         </div>
         <a href="/home/"><img src="/img/Logo.png" alt="Toolbox"></a>
         <form class="formulario-busqueda" action="#" method="get">
@@ -17,7 +25,11 @@
                 <button id="buscar" type="submit"><i class="fas fa-search"></i></button>
             </div>
         </form>
-        <a id="carrito" href="/productCart/"><i class="fas fa-shopping-cart"></i></a>
+
+        <% if ( isLogged ) { %>
+            <a id="carrito" href="/productCart/"><i class="fas fa-shopping-cart"></i></a>
+        <% } %>
+            
     </nav>
     <div id="barra-menu">
         <nav id="navegacion">
@@ -26,10 +38,24 @@
             <a href="/brands/">Marcas</a>
             <a href="/home/">Sobre nosotros</a>
         </nav>
-        <nav id="sesion">
-            <a href="/login/">Iniciar sesión</a>
-            <p>o</p>
-            <a href="/register/">Registrarse</a>
-        </nav>
+        <% if ( !isLogged ) { %>
+            <nav id="sesion">
+                <a href="/login/">Iniciar sesión</a>
+                <p>o</p>
+                <a href="/register/">Registrarse</a>
+            </nav>
+        <% } else { %>
+            <nav id="sesion">
+                <% if (loggedUser.admin == true) { %>
+                    <a href="/users/">Usuarios</a>
+                    <p></p>
+                <% } %>
+                <a href="/users/<%= loggedUser.id %> ">Perfil</a>
+                <p></p>
+                <form id="logoutForm" action="/logout/" method="POST">
+                    <button id="logoutButton" type="submit">Cerrar sesion</button>
+                </form>
+            </nav>
+        <% } %>
     </div>
 </header>

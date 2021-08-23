@@ -11,13 +11,26 @@ app.listen(app.get("port"), () => console.log("Server started http://localhost:"
 
 app.use(express.static(path.resolve(__dirname, "../public")));
 app.use(express.urlencoded({extended: false}))
-
-const bodyParser = require("body-parser")
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
+app.use(express.json());
 
 const methodOverride = require('method-override');
 app.use(methodOverride("_method"))
+
+const session = require("express-session");
+app.use(session({ 
+    secret: "Secreto!",
+    resave: false,
+    saveUninitialized: false
+}))
+
+const cookieParser = require("cookie-parser")
+app.use(cookieParser()) 
+
+const loginMiddleware = require("./middleware/loginMiddleware")
+app.use(loginMiddleware);
+
+const recordarMiddleware = require("./middleware/recordarMiddleware")
+app.use(recordarMiddleware);
 
 const main = require('./routes/web');
 app.use(main);

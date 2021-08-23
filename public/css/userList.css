@@ -21,3 +21,30 @@ main .avatar {
     width: 150px;
     height: 150px;
 }
+#error{
+    border: #383838 3px solid;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 30px;
+}
+#error h2 {
+    font-size: 35px;
+    font-weight: 600;
+    padding: 20px;
+}
+#error h3 {
+    font-size: 25px;
+    padding: 10px;
+}
+#error button {
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 26px;
+    background-color: #383838;
+    color: #fbfbfb;
+}
