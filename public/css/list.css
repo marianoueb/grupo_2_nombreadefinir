@@ -95,6 +95,36 @@ figure {
     display: block;
 }
 
+#listTitle {
+    background-color: white;
+    border: 0;
+    text-shadow: 1px 1px 2px rgb(38, 38, 38);
+    width: 100%;
+    font-size: 40px;
+}
+
+/* Agregados para el filtro */
+
+main {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+#list {
+    width: 80vw;
+}
+#filter {
+    width: 20vw;
+    height: 450px;
+    padding: 20px;
+    border: #383838 solid 3px;
+    background-color: #f2f2f2;
+}
+#filter form div {
+    display: flex;
+    flex-direction: row;
+}
+
 @media (max-width: 433px) {
     #galeria-recomendados {
         width: 100vw;

@@ -82,7 +82,7 @@ module.exports = {
         res.redirect("/");
     },
     remove: function(req, res){
-        user.removeAdmin(req.params.id);
+        user.removeAdmin(req.params.id); 
         res.redirect("/")
     }
 }

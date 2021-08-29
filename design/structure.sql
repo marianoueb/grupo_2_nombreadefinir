@@ -1,0 +1,57 @@
+CREATE DATABASE toolbox;
+
+CREATE TABLE user_types (
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    type VARCHAR(5) NOT NULL DEFAULT "user"
+);
+
+CREATE TABLE users (
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(30) NOT NULL,
+    surname VARCHAR(30) NOT NULL,
+    email VARCHAR(40) UNIQUE NOT NULL,
+    password VARCHAR(60) NOT NULL,
+    tel VARCHAR(15) NOT NULL,
+    avatar VARCHAR(30) NOT NULL,
+    type_id INT UNSIGNED NOT NULL DEFAULT 1,
+    FOREIGN KEY (type_id) REFERENCES user_types(id)
+);
+
+CREATE TABLE Categories (
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    category VARCHAR(20) NOT NULL,
+    icon VARCHAR(25) NOT NULL
+);
+
+CREATE TABLE Brands (
+	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  	brand VARCHAR(30) NOT NULL,
+  	logo VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE Products (
+	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  	name VARCHAR(30) NOT NULL,
+  	description TEXT NOT NULL,
+  	price MEDIUMINT UNSIGNED NOT NULL,
+  	brand_id INT UNSIGNED NOT NULL,
+  	image VARCHAR(30) NOT NULL,
+  	FOREIGN KEY (brand_id) REFERENCES brands(id)
+);
+
+CREATE TABLE Brands_Categories (
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    category_id INT UNSIGNED NOT NULL,
+    brand_id INT UNSIGNED NOT NULL,
+    FOREIGN KEY (category_id) REFERENCES categories(id),
+    FOREIGN KEY (brand_id) REFERENCES brands(id)
+);
+
+CREATE TABLE Products_Categories (
+  id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  product_id INT UNSIGNED NOT NULL,
+  category_id INT UNSIGNED NOT NULL,
+  FOREIGN KEY (product_id) REFERENCES products(id),
+  FOREIGN KEY (category_id) REFERENCES categories(id)
+);
+

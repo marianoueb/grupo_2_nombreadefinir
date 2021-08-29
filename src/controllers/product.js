@@ -4,7 +4,8 @@ module.exports = {
     index:(req,res) => res.render("product/list",{
         list: product.all(),
         title: "Productos",
-        styles: "/css/list.css"
+        styles: "/css/list.css",
+        listTitle: "Listado de productos"
     }),
     show: (req,res) => {
         if( req.params.id >= 0 ){
@@ -47,5 +48,38 @@ module.exports = {
         console.log("id" + req.params.id);
         let result = product.delete(id);
         return result == true ? res.redirect("/") : res.send("Error al cargar la informacion") 
+    },
+    filter: function(req, res){
+        const products = product.all();
+        var filterResult = [];
+        if (req.body.brand && !req.body.category) {
+            const filtro = product.allField("brand", req.body.brand)
+            filterResult = filtro
+        }
+        if (req.body.category && !req.body.brand) {
+            const filtro = product.allField("category", req.body.category)
+            filterResult = filtro
+        }
+        if (req.body.category && req.body.brand){
+            var filtro1 = product.allField("brand", req.body.brand)
+            var filtro2 = product.allFieldWithExtra(filtro1, "category", req.body.category)
+            filterResult = filtro2
+        }
+        if (filterResult.length > 0){
+            res.render("product/list",{
+                list: filterResult,
+                title: "Resultado de la busqueda",
+                styles: "/css/list.css",
+                listTitle: "Resultado de la busqueda"
+            })
+        }
+        else {
+            res.render("product/list",{
+                list: product.all(),
+                title: "Resultado de la busqueda",
+                styles: "/css/list.css",
+                listTitle: "No se han encontrado resultados"
+            })
+        }
     }
 }

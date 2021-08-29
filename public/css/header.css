@@ -159,7 +159,7 @@ header {
     font-size: 50px;
     pointer-events: none;
     position: absolute; 
-    left: 20px;
+    left: 0px;
     color: #383838;
   }
   
@@ -189,7 +189,7 @@ header {
   .respmenu {
     color: white;
     position: absolute; 
-    left: 20px;
+    left: 40px;
     min-height: 35px;
   }
    
@@ -218,6 +218,10 @@ header {
     }
     .formulario-busqueda {
         display: none;
+    }
+    #carrito {
+        position: absolute;
+        right: 40px;
     }
     
 }

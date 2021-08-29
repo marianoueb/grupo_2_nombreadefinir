@@ -194,12 +194,22 @@ article a {
     color: #383838;
     font-size: 20px;
 }
+#categorias article p {
+    text-decoration: none;
+    color: #383838;
+    font-size: 20px;
+}
+
 #categorias article:hover {
     background-color: #383838;
     box-shadow: 0px 0px 0px 0px;
     
 }
 #categorias article:hover a {
+    font-size: 20px;
+    color: #fbfbfb;
+}
+#categorias article:hover p {
     font-size: 20px;
     color: #fbfbfb;
 }

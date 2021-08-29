@@ -31,4 +31,6 @@ router.post("/product/edited/:id", [upload.single("productImage")],product.updat
 
 router.post("/product/deleted/:id", product.delete) // Eliminación de un producto (cruD 1/1) (Punto 7)
 
+router.post("/product/filter", product.filter)
+
 module.exports = router

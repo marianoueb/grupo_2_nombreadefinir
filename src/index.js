@@ -43,3 +43,6 @@ app.use(users)
 
 const brands = require("./routes/brands");
 app.use(brands)
+
+const cats = require("./routes/categories");
+app.use(cats)

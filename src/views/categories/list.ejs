@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <%- include("../partials/head.ejs") %> 
+    <body>
+        <%- include("../partials/header.ejs") %>
+        <main>
+            <section id="galeria-marcas">
+                    <section>
+                        <h1>Nuestras categorías</h1>
+                        <div id="categorias">
+                            <% list.forEach(category => { %>
+                                <a href="/categories/<%= category.id %> ">
+                                    <article class="<%= category.category %> ">
+                                        <i class="<%= category.icon %>"></i>
+                                        <p><%= category.category %></p>
+                                    </article>
+                                </a>
+                            <% }) %>
+                        </div>
+                    </section>
+            </section>
+        </main>
+        <%- include("../partials/footer.ejs") %>
+    </body>
+</html>

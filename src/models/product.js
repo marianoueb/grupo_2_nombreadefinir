@@ -27,6 +27,32 @@ const model = {
         let resultado = productos.find(producto => producto.id == id)
         return resultado;
     },
+    allField: function (param, value) {
+        let productos = this.all();
+        let resultado = [];
+        for (let i = 0; i < productos.length; i++) {
+            var producto = productos[i];
+            if(producto[param] === value)
+            resultado.push(producto)
+        }
+        return resultado; 
+    },
+    allFieldWithExtra: function (list, param, value) {
+        let productos = list;
+        let resultado = [];
+        for (let i = 0; i < productos.length; i++) {
+            var producto = productos[i];
+            if(producto[param] === value)
+            resultado.push(producto)
+        }
+        return resultado;
+    },
+    oneField: function (field, value) {
+        let productos = this.all();
+        let resultado = productos.find(producto => producto[field] === value)
+        console.log(resultado);
+        return resultado;
+    },
     new: function (data,file) {
         const directory = path.resolve(__dirname,"../data","products.json")
         let productos = this.all();
