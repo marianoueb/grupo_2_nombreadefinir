@@ -104,3 +104,28 @@ Concentrarnos en las mejoras del sitio, antes de finalizar las consignas del spr
 ## 5. Dejar de hacer.
 
 ---
+# Retrospectiva Sprint 5
+---
+## 1. Comenzar a hacer.
+
+Trabajar y probar cambios, funcionalidades para lograr un sitio mas amigable.
+
+---
+## 2. Hacer más.
+
+Completar todas las tareas sin dejar pendientes, ni acumular tareas sin resolucion.
+
+---
+## 3. Continuar haciendo.
+
+Definir prioridades y orden de tareas de acuerdo a los objetivos del sprint.
+
+---
+## 4. Hacer menos.
+
+Enfocarnos en temas que no son propios / prioridades del sprint.
+
+---
+## 5. Dejar de hacer.
+
+---
