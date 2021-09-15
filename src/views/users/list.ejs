@@ -5,7 +5,7 @@
         <%- include("../partials/header.ejs") %>
         <main>
             <% if (isLogged) { %>
-                <% if (loggedUser && loggedUser.admin == true) { %>
+                <% if (loggedUser && loggedUser.type_id > 1) { %>
                     <% list.forEach(user => { %>
                         <a href="/users/<%= user.id %>">
                             <article class="usuario">

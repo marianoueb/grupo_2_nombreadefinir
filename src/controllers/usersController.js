@@ -57,7 +57,7 @@ module.exports = {
             name: req.body.name,
             surname: req.body.surname,
             email: req.body.email,
-            password: req.body.password,
+            password: bcrypt.hashSync(req.body.password, 10),
             tel: req.body.tel,
             avatar: req.file.filename,
             type_id: 1
@@ -110,8 +110,22 @@ module.exports = {
         viewCat: "users",
         style: "login.css"
     }),
-    loginProcess: (req,res) => {
-        let userToLogin = user.oneEmail(req.body.email);
+    loginProcess: async (req,res) => {
+        let users = await db.User.findAll({
+            include: [
+                {association: "UserType"}
+            ]
+        })
+            .then(list => {return list})
+            .catch(error => console.log(error))
+        let userToLogin = {}
+        for (let i = 0; i < users.length; i++) {
+            const user = users[i];
+            if (user.email == req.body.email){
+                userToLogin = user
+            }            
+        }
+        console.log(userToLogin);
         if (userToLogin) {
             let validator = bcrypt.compareSync(req.body.password, userToLogin.password)
             if (validator) {
@@ -133,12 +147,34 @@ module.exports = {
         res.clearCookie("email")
         res.redirect("/")
     },
-    admin: function(req, res){
-        user.makeAdmin(req.params.id);
-        res.redirect("/");
+    admin: async (req, res) => {
+        db.User.update({
+            type_id: 2
+        },{
+            where: {
+                id: req.params.id
+            }
+        })
+        res.redirect("/users/" + req.params.id)
     },
-    remove: function(req, res){
-        user.removeAdmin(req.params.id); 
-        res.redirect("/")
+    remove: async (req, res) => {
+        db.User.update({
+            type_id: 1
+        },{
+            where: {
+                id: req.params.id
+            }
+        })
+        res.redirect("/users/" + req.params.id)
+    },
+    owner: async (req, res) => {
+        db.User.update({
+            type_id: 3
+        },{
+            where: {
+                id: req.params.id
+            }
+        })
+        res.redirect("/users/" + req.params.id)
     }
 }

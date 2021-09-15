@@ -8,7 +8,7 @@
                 <section id="user-sect">
                     <h1>Perfil de usuario</h1>
                     <% if ( user ) { %>
-                        <% if (user.id == loggedUser.id || loggedUser.admin == true) { %>
+                        <% if (user.id == loggedUser.id || loggedUser.type_id > 1) { %>
                             <section id="main-sect">
                                 <section id="img-sect">
                                     <figure><img src="/img/users/<%= user.avatar%>" alt=""></figure>
@@ -22,8 +22,8 @@
                                 </section>
                             </section>
                             <section id="admin-sect">
-                                <% if ( user.admin != true ) { %>
-                                    <% if ( loggedUser.admin == true) { %>
+                                <% if ( user.type_id == 1 ) { %>
+                                    <% if ( loggedUser.type_id > 1) { %>
                                         <form action="/admin/<%= user.id %>" method="post">
                                             <button type="submit" id="admin-button">Hacer administrador</button>
                                         </form>
@@ -34,10 +34,12 @@
                                     <form action="/users/<%= user.id %>/delete" method="POST">
                                         <button type="submit" id="delete-button">Eliminar datos del usuario</button>
                                     </form>
-                                <% } else if (user.admin == true) { %>
-                                    <form action="/remove/<%= user.id %>" method="post">
-                                        <button type="submit" id="admin-button">Quitar administrador</button>
-                                    </form>
+                                <% } else if (user.type_id > 1) { %>
+                                    <% if (user.type_id == 2) { %>
+                                        <form action="/remove/<%= user.id %>" method="post">
+                                            <button type="submit" id="admin-button">Quitar administrador</button>
+                                        </form>
+                                    <% } %>
                                     <form action="/users/<%= user.id %>/edit/" method="GET">
                                         <button type="submit" id="edit-button">Editar datos</button>
                                     </form>

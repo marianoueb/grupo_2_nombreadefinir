@@ -64,7 +64,7 @@
             </form>
         </section>
         <% if ( isLogged ) { %>
-            <% if (loggedUser.admin) { %>
+            <% if (loggedUser.type_id > 1) { %>
                 <a href="/product/create" id="add-product">+</a>
             <% } %>
         <% } %>

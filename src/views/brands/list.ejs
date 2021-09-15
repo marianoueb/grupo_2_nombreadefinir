@@ -17,7 +17,7 @@
                 </section>
             </section>
             <% if ( isLogged ) { %>
-                <% if (loggedUser.admin) { %>
+                <% if (loggedUser.type_id > 1) { %>
                     <a href="/brands/create" id="add-brand">+</a>
                 <% } %>
             <% } %>

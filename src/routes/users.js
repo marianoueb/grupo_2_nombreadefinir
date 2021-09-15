@@ -41,4 +41,6 @@ router.post("/admin/:id/", users.admin) // Hacer administrador
 
 router.post("/remove/:id/", users.remove) // Quitar administrador
 
+router.post("/owner/:id", users.owner) // Dar rango de creador
+
 module.exports = router

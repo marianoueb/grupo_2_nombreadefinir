@@ -48,7 +48,7 @@
             </nav>
         <% } else { %>
             <nav id="sesion">
-                <% if (loggedUser.admin == true) { %>
+                <% if (loggedUser.type_id > 1) { %>
                     <a href="/users/">Usuarios</a>
                     <p></p>
                 <% } %>
