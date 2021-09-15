@@ -94,4 +94,5 @@ main figure:hover .brand-span {
     right: 25px;
     bottom: 25px;
     box-shadow: 2px 2px 4px rgba(38, 38, 38, 0.4);
+    z-index: 10;
 }

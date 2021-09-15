@@ -103,7 +103,14 @@ module.exports = {
                 id: req.params.id
             }
         })
-        res.redirect("/users/")
+        let actualUser = req.session.loggedUser
+        if(actualUser.id == req.params.id){
+            req.session.destroy()
+            res.clearCookie("email")
+            res.redirect("/")
+        } else {
+            res.redirect("/users/")
+        }
     },
     loginForm: (req, res) => res.render("users/login", {
         title: "Ingreso",

@@ -63,7 +63,7 @@
               </form>
             </section>
             <% if ( isLogged ) { %>
-              <% if (loggedUser.admin) { %>
+              <% if (loggedUser.type_id > 1) { %>
                 <section id="crud-forms">
                   <form action="/product/deleted/<%= product.id %>" method="POST">
                     <button type="submit" id="erase">Borrar producto</button>
