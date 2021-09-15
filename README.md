@@ -7,8 +7,6 @@
   #
 ## Miembros del grupo
 #
-### María Eugenia Rabanal
-> Mi nombre es María, tengo 33 años, vivo en San Isidro y tengo un bebé de un año. Soy licenciada en turismo y trabajo en una agencia de viajes.
 
 ### Mariano Moranchel
 > Hola soy Mariano, vivo en Mar del plata y soy un aficionado a todo lo que tenga pilas y/o se enchufe. Soy papa de Male y Paloma y trabajo en una empresa de telecomunicaciones como responsable de mercado.
@@ -73,7 +71,7 @@
 #
 #
 ## Paleta de colores:
-![Paleta](https://i.imgur.com/zDLgFsU.png)
+![Paleta](https://imgur.com/KTWQ6RR)
 ### También se hallan en /design/Paleta.png
 #
 #
@@ -81,8 +79,14 @@
 #
 #
 ## Logo elegido:
-![Logo](https://i.imgur.com/9GEdlwO.png)
+![Logo](https://imgur.com/amft72E)
 ### El cual también está en /design/Logo.png
+#
+#
+***
+#
+#
+### El DER y los SQL también se encuentran en la carpeta Design.
 #
 #
 
