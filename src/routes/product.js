@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const product = require('../controllers/product');
+const product = require('../controllers/productController');
 const path = require('path');
 
 const multer = require('multer');
@@ -31,6 +31,10 @@ router.post("/product/edited/:id", [upload.single("productImage")],product.updat
 
 router.post("/product/deleted/:id", product.delete) // Eliminación de un producto (cruD 1/1) (Punto 7)
 
-router.post("/product/filter", product.filter)
+router.post("/product/filter", product.filter);
+
+router.get("/search", product.search); 
+ 
+router.get("/cart", product.cart);
 
 module.exports = router

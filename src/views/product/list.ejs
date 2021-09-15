@@ -5,69 +5,62 @@
     <%- include ("../partials/header") %> 
     <main>
         <section id="list">
-            <h1 id="listTitle"><%= listTitle %></h1>
-            <section id="galeria-recomendados">
-                <% list.forEach(product => { %>
-                <article class="recomendado">
-                    <a href="/product/<%= product.id %>">
-                        <figure><img class="foto-producto" src="/img/products/<%= product.image%>" alt=""></figure>
-                        <div class="descripcion">
-                            <p class="nombre-producto"><%= product.name%></p>
-                            <p class="precio-producto"><%= product.price%></p>
-                        </div>
-                    </a>
-                </article>
-                <% }) %>
+            <section id="prod-sect"> 
+                <h1 id="listTitle"><%= listTitle %></h1>
+                <section id="galeria-recomendados">
+                    <% list.forEach(product => { %>
+                        <article class="recomendado">
+                            <a href="/product/<%= product.id %>"></a>
+                                <img class="foto-producto" src="/img/products/<%= product.image%>" alt="">
+                                <div class="descripcion">
+                                    <a href="/product/<%= product.id %>"><p class="nombre-producto"><%= product.name%></p></a>
+                                    <%
+                                        function mil(numero) {
+                                            return numero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                        }
+                                    %>
+                                    <p class="precio-producto">$<%= mil(product.price) %></p>
+                                </div>
+                            </a>
+                        </article>
+                        <% }) %>
+                </section>
             </section>
         </section>
         <section id="filter">
-            <form action="/product/filter/" method="post">
-                <h2>Marca</h2>
-                <div>
-                    <input type="radio" name="brand" value="Black & Decker">
-                    <p>Black & Decker</p>
-                </div>
-                <div>
-                    <input type="radio" name="brand" value="Bremen">
-                    <p>Bremen</p>
-                </div>
-                <div>
-                    <input type="radio" name="brand" value="Dogo">
-                    <p>Dogo</p>
-                </div>
-                <div>
-                    <input type="radio" name="brand" value="Dubai">
-                    <p>Dubai</p>
-                </div>
-                <div>
-                    <input type="radio" name="brand" value="Varios">
-                    <p>Otros</p>
-                </div>
-                <h2>Categoria</h2>
-                <div>
-                    <input type="radio" name="category" value="Ferreteria">
-                    <p>Ferretería</p>
-                </div>
-                <div>
-                    <input type="radio" name="category" value="Jardineria">
-                    <p>Jardinería</p>
-                </div>
-                <div>
-                    <input type="radio" name="category" value="Maquinaria">
-                    <p>Maquinaria</p>
-                </div>
-                <div>
-                    <input type="radio" name="category" value="Plomeria">
-                    <p>Plomería</p>
-                </div>
-                <div>
-                    <input type="radio" name="category" value="Pintureria">
-                    <p>Pinturería</p>
-                </div>
+            <form action="/product/filter/" method="post" class="product-filter">
+                <h1>Filtro</h1>
+                <section>
+                    <h2>Categoría</h2>
+                        <div>
+                            <input type="radio" name="category" value="0" <% if (search.category == false) { %>checked<% } %>>
+                            <p>Todas</p>
+                        </div>
+                    <% cats.forEach(cat => { %>
+                        <div>
+                            <input type="radio" name="category" value="<%= cat.id %>" <% if( search.categoryParam == cat.id ){ %>checked<% } %>>
+                            <p><%= cat.category %></p>
+                        </div>
+                    <% }) %> 
+                </section>
+                <h1></h1>
+                <section>
+                    <h2>Marca</h2>
+                        <div>
+                            <input type="radio" name="brand" value="0" <% if (search.brand == false) { %>checked<% } %>>
+                            <p>Todas</p> 
+                        </div>
+                    <% brands.forEach(brand => { %>
+                        <div>
+                            <input type="radio" name="brand" value="<%= brand.id %>" <% if( search.brandParam == brand.id ){ %>checked<% } %>>
+                            <p><%= brand.brand %></p>
+                        </div>
+                    <% }) %> 
+                </section>
                 <button type="submit">Aplicar</button>
             </form>
-            <form action="/product/" method="get">
-                <button>Reiniciar busqueda</button>
+            <form action="/product/" method="get" class="reset-filter">
+                <button type="submit">Reiniciar busqueda</button>
             </form>
         </section>
         <% if ( isLogged ) { %>
@@ -78,5 +71,6 @@
          
     </main>
     <%- include("../partials/footer.ejs") %>
+    <script src="js/list.js"></script>
 </body>
 </html>

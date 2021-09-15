@@ -1,7 +1,37 @@
-const path = require('path');
-const fs = require('fs');
+const db = require('../database/models');
+const sequelize = db.sequelize;
+const { Op } = require("sequelize");
+const { query } = require('express');
 
 const model = {
+    all: async function() {
+        await db.Brand.findAll()
+        .then(brands => { return brands })
+        .catch(error => console.log(error))
+    },
+    allWithExtra: async function() {
+        await db.Brand.findAll({
+            include: [
+                {association: "Products"}
+            ]})
+        .then(brands => { return brands })
+        .catch(error => console.log(error))
+    },
+    one: async function(id) {
+        await db.Brand.findByPk(id)
+            .then(brand => { return brand })
+            .catch(error => console.log(error));
+    },
+    oneWithExtra: async function(id) {
+        await db.Brand.findByPk(id,{
+            include: [
+                {association: "Products"},
+            ]})
+            .then(brand => { return brand })
+            .catch(error => console.log(error));
+    }
+
+    /*
     allBrands: function() {
         const directory = path.resolve(__dirname,"../data","brands.json")
         const file = fs.readFileSync(directory,"utf-8")
@@ -40,7 +70,7 @@ const model = {
         
         console.log(marca);
         return marca.brand;
-    }
+    }*/
 }
 
 module.exports = model;

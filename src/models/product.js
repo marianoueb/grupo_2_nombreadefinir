@@ -1,13 +1,75 @@
-const path = require('path');
-const fs = require('fs');
+const db = require('../database/models');
+const sequelize = db.sequelize;
+const { Op } = require("sequelize");
+const { query } = require('express');
 
 const model = {
+    all: async function() {
+        await db.Product.findAll()
+        .then(products => { return products })
+        .catch(error => console.log(error))
+    },
+    allWithExtra: async function() {
+        await db.Product.findAll({
+            include: [
+                {association: "Brand"},
+                {association: "Categories"}
+            ]})
+        .then(products => { return products })
+        .catch(error => console.log(error))
+    },
+    one: async function(id) {
+        await db.Product.findByPk(id)
+            .then(producto => { return producto })
+            .catch(error => console.log(error));
+    },
+    oneWithExtra: async function(id) {
+        await db.Product.findByPk(id,{
+            include: [
+                {association: "Brand"},
+                {association: "Categories"}
+            ]})
+            .then(producto => { return producto })
+            .catch(error => console.log(error));
+    },
+    new: function (data, file) {
+        db.Product.create({
+            name: data.name,
+            description: data.description,
+            price: data.price,
+            brand_id: data.brand,
+            category_id: data.category,
+            image: file.filename 
+        })
+    },
+    update: function (data, file, id) {
+        db.Product.update({
+            name: data.name,
+            description: data.description,
+            price: data.price,
+            brand_id: data.brand,
+            category_id: data.category,
+            image: file.filename 
+        },{
+            where: {
+                id: id
+            }
+        })
+    },
+    delete: function (id) {
+        db.Product.destroy({
+            where: {
+                id: id
+            }
+        })
+    }
+/*{
     all: function() {
         const directory = path.resolve(__dirname,"../data","products.json")
         const file = fs.readFileSync(directory,"utf-8")
         const convert = JSON.parse(file)
         return convert
-    },/*
+    },
     allWithExtra: function () {
         let products = this.all();
         products.map(element => {
@@ -21,7 +83,7 @@ const model = {
             return element
         })
         return productos;
-    },*/
+    },
     one: function (id) {
         let productos = this.all();
         let resultado = productos.find(producto => producto.id == id)
@@ -59,7 +121,7 @@ const model = {
         let nuevo = {
             id: productos.length > 0 ? productos[productos.length -1].id + 1: 1,
             name: data.name,
-            description: data.description,
+            description: data.description, 
             brand: data.brand,
             image: file.filename,
             price: data.price,
@@ -104,6 +166,6 @@ const model = {
         console.log("Borrado exitoso");
         return true;
     }
-
+*/
 };
 module.exports = model;

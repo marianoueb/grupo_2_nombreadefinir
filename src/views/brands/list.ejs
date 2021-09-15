@@ -4,15 +4,23 @@
     <body>
         <%- include("../partials/header.ejs") %>
         <main>
-            <section id="galeria-marcas">
-                <% list.forEach(brand => { %>
-                <article class="marca">
-                    <a href="/brands/<%= brand.id %>">
-                        <figure><img class="logo-marca" src="/img/brands/<%= brand.logo %>" alt="<%= brand.brand %>"><div class="brand-span"><p class="brand-name"><%= brand.brand %></p></div></figure>
-                    </a>
-                </article>
-                <% }) %>
+            <section id="brand-sect">
+                <h1>Nuestras marcas</h1>
+                <section id="galeria-marcas">
+                    <% list.forEach(brand => { %>
+                        <article class="marca">
+                            <a href="/brands/<%= brand.id %>">
+                                <figure><img class="logo-marca" src="/img/brands/<%= brand.logo %>" alt="<%= brand.brand %>"><div class="brand-span"><p class="brand-name"><%= brand.brand %></p></div></figure>
+                            </a>
+                        </article>
+                    <% }) %>
+                </section>
             </section>
+            <% if ( isLogged ) { %>
+                <% if (loggedUser.admin) { %>
+                    <a href="/brands/create" id="add-brand">+</a>
+                <% } %>
+            <% } %>
         </main>
         <%- include("../partials/footer.ejs") %>
     </body>

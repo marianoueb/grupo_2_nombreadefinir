@@ -1,58 +1,114 @@
-const user = require('../models/users');
+const user = require("../models/users")
+const db = require('../database/models');
+const sequelize = db.sequelize;
+const { Op } = require("sequelize");
+const { query } = require('express');
 const bcrypt = require("bcrypt")
 
 module.exports = {
-    index:(req,res) => res.render("users/list",{ // Enlista los usuarios
-        list: user.all(),
-        title: "Listado de usuarios",
-        styles: "/css/userList.css"
-    }),
-    show: (req,res) => { // Muestra el usuario que es citado por el ID
-        if( req.params.id >= 0 ){
+    index: async (req, res) => {
+        let usuarios = await db.User.findAll({
+                include: [
+                    {association: "UserType"}
+                ]})
+            .then(users => { return users })
+            .catch(error => console.log(error))
+    
+        res.render('users/list', {
+            list: usuarios,
+            title: "Listado de usuarios",
+            viewCat: "users",
+            style: "userList.css", 
+            listTitle: "Listado de usuario"
+        })
+    },
+    show: async (req, res) => {
+        let usuarios = await db.User.findAll({
+            include: [
+                {association: "UserType"}
+            ]})
+        .then(users => { return users })
+        .catch(error => console.log(error))
+
+        let selected = await db.User.findByPk(req.params.id,{
+            include: [
+                {association: "UserType"}
+            ]})
+            .then(usuario => { return usuario })
+            .catch(error => console.log(error));
+
         res.render("users/profile",{
-            list: user.all(),
-            user: user.one(req.params.id),
-            title: "Perfil de usuario",
-            styles: "/css/userProfile.css"
-        })}
-    }
-    ,
+            list: usuarios,
+            user: selected,
+            title: "Perfil del usuario",
+            viewCat: "users",
+            style: "userProfile.css"
+        })
+    },
     create: (req,res) => {
         res.render("users/register",{
         title: "Registrarse",
-        styles: "/css/register.css"
+        viewCat: "users",
+        style: "register.css"
     })
     },
     save: (req,res) => {
-        console.log(req.body);
-        let result = user.new(req.body,req.file)
-        return result == true ? res.redirect("/") : res.send("Error al cargar la informacion") 
+        db.User.create({
+            name: req.body.name,
+            surname: req.body.surname,
+            email: req.body.email,
+            password: req.body.password,
+            tel: req.body.tel,
+            avatar: req.file.filename,
+            type_id: 1
+        })
+        res.redirect("/")
     },
-    edit: (req,res) => {
+    edit: async (req,res) => {
         let id = req.params.id;
+
+        let selected = await db.User.findByPk(id,{
+            include: [
+                {association: "UserType"}
+            ]})
+            .then(usuario => { return usuario })
+            .catch(error => console.log(error));
+
         res.render("users/edit",{
             title: "Editar perfil",
-            styles: "/css/register.css",
-            user: user.one(req.params.id)
+            viewCat: "users",
+            style: "register.css",
+            user: selected
         })
     },
     update: (req,res) =>{
-        const id = req.params.id;
-        console.log(req.params.id);
-        console.log("Iniciando edición de usuario")
-        let result = user.edit(req.body,req.file,req.params.id)
-        console.log("Finalizando edición");
-        return result == true ? res.redirect("/") : res.send("Error al cargar la informacion") 
+        db.User.update({
+            name: req.body.name,
+            surname: req.body.surname,
+            email: req.body.email,
+            password: req.body.password,
+            tel: req.body.tel,
+            avatar: req.file.filename,
+            type_id: 1 
+        },{
+            where: {
+                id: req.params.id
+            }
+        })
+        res.redirect("/users/" + req.params.id)
     },
     delete: (req,res) => {
-        const id = req.params.id;
-        console.log("id" + req.params.id);
-        let result = user.delete(id);
-        return result == true ? res.redirect("/") : res.send("Error al cargar la informacion") 
+        db.User.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+        res.redirect("/users/")
     },
     loginForm: (req, res) => res.render("users/login", {
         title: "Ingreso",
-        styles: "/css/login.css"
+        viewCat: "users",
+        style: "login.css"
     }),
     loginProcess: (req,res) => {
         let userToLogin = user.oneEmail(req.body.email);

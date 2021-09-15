@@ -8,20 +8,18 @@
     <% var thisId = product.id %> 
     <main id="detail" class="flex-container">
         <section id="galery" class="flex-container">
+          <%
+            function mil(numero) {
+            return numero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+          %>
           <figure><img class="foto-producto" src="/img/products/<%= product.image%>" alt=""></figure>
-          <section id="other-pics">
-              <figure><img src="/img/fotoproducto.jpg" alt=""></figure>
-              <figure><img src="/img/fotoproducto.jpg" alt=""></figure>
-              <figure><img src="/img/fotoproducto.jpg" alt=""></figure>
-              <figure><img src="/img/fotoproducto.jpg" alt=""></figure>
-              <figure><img src="/img/fotoproducto.jpg" alt=""></figure>
-          </section>
         </section>
   
         <article class="flex-container" id="product">
           <section>
             <h2><%= product.name%></h2>
-            <p class="precio-prod"><%= product.price%></p>
+            <p class="precio-prod">$<%= mil(product.price) %></p>
             <section id="puntacion" class="flex-container">
               <ul class="flex-container">
                 <li><i class="far fa-star"></i></li>
@@ -80,19 +78,21 @@
         </article>
       </main>
 
-      <section>
+      <section id="prod-sect">
         <h1>Productos relacionados</h1>
         <div id="galeria-recomendados">
           <% list.forEach(product => { 
-            if( product.id != thisId ){ %>
-            <article class="relacionado">
-                <figure><img class="foto-producto" src="/img/products/<%= product.image%>" alt=""></figure>
-                <div class="descripcion">
-                    <p class="nombre-producto"><a href="/product/<%= product.id %>"><%= product.name%></a></p>
-                    <p class="precio-producto"><%= product.price%></p>
-                </div>
-            </article>
-            <% }
+            if(product.id < 7){
+              if( product.id != thisId ){ %>
+              <article class="relacionado">
+                  <figure><img class="foto-producto" src="/img/products/<%= product.image%>" alt=""></figure>
+                  <div class="descripcion">
+                      <p class="nombre-producto"><a href="/product/<%= product.id %>"><%= product.name%></a></p>
+                      <p class="precio-producto">$<%= mil(product.price) %></p>
+                  </div>
+              </article>
+              <% }
+            }
           }) %>
         </div>
     </section>

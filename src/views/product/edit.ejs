@@ -20,19 +20,21 @@
                     <i class="aclaracion">(Precio en ARS)</i>
                 </section>
                 <section class="sect-principal">
-                    <h2>Categoría</h2>
-                    <select name="category">
-                        <option value="ferreteria" <% if( product.category == "ferreteria"){ %>selected="selected"<% } %>>Ferretería</option>
-                        <option value="pintureria" <% if( product.category == "pintureria"){ %>selected="selected"<% } %>>Pinturería</option>
-                        <option value="plomeria" <% if( product.category == "plomeria"){ %>selected="selected"<% } %>>Plomería</option>
-                        <option value="jardineria" <% if( product.category == "jardineria"){ %>selected="selected"<% } %>>Jardinería</option>
-                        <option value="maquinaria" <% if( product.category == "maquinaria"){ %>selected="selected"<% } %>>Maquinaria</option>
+                    <h2>Marca</h2>
+                    <select name="brand">
+                        <%marcas.forEach(brand => { %>
+                            <option value="<%= brand.id %>" <% if( product.brand_id == brand.id){ %>selected<% } %>><%= brand.brand %></option>
+                        <% }) %>
                     </select>
+                    <i class="aclaracion">(Si el producto no tiene marca, ingreselo como "Varios")</i>
                 </section>
                 <section class="sect-principal">
-                    <h2>Marca</h2>
-                    <input type="text" name="brand" placeholder="Black & Decker" id="" value="<%= product.brand %>" required>
-                    <i class="aclaracion">(Si el producto no tiene marca, ingreselo como "Varios")</i>
+                    <h2>Categoría</h2>
+                    <select name="category">
+                        <%categorias.forEach(cat => { %>
+                            <option value="<%= cat.id %>" <% if( product.category_id == cat.id){ %>selected<% } %>><%= cat.category %></option>
+                        <% }) %>
+                    </select>
                 </section>
                 <section class="sect-principal">
                     <h2>Imagen del producto</h2>

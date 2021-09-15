@@ -1,4 +1,8 @@
+DROP DATABASE IF EXISTS toolbox;
+
 CREATE DATABASE toolbox;
+
+USE toolbox;
 
 CREATE TABLE user_types (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
@@ -35,23 +39,8 @@ CREATE TABLE Products (
   	description TEXT NOT NULL,
   	price MEDIUMINT UNSIGNED NOT NULL,
   	brand_id INT UNSIGNED NOT NULL,
-  	image VARCHAR(30) NOT NULL,
-  	FOREIGN KEY (brand_id) REFERENCES brands(id)
-);
-
-CREATE TABLE Brands_Categories (
-    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     category_id INT UNSIGNED NOT NULL,
-    brand_id INT UNSIGNED NOT NULL,
-    FOREIGN KEY (category_id) REFERENCES categories(id),
-    FOREIGN KEY (brand_id) REFERENCES brands(id)
+  	image VARCHAR(30) NOT NULL,
+  	FOREIGN KEY (brand_id) REFERENCES brands(id),
+    FOREIGN KEY (category_id) REFERENCES categories(id)
 );
-
-CREATE TABLE Products_Categories (
-  id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-  product_id INT UNSIGNED NOT NULL,
-  category_id INT UNSIGNED NOT NULL,
-  FOREIGN KEY (product_id) REFERENCES products(id),
-  FOREIGN KEY (category_id) REFERENCES categories(id)
-);
-

@@ -1,19 +1,83 @@
 const brandModel = require('../models/brand');
+const db = require('../database/models');
+const sequelize = db.sequelize;
+const { Op } = require("sequelize");
 
 module.exports = {
-    index:(req,res) => res.render("brands/list",{ // Enlista las marcas
-        list: brandModel.allBrands(),
-        title: "Marcas",
-        styles: "/css/brandList.css"
-    }),
-    show: (req,res) => { // Muestra los productos de la marca seleccionada
-        console.log(req.params.id);
-        if( req.params.id >= 0 ){
-        res.render("brands/data",{
-            list: brandModel.allBrands(),
-            products: brandModel.findByBrand(req.params.id),
-            title: "Resultado del filtro",
-            styles: "/css/brand.css"
-        })}
+    index: async (req, res) => {
+        await db.Brand.findAll()
+            .then(brands => {
+                res.render('brands/list', {
+                    list: brands,
+                    title: "Marcas",
+                    viewCat: "brands",
+                    style: "brandList.css", 
+                    listTitle: "Listado de marcas"
+                })
+            })
+            .catch(error => console.log(error))
+    },
+    show: async (req, res) => {
+        let search = {
+            status: false,
+            category: false,
+            categoryParam: undefined,
+            brand: false,
+            brandParam: undefined,
+            query: false
+        }
+
+        let productos = await db.Product.findAll({
+                include: [
+                    {association: "Brand"},
+                    {association: "Categories"}
+                ],
+                where: {
+                    brand_id: req.params.id
+                }
+            })
+            .then(products => { return products })
+            .catch(error => console.log(error))
+        
+        let marcas = await db.Brand.findAll({})
+            .then(brands => { return brands })
+            .catch(error => console.log(error));
+
+        let categorias = await db.Category.findAll()
+            .then(cat => { return cat})
+            .catch(error => { console.log(error);})
+
+        res.render('product/list', {
+            list: productos,
+            brands: marcas,
+            cats: categorias,
+            title: "Productos",
+            viewCat: "products",
+            style: "list.css", 
+            listTitle: "Listado de productos",
+            search: search
+        })
+    },
+    create: (req,res) => {
+        res.render("brands/create",{
+        title: "Crear una marca",
+        viewCat: "brands",
+        style: "createBrands.css"
+        })
+    },
+    save: (req,res) => {
+        db.Brand.create({
+            brand: req.body.brand,
+            logo: req.file.filename 
+        })
+        res.redirect("/brands/")
+    },
+    delete: (req,res) => {
+        db.Brand.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+        res.redirect("/brands/")
     }
 }

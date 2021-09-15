@@ -20,24 +20,26 @@
                     <i class="aclaracion">(Precio en ARS)</i>
                 </section>
                 <section class="sect-principal">
-                    <h2>Categoría</h2>
-                    <select name="category">
-                        <option value="ferreteria">Ferretería</option>
-                        <option value="pintureria">Pinturería</option>
-                        <option value="plomeria">Plomería</option>
-                        <option value="jardineria">Jardinería</option>
-                        <option value="maquinaria">Maquinaria</option>
+                    <h2>Marca</h2>
+                    <select name="brand">
+                        <%marcas.forEach(marca => { %>
+                            <option value="<%= marca.id %>"><%= marca.brand %></option>
+                        <% }); %>
                     </select>
+                    <i class="aclaracion">(Si el producto no tiene marca, ingreselo como "Varios")</i>
                 </section>
                 <section class="sect-principal">
-                    <h2>Marca</h2>
-                    <input type="text" name="brand" placeholder="Black & Decker" id="" required>
-                    <i class="aclaracion">(Si el producto no tiene marca, ingreselo como "Varios")</i>
+                    <h2>Categoría</h2>
+                    <select name="category">
+                        <%categorias.forEach(cat => { %>
+                            <option value="<%= cat.id %>"><%= cat.category %></option>
+                        <% }); %>
+                    </select>
                 </section>
                 <section class="sect-principal">
                     <h2>Imagen del producto</h2>
                     <input name="productImage" type="file" src="" alt="" required>
-                    <i class="aclaracion">(Solo admite formatos .png y .jpg)</i>
+                    <i class="aclaracion">(Solo admite formato .jpg)</i>
                 </section>
                 <section id="botonera">
                     <button type="submit" id="submit">Enviar</button>
