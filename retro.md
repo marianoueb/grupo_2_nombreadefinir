@@ -129,3 +129,29 @@ Enfocarnos en temas que no son propios / prioridades del sprint.
 ## 5. Dejar de hacer.
 
 ---
+
+# Retrospectiva Sprint 6
+---
+## 1. Comenzar a hacer.
+
+Instrumentar mejoras y funcionalidades que vayan enriqueciendo el proyecto. .
+
+---
+## 2. Hacer más.
+
+Si contamos con tiempo libre, continuar con mejoras esteticas.
+
+---
+## 3. Continuar haciendo.
+
+Trabajando en equipo.
+
+---
+## 4. Hacer menos.
+
+Postergar los puntos especifico del sprint.
+
+---
+## 5. Dejar de hacer.
+
+---
