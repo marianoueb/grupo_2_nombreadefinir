@@ -38,8 +38,10 @@
           </section>
           <div>
             <section>
-              <form action="" method="post" class="flex-container" id="product-low">
-
+              <form action="/cart/order" method="post" class="flex-container" id="product-low">
+                <select name="producto" id="hidden">
+                  <option value="<%= product.id %>" selected></option>
+                </select>
                 <section id="amount-addcart">
                   <div id="amount">
                     <p>Cantidad</p>

@@ -6,19 +6,31 @@
 <main>   
                    <!-- SECCION QUE CONTIENE FORM Y POR QUE REGISTRARSE -->
 <section id =register-main>  
-    <form class="register" action="" method="POST" enctype="multipart/form-data">
+    <form class="register" action="" id="registerform" method="POST" enctype="multipart/form-data">
         <p class="titulo-register">Crea tu Cuenta</p>
 <section id = registerForm>
-    <input type="file" name="avatar" id="avatar" required>
-    <input type="text" id="name" name="name" placeholder="Nombre:" required >
-    <input type="text" id="surname" name="surname" placeholder="Apellido:" required>
-    <input type="email" id="email" name="email" placeholder="E-Mail:" required>
-    <input type="password" id="password" name="password" placeholder="Contraseña:" required>
-    <input type="tel" id="tel" name="tel" placeholder="Telefono:" required>
+    <div class="error-div">
+        <% if(backErrors.length > 0){ %> 
+            <% if (backErrors.length > 0) { %>
+                <section class="error-span">
+                    <% for( let i = 0; i < backErrors.length; i++ ) { %>
+                        <% let errorA = backErrors[i] %> 
+                        <h2 class="backError"> - <%= errorA.msg %></h2>
+                    <% } %>
+                </section>
+            <% } %>
+        <% } %> 
+    </div>
+    <input type="file" name="avatar" id="avatar" >
+    <input type="text" id="name" name="name" placeholder="Nombre:"  >
+    <input type="text" id="surname" name="surname" placeholder="Apellido:" >
+    <input type="text" id="email" name="email" placeholder="E-Mail:" >
+    <input type="password" id="password" name="password" placeholder="Contraseña:" >
+    <input type="tel" id="tel" name="tel" placeholder="Telefono:" >
   </section>
                     <!-- SECCION QUE CONTIENE BOTONES -->
   <section id="botones">
-    <button type="submit" id="submit">Registrarme</button><br>
+    <button type="submit" id="submitBtn">Registrarme</button><br>
     <!-- <button type="button">Ya estoy registrado </button> -->
     <a href="/login">Ya estoy registrado!</a>
   </section>  
@@ -61,5 +73,6 @@
                         <!-- FIN DE SECCION -->
         </main>
         <%- include("../partials/footer.ejs") %>
+        <script type="text/javascript" src="/script/user/register.js"></script>
     </body>
 </html>

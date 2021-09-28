@@ -7,6 +7,14 @@ main{
   margin-bottom: 20px;
   justify-content: center;
 }
+
+.error-span {
+  background-color: rgb(230, 134, 134);
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #383838;
+  border-radius: 10px;
+}
 /* ESTILO PARA TODA LA SECCION QUE CONTIENE FORM Y POR QUE REGISTRARSE */
 
 #register-main {
@@ -70,7 +78,7 @@ main input{
   padding: 5px;
   justify-content: center;
 } */
-#botones button#submit {
+#botones button#submitBtn {
   background-color: #0172BD;
   color: #fbfbfb;
   font-size: 16px;

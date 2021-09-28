@@ -2,7 +2,7 @@ const db = require('../database/models');
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 const { query } = require('express');
-
+const { validationResult } = require("express-validator")
 
 module.exports = {
     index: async (req, res) => {
@@ -81,19 +81,40 @@ module.exports = {
         marcas: marcas,
         categorias: categorias,
         viewCat: "products",
-        style: "createProduct.css"
+        style: "createProduct.css",
+        backErrors: 0
     })
     },
-    save: (req,res) => {
-        db.Product.create({
-            name: req.body.name,
-            description: req.body.description,
-            price: req.body.price,
-            brand_id: req.body.brand,
-            category_id: req.body.category,
-            image: req.file.filename 
-        })
-        res.redirect("/product/")
+    save: async (req,res) => {
+        let marcas = await db.Brand.findAll()
+            .then(brands => { return brands })
+            .catch(error => console.log(error));
+
+        let categorias = await db.Category.findAll()
+            .then(cat => { return cat})
+            .catch(error => { console.log(error);})
+
+        const results = validationResult(req) 
+        if (results.errors.length > 0) { 
+            res.render("product/create",{
+                title: "Crear un producto",
+                marcas: marcas,
+                categorias: categorias,
+                viewCat: "products",
+                style: "createProduct.css",
+                backErrors: results.errors
+            })
+        } else {
+            db.Product.create({
+                name: req.body.name,
+                description: req.body.description,
+                price: req.body.price,
+                brand_id: req.body.brand,
+                category_id: req.body.category,
+                image: req.file.filename 
+            })
+            res.redirect("/product/")
+        }
     },
     edit: async (req,res) => {
         let marcas = await db.Brand.findAll()
@@ -118,23 +139,56 @@ module.exports = {
             categorias: categorias,
             viewCat: "products",
             style: "createProduct.css",
-            product: selected
+            product: selected,
+            backErrors: 0
         })
     },
-    update: (req,res) =>{
-        db.Product.update({
-            name: req.body.name,
-            description: req.body.description,
-            price: req.body.price,
-            brand_id: req.body.brand,
-            category_id: req.body.category,
-            image: req.file.filename 
-        },{
-            where: {
-                id: req.params.id
+    update: async (req,res) =>{
+        let marcas = await db.Brand.findAll()
+            .then(brands => { return brands })
+            .catch(error => console.log(error));
+
+        let categorias = await db.Category.findAll()
+            .then(cat => { return cat})
+            .catch(error => { console.log(error);})
+
+        let id = req.params.id;
+        let selected = await db.Product.findByPk(id,{
+            include: [
+                {association: "Brand"},
+                {association: "Categories"}
+            ]})
+            .then(producto => { return producto })
+            .catch(error => console.log(error));
+            
+        const results = validationResult(req) 
+        console.log(results);
+        if (results.errors.length > 0) { 
+            res.render("product/edit",{
+                title: "Editar el producto",
+            marcas: marcas,
+            categorias: categorias,
+            viewCat: "products",
+            style: "createProduct.css",
+            product: selected,
+            backErrors: results.errors
+            })
+        } else {
+            db.Product.update({
+                name: req.body.name,
+                description: req.body.description,
+                price: req.body.price,
+                brand_id: req.body.brand,
+                category_id: req.body.category,
+                image: req.file.filename 
+            },{
+                where: {
+                    id: req.params.id
+                }
+            })
+            res.redirect("/product/" + req.params.id)
             }
-        })
-        res.redirect("/product/" + req.params.id)
+
     },
     delete: (req,res) => {
         db.Product.destroy({
@@ -233,12 +287,16 @@ module.exports = {
             search: search
         })
     },
-    cart: (req, res) => res.render("productCart", {
-        title: "Carrito",
-        viewCat: "products",
-        style: "productCart.css"
-    }),
     search: async (req, res) => {
+        let search = {
+            status: false,
+            category: false,
+            categoryParam: undefined,
+            brand: false,
+            brandParam: undefined,
+            query: req.query.search
+        }
+
         let productos = await db.Product.findAll({
             include: [
                 {association: "Brand"},
@@ -253,7 +311,7 @@ module.exports = {
                 {association: "Categories"}
             ],
             where: {
-                name: {[Op.like]: "%"+req.query.search+"%"}
+                name: {[Op.like]: "%"+search.query+"%"}
             }
             })
             .then(products => { return products })
@@ -281,7 +339,8 @@ module.exports = {
             viewCat: "products",
             style: "list.css", 
             listTitle: "Listado de productos",
-            query: query
+            query: query,
+            search: search
         })
     }
 }

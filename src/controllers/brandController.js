@@ -2,6 +2,7 @@ const brandModel = require('../models/brand');
 const db = require('../database/models');
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
+const { validationResult } = require("express-validator")
 
 module.exports = {
     index: async (req, res) => {
@@ -62,15 +63,27 @@ module.exports = {
         res.render("brands/create",{
         title: "Crear una marca",
         viewCat: "brands",
-        style: "createBrands.css"
+        style: "createBrands.css",
+        backErrors: 0
         })
     },
     save: (req,res) => {
-        db.Brand.create({
-            brand: req.body.brand,
-            logo: req.file.filename 
-        })
-        res.redirect("/brands/")
+        const results = validationResult(req) 
+        console.log(results);
+        if (results.errors.length > 0) { 
+            res.render("brands/create",{
+                title: "Crear una marca",
+                viewCat: "brands",
+                style: "createBrands.css",
+                errors: results.errors
+            })
+        } else {
+            db.Brand.create({
+                brand: req.body.brand,
+                logo: req.file.filename 
+            })
+            res.redirect("/brands/")
+        }
     },
     delete: (req,res) => {
         db.Brand.destroy({

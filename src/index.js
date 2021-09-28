@@ -46,3 +46,13 @@ app.use(brands)
 
 const cats = require("./routes/categories");
 app.use(cats)
+
+const carts = require("./routes/cart");
+app.use(carts)
+
+// Rutas API
+const productApi = require('./routes/api/product');
+app.use(productApi)
+
+const userApi = require('./routes/api/user');
+app.use(userApi)

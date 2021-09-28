@@ -44,3 +44,20 @@ CREATE TABLE Products (
   	FOREIGN KEY (brand_id) REFERENCES brands(id),
     FOREIGN KEY (category_id) REFERENCES categories(id)
 );
+
+CREATE TABLE Carts (
+	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  	status BOOL NOT NULL,
+    date DATE NOT NULL,
+  	user_id INT UNSIGNED NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE Orders (
+	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  	product_id INT NOT NULL,
+    quantity INT NOT NULL,
+  	cart_id INT NOT NULL,
+    FOREIGN KEY (product_id) REFERENCES products(id),
+    FOREIGN KEY (cart_id) REFERENCES carts(id)
+);

@@ -4,23 +4,36 @@
     <body>
         <%- include("../partials/header.ejs") %>
         <main>
-            <h1>Creación de la marca</h1>
-            <form enctype="multipart/form-data" method="POST" action="/brands/created">
+            <form enctype="multipart/form-data" id="brandcreate" method="POST" action="/brands/created">
+                <h1>Creación de la marca</h1>
+                <div class="error-div">
+                    <% if(backErrors.length > 0){ %> 
+                        <% if (backErrors.length > 0) { %>
+                            <section class="error-span">
+                                <% for( let i = 0; i < backErrors.length; i++ ) { %>
+                                    <% let errorA = backErrors[i] %> 
+                                    <h2 class="backError"> - <%= errorA.msg %></h2>
+                                <% } %>
+                            </section>
+                        <% } %>
+                    <% } %> 
+                </div>
                 <section class="sect-principal">
                     <h2>Nombre de la marca</h2>
-                    <input name="brand" class="field" type="text" placeholder="Black & Decker" required>
+                    <input name="brand" class="field" id="brand" type="text" placeholder="Black & Decker">
                 </section>
                 <section class="sect-principal">
                     <h2>Logo de la marca</h2>
-                    <input name="logo" type="file" src="" alt="" required>
+                    <input name="logo" id="logo" type="file" src="" alt="">
                     <i class="aclaracion">(Solo admite formato .jpg)</i>
                 </section>
                 <section id="botonera">
-                    <button type="submit" id="submit">Enviar</button>
+                    <button type="submit" id="submitBtn">Enviar</button>
                     <button type="reset" id="reset">Reiniciar campos</button>
                 </section>
             </form>
         </main>
         <%- include("../partials/footer.ejs") %>
+        <script type="text/javascript" src="/script/brand/create.js"></script>
     </body>
 </html>

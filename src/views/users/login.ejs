@@ -5,12 +5,25 @@
         <%- include("../partials/header.ejs") %>
         <main>   
 <section id =login-main>  
-    <form class="login" action="" method="POST" enctype="application/json">
+    <form class="login" id="formlogin" action="" method="POST" enctype="application/json">
         <p class="titulo-login">Bienvenido a Toolbox!</p>
 
-        <section id = loginForm>
-                <input type="email" id="email" name="email" placeholder="E-Mail:" required>
-                <input type="password" id="password" name="password" placeholder="Contraseña:" required>
+        <section id = loginForm> 
+            <div class="error-div">
+                <% if(frontErrors.length > 0 || backError.length > 0){ %> 
+                <section class="error-span">
+                    <h2 class="backError"> - <%= backError %></h2>
+                    <% if (frontErrors.length > 0) { %>
+                        <% for( let i = 0; i < frontErrors.length; i++ ) { %>
+                            <% let errorA = frontErrors[i] %> 
+                            <%= errorA.msg %>
+                        <% } %>
+                    <% } %>
+                </section>
+                <% } %> 
+            </div>
+                <input type="text" id="email" name="email" placeholder="E-Mail:">
+                <input type="password" id="password" name="password" placeholder="Contraseña:">
                 <div id="recordar">
                     <p>Recordame</p>
                     <input type="checkbox" name="recordar" id="">
@@ -18,7 +31,7 @@
         </section>
                     
         <section id="botones">
-                <button type="submit" id="submit">Ingresar</button><br>
+                <button type="submit" id="submitBtn">Ingresar</button><br>
                 <a href="/#">¿Olvidaste tu Contraseña?</a>
         </section>  
             
@@ -39,5 +52,6 @@
 </main>
 
 <%- include("../partials/footer.ejs") %>
+<script type="text/javascript" src="/script/user/login.js"></script>
     </body>
 </html>

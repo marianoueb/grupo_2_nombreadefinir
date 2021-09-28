@@ -3,7 +3,8 @@ const db = require('../database/models');
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 const { query } = require('express');
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcrypt");
+const { validationResult } = require("express-validator")
 
 module.exports = {
     index: async (req, res) => {
@@ -49,20 +50,40 @@ module.exports = {
         res.render("users/register",{
         title: "Registrarse",
         viewCat: "users",
-        style: "register.css"
+        style: "register.css",
+        backErrors: 0,
+        frontErrors: 0
     })
     },
-    save: (req,res) => {
-        db.User.create({
-            name: req.body.name,
-            surname: req.body.surname,
-            email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 10),
-            tel: req.body.tel,
-            avatar: req.file.filename,
-            type_id: 1
-        })
-        res.redirect("/")
+    save: async (req,res) => {
+        const results = validationResult(req) 
+        console.log(results);
+        if (results.errors.length > 0) { 
+            res.render("users/register",{
+                title: "Registrarse",
+                viewCat: "users",
+                style: "register.css",
+                backErrors: results.errors,
+                frontErrors: 0
+            })
+        } else {
+            let toCreate = await db.User.create({
+                name: req.body.name,
+                surname: req.body.surname,
+                email: req.body.email,
+                password: bcrypt.hashSync(req.body.password, 10),
+                tel: req.body.tel,
+                avatar: req.file.filename,
+                type_id: 1
+        });
+            let date = new Date()
+            db.Cart.create({
+                user_id: toCreate.id,
+                status: 1,
+                date: date
+            })
+            res.redirect("/")
+        }
     },
     edit: async (req,res) => {
         let id = req.params.id;
@@ -78,26 +99,67 @@ module.exports = {
             title: "Editar perfil",
             viewCat: "users",
             style: "register.css",
-            user: selected
+            user: selected,
+            backErrors: 0
         })
     },
-    update: (req,res) =>{
-        db.User.update({
-            name: req.body.name,
-            surname: req.body.surname,
-            email: req.body.email,
-            password: req.body.password,
-            tel: req.body.tel,
-            avatar: req.file.filename,
-            type_id: 1 
-        },{
+    update: async (req,res) =>{
+        let id = req.params.id;
+
+        let selected = await db.User.findByPk(id,{
+            include: [
+                {association: "UserType"}
+            ]})
+            .then(usuario => { return usuario })
+            .catch(error => console.log(error));
+
+        const results = validationResult(req) 
+        console.log(results);
+        if (results.errors.length > 0) { 
+            res.render("users/edit",{
+                title: "Editar perfil",
+                viewCat: "users",
+                style: "register.css",
+                user: selected,
+                backErrors: results.errors
+            })
+        } else {
+            db.User.update({
+                name: req.body.name,
+                surname: req.body.surname,
+                email: req.body.email,
+                password: req.body.password,
+                tel: req.body.tel,
+                avatar: req.file.filename
+            },{
+                where: {
+                    id: req.params.id
+                }
+            })
+            res.redirect("/users/" + req.params.id)
+        }
+    },
+    delete: async (req,res) => {
+        let lista = await db.Cart.findAll({
             where: {
-                id: req.params.id
+                user_id: req.params.id
             }
         })
-        res.redirect("/users/" + req.params.id)
-    },
-    delete: (req,res) => {
+        console.log("lista ", lista);
+        for (let i = 0; i < lista.length; i++) {
+            const element = lista[i];
+            db.Order.destroy({
+                where: {
+                    cart_id: element.id
+                }
+            })
+            console.log("element", element);
+        }
+        db.Cart.destroy({
+            where: {
+                user_id: req.params.id
+            }
+        })
         db.User.destroy({
             where: {
                 id: req.params.id
@@ -115,39 +177,60 @@ module.exports = {
     loginForm: (req, res) => res.render("users/login", {
         title: "Ingreso",
         viewCat: "users",
-        style: "login.css"
+        style: "login.css",
+        backError: 0,
+        frontErrors: 0
     }),
     loginProcess: async (req,res) => {
-        let users = await db.User.findAll({
-            include: [
-                {association: "UserType"}
-            ]
-        })
-            .then(list => {return list})
-            .catch(error => console.log(error))
-        let userToLogin = {}
-        for (let i = 0; i < users.length; i++) {
-            const user = users[i];
-            if (user.email == req.body.email){
-                userToLogin = user
-            }            
-        }
-        console.log(userToLogin);
-        if (userToLogin) {
-            let validator = bcrypt.compareSync(req.body.password, userToLogin.password)
-            if (validator) {
-                req.session.loggedUser = userToLogin
-                res.locals.loggedUser = req.session.loggedUser
-                if (req.body.recordar != undefined) {
-                    res.cookie("email", req.body.email, {maxAge: 60000 * 60})
-                }
-                console.log(req.cookies);
-                res.redirect("/home/")
-            } 
-            else { res.redirect("/login/") }
-        }
-        else { res.redirect("/login/") }
+        let userToLogin = await db.User.findOne({
+            where: {
+                email: req.body.email
+            }
+        }).then(list => {return list}).catch(error => console.log(error))
 
+        if (req.body.email) {
+            if (userToLogin) {
+                let validator = bcrypt.compareSync(req.body.password, userToLogin.password)
+                if (validator) {
+                    req.session.loggedUser = userToLogin
+                    res.locals.loggedUser = req.session.loggedUser
+                    if (req.body.recordar != undefined) {
+                        res.cookie("email", req.body.email, {maxAge: 60000 * 60})
+                    }
+                    console.log(req.cookies);
+                    res.redirect("/home/")
+                }  
+                else { 
+                    console.log("La contraseña no coincide con el email ingresado");
+                    res.render("users/login", {
+                        title: "Ingreso",
+                        viewCat: "users",
+                        style: "login.css",
+                        backError: "La contraseña no coincide con el email ingresado",
+                        frontErrors: 0
+                    })
+                }
+            }
+            else { 
+                console.log("El email ingresado no se encuentra registrado");
+                res.render("users/login", {
+                    title: "Ingreso",
+                    viewCat: "users",
+                    style: "login.css",
+                    backError: "El email ingresado no se encuentra registrado",
+                    frontErrors: 0
+                })
+            }
+        } else {
+            console.log("El campo de email debe completarse");
+            res.render("users/login", {
+                title: "Ingreso",
+                viewCat: "users", 
+                style: "login.css",
+                backError: "El campo de email debe completarse",
+                frontErrors: 0
+            })
+        }
     },
     logout: (req, res) => { 
         req.session.destroy()

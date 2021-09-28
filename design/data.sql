@@ -25,3 +25,11 @@ INSERT INTO products VALUES (DEFAULT, 'Calibre metálico', 'Calibre metálico im
 INSERT INTO products VALUES (DEFAULT, "Candado 32mm", "Candado bronceado Dubai 32mm", 309.30, 5, 1, "candado-dubai-32mm.jpg");
 INSERT INTO products VALUES (DEFAULT, 'Cinta métrica', 'Cinta métrica auto-frenante 3mx19mm Bremen', 1152.11, 3, 1, "cinta-metrica-3m-bremen.jpg");
 INSERT INTO products VALUES (DEFAULT, 'Hidrolavadora Black & Decker PW1370', 'HIDROLAVADORA ELÉCTRICA 1300 W • Marca: Black+Decker. • Modelo: Pw1370td. ESPECIFICACIONES - • Potencia: 1300w. • Caudal máximo: 6,5 L/min. • Caudal de trabajo: 5 L/min. • Presión máxima: 110 bar (1595 Psi) • Manguera: 3 m. • Cable: 5 m. • Apagado automático. • Almacenaje para accesorios. • Filtro de entrada de agua para más vida útil. • Origen: China. - INCLUYE - • Hidrolavadora Black+Decker pw1370td. • Lanza ajustable. ', 11558, 2, 5, "productImage-1627417753739.jpg");
+
+INSERT INTO categories VALUES (DEFAULT, 'Plomería', 'fas fa-sink');
+INSERT INTO categories VALUES (DEFAULT, 'Jardinería', 'fas fa-fan');
+INSERT INTO categories VALUES (DEFAULT, 'Maquinaria', 'fas fa-snowplow');
+
+INSERT INTO carts VALUES (DEFAULT, 1, 2021-09-18, 7);
+INSERT INTO carts VALUES (DEFAULT, 1, 2021-09-18, 8);
+INSERT INTO carts VALUES (DEFAULT, 1, 2021-09-18, 9);

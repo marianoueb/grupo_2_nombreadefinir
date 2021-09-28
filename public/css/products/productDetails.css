@@ -67,6 +67,9 @@ h3{
    flex-flow: column wrap;
  }
  
+#hidden {
+  display: none;
+}
 
   #carro {
     background: #0172BD;

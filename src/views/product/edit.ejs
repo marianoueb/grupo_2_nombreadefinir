@@ -4,19 +4,31 @@
     <body>
         <%- include("../partials/header.ejs") %>
         <main>
-            <h1>Edición del producto</h1>
-            <form enctype="multipart/form-data" method="POST" action="/product/edited/<%= product.id %>">
+            <form enctype="multipart/form-data" method="POST" id="editform" action="/product/edited/<%= product.id %>">
+                <h1>Edición del producto</h1>
+                <div class="error-div">
+                    <% if(backErrors.length > 0){ %> 
+                        <% if (backErrors.length > 0) { %>
+                            <section class="error-span">
+                                <% for( let i = 0; i < backErrors.length; i++ ) { %>
+                                    <% let errorA = backErrors[i] %> 
+                                    <h2 class="backError"> - <%= errorA.msg %></h2>
+                                <% } %>
+                            </section>
+                        <% } %>
+                    <% } %> 
+                </div>
                 <section class="sect-principal">
                     <h2>Nombre del producto</h2>
-                    <input name="name" class="field" type="text" placeholder="Martillo" value="<%= product.name %>" required>
+                    <input name="name" class="field" id="name" type="text" placeholder="Martillo" value="<%= product.name %>">
                 </section>
                 <section class="sect-principal">
                     <h2>Descripción</h2>
-                    <textarea name="description" class="field" id="" cols="30" rows="10" required><%= product.description %> </textarea>
+                    <textarea name="description" class="field" id="description" cols="30" rows="10"><%= product.description %> </textarea>
                 </section>
                 <section class="sect-principal">
                     <h2>Precio por unidad</h2>
-                    <input name="price" class="field" type="text" placeholder="$12345.67" value="<%= product.price %>" required>
+                    <input name="price" id="price" class="field" type="text" placeholder="$12345.67" value="<%= product.price %>">
                     <i class="aclaracion">(Precio en ARS)</i>
                 </section>
                 <section class="sect-principal">
@@ -38,15 +50,16 @@
                 </section>
                 <section class="sect-principal">
                     <h2>Imagen del producto</h2>
-                    <input name="productImage" type="file" src="" alt="" value="<%= product.image %>" required>
+                    <input name="productImage" type="file" src="" alt="" id="productImage" value="<%= product.image %>">
                     <i class="aclaracion">(Cambie o vuelva a subir la misma imagen)</i>
                 </section>
                 <section id="botonera">
-                    <button type="submit" id="submit">Enviar</button>
+                    <button type="submit" id="submitButton">Enviar</button>
                     <button type="reset" id="reset">Reiniciar campos</button>
                 </section>
             </form>
         </main>
         <%- include("../partials/footer.ejs") %>
+        <script type="text/javascript" src="/script/product/edit.js"></script>
     </body>
 </html>

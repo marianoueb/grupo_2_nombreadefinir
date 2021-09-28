@@ -76,7 +76,18 @@ section.elemento h4 {
 }
 
 /* Configuración del monto y la cantidad */
+.image {
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.producto {
+    width: 400px;
+}
 .cantidad {
+    flex-grow: 2;
+    width: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -87,6 +98,9 @@ section.elemento h4 {
     border: #383838 3px solid;
 }
 .final {
+    width: 100px;
+    flex-grow: 2;
+    text-align: center;
     margin: auto;
     align-self: center;
     justify-self: center;
@@ -112,10 +126,11 @@ section.elemento h4 {
 #division {
     display: flex;
 }
-#division h2 {
+#resumen h2 {
     font-size: 23px;
-    font-weight: 500;
+    font-weight: 600;
     margin: 10px;
+    text-align: center;
 }
 #division p {
     margin: 6px;
@@ -128,6 +143,8 @@ br {
 #envio {
     display: flex;
     margin: 10px;
+    align-items: center;
+    justify-content: center;
 }
 #resumen-final {
     border: #383838 solid 3px;

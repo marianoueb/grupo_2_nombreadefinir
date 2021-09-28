@@ -3,12 +3,17 @@ body {
 }
 main {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin: 40px;
 }
+.error-span {
+    background-color: rgb(230, 134, 134);
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #383838;
+    border-radius: 10px;
+  }
 main section.sect-principal {
     width: 100%;
     padding-bottom: 20px;
@@ -20,6 +25,7 @@ main h1 {
     font-size: 25px;
     font-weight: 600;
     margin: 20px;
+    justify-self: flex-start;
 }
 main form {
     display: flex;
@@ -68,7 +74,7 @@ main section.fecha section {
 main section.fecha section input {
     margin: 10px;
 }
-main #botonera button#submit {
+main #botonera button#submitButton {
     background-color: rgb(57, 155, 0);
     color: #fbfbfb;
     font-size: 16px;
@@ -87,6 +93,9 @@ main #botonera button#reset{
     margin: 5px;
     color: #383838;
 }
+.error-span h2 {
+    font-size: 16px;
+  }
 
 @media (min-width: 768px) {
     main form {

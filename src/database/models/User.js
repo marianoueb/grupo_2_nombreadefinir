@@ -46,6 +46,11 @@ module.exports = (sequelize, DataTypes) => {
             as: "UserType",
             foreignKey: "type_id"
         })
+
+        User.hasMany(models.Cart, { 
+            as: "Carts",
+            foreignKey: 'user_id'
+        })
     }
 
     return User;
