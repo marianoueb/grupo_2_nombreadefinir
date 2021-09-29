@@ -35,6 +35,8 @@ window.addEventListener("load",function (){
             errores.push("El campo de teléfono debe estar completo");
         } else if (!/^[0-9]*$/.test(tel.value)){
             errores.push("El telefono debe estar en formato numérico");
+        } else if (tel.value.length < 10) {
+            errores.push("El teléfono debe tener al menos 10 caracteres");
         }
         if (email.value.length < 1) {
             errores.push("El campo de email debe estar completo");
@@ -42,7 +44,7 @@ window.addEventListener("load",function (){
             errores.push("El email debe estar en el formato correcto");
         }
         if (avatar.value.length < 1) {
-            errores.push("Debes subir una imagen del producto");
+            errores.push("Debes subir una imagen de perfil");
         } else if (!/^.*\.(jpg|JPG|gif|GIF|jpeg|JPEG|png|PNG)$/.test(avatar.value)) {
             errores.push("La foto del producto debe estar en formato .jpg, .png o .gif");
         }

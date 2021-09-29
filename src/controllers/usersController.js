@@ -180,13 +180,21 @@ module.exports = {
         style: "login.css",
         backError: 0,
         frontErrors: 0
-    }),
+    }), 
     loginProcess: async (req,res) => {
+        let logError = {
+            original: {
+                errno: ""
+            }
+        };
         let userToLogin = await db.User.findOne({
             where: {
                 email: req.body.email
             }
-        }).then(list => {return list}).catch(error => console.log(error))
+        }).then(list => {return list}).catch(error => {
+            logError = error
+            console.log(error)
+        })
 
         if (req.body.email) {
             if (userToLogin) {
@@ -197,7 +205,6 @@ module.exports = {
                     if (req.body.recordar != undefined) {
                         res.cookie("email", req.body.email, {maxAge: 60000 * 60})
                     }
-                    console.log(req.cookies);
                     res.redirect("/home/")
                 }  
                 else { 
@@ -210,8 +217,16 @@ module.exports = {
                         frontErrors: 0
                     })
                 }
-            }
-            else { 
+            } else if (logError.original.errno == "-4078"){
+                console.log("La base de datos está fuera de servicio");
+                res.render("users/login", {
+                    title: "Ingreso",
+                    viewCat: "users",
+                    style: "login.css",
+                    backError: "La base de datos está fuera de servicio",
+                    frontErrors: 0
+                })
+            } else { 
                 console.log("El email ingresado no se encuentra registrado");
                 res.render("users/login", {
                     title: "Ingreso",
