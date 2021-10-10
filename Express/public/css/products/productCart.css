@@ -1,0 +1,222 @@
+body {
+    background-color: #d2d3cb;
+}
+
+/* Disposición inicial de los objetos */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+/* Alineación de la primera sección */
+section#lista {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+}
+
+/* Datos básicos para las etiquetas h1, i y p*/
+h1 {
+    font-size: 25px;
+    font-weight: 600;
+}
+i {
+    font-style: italic;
+}
+p {
+    margin: 0px 5px;
+}
+
+/* Disposición de la parte superior izquierda */
+#texto-carrito {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#remover {
+    display: flex;
+    justify-content: center;
+}
+
+/* Configuración y disposición de la caja de cada elemento */
+section.elemento {
+    border: solid 3px #383838;
+    padding: 15px;
+    margin: 5px;
+    display: flex;
+    box-shadow: 2px 2px 5px 0px #383838;
+    background-color: #f2f2f2;
+}
+
+/* Configuración de las imagenes */
+section.elemento img {
+    width: 75px;
+    height: 75px;
+    margin: 10px;
+    margin-left: 0px;
+}
+
+/* Configuración del titulo de los elementos, su descripción, la opción de remover artículos ademas de la opcion de garantía */
+section.elemento h3 {
+    font-size: 20px;
+    font-weight: 600;
+}
+section.elemento h4 {
+    font-size: 17px;
+}
+.remover {
+    display: flex;
+    margin: 10px;
+}
+.garantia {
+    display: flex;
+    align-items: center;
+}
+
+/* Configuración del monto y la cantidad */
+.image {
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.producto {
+    width: 400px;
+}
+.cantidad {
+    flex-grow: 2;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cant {
+    padding: 10px;
+    border: #383838 3px solid;
+}
+.final {
+    width: 100px;
+    flex-grow: 2;
+    text-align: center;
+    margin: auto;
+    align-self: center;
+    justify-self: center;
+}
+
+/**/
+#resumen {
+    border-color: #fbfbfb;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border: #383838 solid 3px;
+    background-color: #f2f2f2;
+}
+
+#resumen h1 {
+    font-size: 27px;
+    margin: 10px;
+    margin-top: 30px;
+}
+
+#division {
+    display: flex;
+}
+#resumen h2 {
+    font-size: 23px;
+    font-weight: 600;
+    margin: 10px;
+    text-align: center;
+}
+#division p {
+    margin: 6px;
+    font-size: 18px;
+    text-align: center;
+}
+br {
+    height: 20px;
+}
+#envio {
+    display: flex;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+}
+#resumen-final {
+    border: #383838 solid 3px;
+    border-radius: 20px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 5px 0px #383838;
+}
+#resumen-final section {
+    display: flex;
+}
+#resumen-final button {
+    background-color: #0172BD;
+    color: #fbfbfb;
+    font-size: 20px;
+    padding: 20px;
+    border: #383838 solid 2px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 4px 0px #383838;
+}
+#resumen-final button:active {
+    box-shadow: 0px 0px 0px 0px 
+}
+
+#error{
+    align-self: center;
+    justify-self: center;
+    border: #383838 3px solid;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 30px;
+}
+#error h2 {
+    font-size: 35px;
+    font-weight: 600;
+    padding: 20px;
+}
+#error h3 {
+    font-size: 25px;
+    padding: 10px;
+}
+#error button {
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 26px;
+    background-color: #383838;
+    color: #fbfbfb;
+}
+
+@media (max-width: 420px) {
+    .elemento {
+        flex-wrap: wrap;
+    }
+}
+
+
+@media (min-width: 768px) {
+    main {
+        flex-direction: row;
+    }
+    section#lista {
+        width: 65vw;
+    }
+    section#resumen {
+        width: 33vw;
+    }
+}
