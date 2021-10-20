@@ -155,3 +155,31 @@ Postergar los puntos especifico del sprint.
 ## 5. Dejar de hacer.
 
 ---
+
+# Retrospectiva Sprint 7
+---
+## 1. Comenzar a hacer.
+
+Realizar un cheklist de mejoras esteticas que nos gustaria darle al proyecto de cara al sprint final.
+
+---
+## 2. Hacer más.
+
+Aplicar funcionalidades.
+
+---
+## 3. Continuar haciendo.
+
+Trabajando en equipo.
+
+---
+## 4. Hacer menos.
+
+Trabajar en puntos que no son propios del sprint.
+
+---
+## 5. Dejar de hacer.
+
+---
+
+
