@@ -3,7 +3,7 @@ import { Fragment } from 'react'
 import logo from "../logo-toolbox.png"
 import "./css/Leftnav.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faBox, faUser, faTruck, faPaintRoller } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faBox, faUser, faTruck, faPaintRoller, faDollarSign } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import MenuList from '@mui/material/MenuList';
 import MenuItem from '@mui/material/MenuItem';
@@ -16,7 +16,9 @@ function Leftnav() {
     <Fragment>
       <section id="left-body">
           <nav id="top-nav">
-            <img src={ logo } alt="toolbox-logo" />
+            <Link to="/" className="nav-img" exact="true">
+              <img src={ logo } alt="toolbox-logo" />
+            </Link>
             <MenuList className="menu-list">
               <Link to="/" className="link-nav" exact="true">
                 <MenuItem className="menu-item">
@@ -56,6 +58,14 @@ function Leftnav() {
                     <FontAwesomeIcon icon={faPaintRoller} />
                   </ListItemIcon>
                   <ListItemText>Categorías</ListItemText>
+                </MenuItem>
+              </Link>
+              <Link to="/sales" className="link-nav" exact="true">
+                <MenuItem className="menu-item">
+                  <ListItemIcon>
+                    <FontAwesomeIcon icon={faDollarSign} />
+                  </ListItemIcon>
+                  <ListItemText>Sales</ListItemText>
                 </MenuItem>
               </Link>
             </MenuList>

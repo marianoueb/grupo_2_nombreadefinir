@@ -5,6 +5,7 @@ import { process } from "@progress/kendo-data-query";
 import Box from '@mui/material/Box';
 import ProductsMainBought from './ProductsMainBought';
 import ProductsMainTotal from './ProductsMainTotal';
+import { Link } from 'react-router-dom';
 
 const initialDataState = {
   sort: [
@@ -41,6 +42,18 @@ function ProductsMain () {
     
   }, [])
 
+  const CustomLinkCell = (props) => {
+    return (
+      <td>
+        <Link to={`../products/${props.dataItem.id}`}>
+          {
+          props.dataItem[props.field]
+          } 
+        </Link>
+      </td>
+    )
+  }
+
   return(
     <Fragment>
       <Box className="main-top" sx={{ width: '100%', height:'26%', textAlign:'center'}}>
@@ -63,11 +76,11 @@ function ProductsMain () {
             width: "90%"
           }}
         >
-          <GridColumn title="ID" field="id" locked={true} width={setPercentage(5)} />
-          <GridColumn title="Producto" field="name" width={setPercentage(25)} />
-          <GridColumn title="Precio" field="price" width={setPercentage(10)} />
-          <GridColumn title="Marca" field="brand" width={setPercentage(15)} />
-          <GridColumn title="Categoría" field="category" width={setPercentage(10)} />
+          <GridColumn title="ID" cell={CustomLinkCell} field="id" locked={true} width={setPercentage(5)} />
+          <GridColumn title="Producto" cell={CustomLinkCell} field="name" width={setPercentage(25)} />
+          <GridColumn title="Precio" cell={CustomLinkCell} field="price" width={setPercentage(10)} />
+          <GridColumn title="Marca" cell={CustomLinkCell} field="brand" width={setPercentage(15)} />
+          <GridColumn title="Categoría" cell={CustomLinkCell} field="category" width={setPercentage(10)} />
         </Grid>
 
     </Fragment>

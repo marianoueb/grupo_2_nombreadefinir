@@ -8,6 +8,8 @@ import Paper from '@mui/material/Paper';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHammer, faSink, faFan, faSnowplow, faPaintRoller } from '@fortawesome/free-solid-svg-icons'
 
+import { Link } from "react-router-dom"
+
 class CatProducts extends Component {
 
     constructor(){
@@ -24,7 +26,7 @@ class CatProducts extends Component {
             })
             .then(resp => { 
                 this.setState({
-                    cats: resp.data
+                    cats: resp.top
                 }) 
             })
             .catch(error => console.log(error))
@@ -59,6 +61,7 @@ class CatProducts extends Component {
                         }
                         >
                         { this.state.cats.map(cat => 
+                        <Link to={"/categories/"+cat.id} className="main-link" exact="true">
                             <ListItemButton>
                                 <IconButton edge="end" aria-label="">
                                     {switchIcon(cat.icon)}
@@ -74,6 +77,7 @@ class CatProducts extends Component {
                                     </div>
                                 </IconButton>
                             </ListItemButton>
+                        </Link>
                         )}
                     </List>
                 </Paper>

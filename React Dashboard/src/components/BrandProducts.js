@@ -8,6 +8,8 @@ import IconButton from '@mui/material/IconButton';
 import ListSubheader from '@mui/material/ListSubheader';
 import Paper from '@mui/material/Paper';
 
+import { Link } from "react-router-dom"
+
 class BrandProducts extends Component {
 
     constructor(){
@@ -24,7 +26,7 @@ class BrandProducts extends Component {
             })
             .then(resp => { 
                 this.setState({
-                    brands: resp.data
+                    brands: resp.top
                 }) 
             })
             .catch(error => console.log(error))
@@ -45,6 +47,7 @@ class BrandProducts extends Component {
                         }
                         >
                         { this.state.brands.map(brand => 
+                        <Link to={"/brands/"+brand.id} className="main-link" exact="true">
                             <ListItemButton>
                                 <ListItemAvatar>
                                     <Avatar src={brand.logo} alt="avatar" />
@@ -60,6 +63,7 @@ class BrandProducts extends Component {
                                     </div>
                                 </IconButton>
                             </ListItemButton>
+                        </Link>
                         )}
                     </List>
                 </Paper>

@@ -7,6 +7,8 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { /*Button,*/ CardActionArea/*, CardActions*/ } from '@mui/material';
 
+import { Link } from "react-router-dom"
+
 class Sales extends Component {
 
     constructor(){
@@ -39,20 +41,22 @@ class Sales extends Component {
         return (
             <Fragment>
                 <Paper elevation={3} square>
-                    <Card sx={{ maxWidth: 345 }}>
-                        <CardActionArea>
-                            <CardContent>
-                                <Typography gutterBottom variant="h3" component="div">
-                                    {this.state.ventas.meta.cartCount}
-                                </Typography>
-                            </CardContent>
-                            <CardContent>
-                                <Typography variant="h5" color="text.secondary">
-                                    Ordenes finalizadas en total
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
+                    <Link to="/sales/" className="main-link" exact="true">
+                        <Card sx={{ maxWidth: 345 }}>
+                            <CardActionArea>
+                                <CardContent>
+                                    <Typography gutterBottom variant="h3" component="div">
+                                        {this.state.ventas.meta.cartCount}
+                                    </Typography>
+                                </CardContent>
+                                <CardContent>
+                                    <Typography variant="h5" color="text.secondary">
+                                        Ordenes finalizadas en total
+                                    </Typography>
+                                </CardContent>
+                            </CardActionArea>
+                        </Card>
+                    </Link>
                 </Paper>
             </Fragment>
         )

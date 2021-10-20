@@ -136,7 +136,7 @@ module.exports = {
                     id: req.params.id
                 }
             })
-            res.redirect("/users/" + req.params.id)
+            res.redirect("/")
         }
     },
     delete: async (req,res) => {

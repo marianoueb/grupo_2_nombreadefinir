@@ -440,14 +440,20 @@ a {
 
 @media (max-width: 433px) {
     #galeria-recomendados {
-        width: 100vw;
+        width: 80%;
     }
     
     .recomendado img {
-        width: 180px;
+        width: 150px;
     }
     
+    #prod-sect {
+        margin: 10px;
+    }
 
+    #filter {
+        width: 30%;
+    }
 
 }
 

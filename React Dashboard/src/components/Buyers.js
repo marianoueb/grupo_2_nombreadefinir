@@ -7,6 +7,8 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { /*Button,*/ CardActionArea/*, CardActions*/ } from '@mui/material';
 
+import { Link } from "react-router-dom"
+
 class Buyers extends Component {
 
     constructor(){
@@ -27,7 +29,7 @@ class Buyers extends Component {
             })
             .then(resp => { 
                 this.setState({
-                    compradores: resp
+                    compradores: resp.meta.buyers
                 }) 
             })
             .catch(error => console.log(error))
@@ -40,20 +42,22 @@ class Buyers extends Component {
         return (
             <Fragment>
                 <Paper elevation={3} square>
-                    <Card sx={{ maxWidth: 345 }}>
-                        <CardActionArea>
-                            <CardContent>
-                                <Typography gutterBottom variant="h3" component="div">
-                                    {this.state.compradores.meta.sales}
-                                </Typography>
-                            </CardContent>
-                            <CardContent>
-                                <Typography variant="h5" color="text.secondary">
-                                    Usuarios compradores
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
+                    <Link to="/users/" className="main-link" exact="true">
+                        <Card sx={{ maxWidth: 345 }}>
+                            <CardActionArea>
+                                <CardContent>
+                                    <Typography gutterBottom variant="h3" component="div">
+                                        {this.state.compradores.length}
+                                    </Typography>
+                                </CardContent>
+                                <CardContent>
+                                    <Typography variant="h5" color="text.secondary">
+                                        Usuarios compradores
+                                    </Typography>
+                                </CardContent>
+                            </CardActionArea>
+                        </Card>
+                    </Link>
                 </Paper>
             </Fragment>
         )

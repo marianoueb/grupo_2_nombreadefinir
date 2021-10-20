@@ -9,16 +9,25 @@ const fs = require('fs');
 module.exports = {
     index: (req, res) => {
         db.User.findAll({
-            attributes: {exclude: ['password',"type_id"]}})  
+            attributes: {exclude: ['password']}})  
             .then(users => {
             let userList = [];
             for (let i = 0; i < users.length; i++) {
                 const element = users[i];
+                let elementType = "";
+                if (element.type_id == 1) {
+                    elementType = "Usuario"
+                } else if (element.type_id == 2){
+                    elementType = "Administrador"
+                } else {
+                    elementType = "Creador"
+                }
                 let actualUser = {
                     id: element.id,
                     name: element.name,
                     surname: element.surname,
                     email: element.email,
+                    type: elementType,
                     detail: "/api/user/"+element.id
                 }
                 userList.push(actualUser)
@@ -26,7 +35,7 @@ module.exports = {
             let respuesta = {
                 meta: {
                     status : 200,
-                    total: users.length,
+                    count: users.length,
                     url: '/api/users'
                 },
                 data: userList
@@ -37,8 +46,17 @@ module.exports = {
     },
     show: (req, res) => {
         db.User.findByPk(req.params.id,{
-            attributes: {exclude: ['password',"type_id"]}})
+            attributes: {exclude: ['password']}})
             .then(user => {
+                function tipo(id){
+                    if(id == 1){
+                        return "Usuario"
+                    } else if (id == 2){
+                        return "Administrador"
+                    } else {
+                        return "Creador"
+                    }
+                }
                 let respuesta = {
                     meta: {
                         status: 200,
@@ -50,7 +68,8 @@ module.exports = {
                         surname: user.surname,
                         email: user.email, 
                         tel: user.tel,
-                        avatar: "/img/users/"+user.avatar
+                        type: tipo(user.type_id),
+                        avatar: "http://localhost:3001/img/users/"+user.avatar
                     }
                 }
                 res.json(respuesta);
@@ -182,10 +201,21 @@ module.exports = {
             let salesAcc = 0;
             for (let i = 0; i < respArray.length; i++) {
                 const element = respArray[i]; 
-                console.log(element.dataValues.CartCount);
+                let actualUser = {
+                    id: element.Users.id,
+                    name: element.Users.name,
+                    surname: element.Users.surname,
+                    email: element.Users.email,
+                    type_id: element.Users.type_id,
+                    avatar: "http://localhost:3001/img/users/"+element.Users.avatar,
+                    detail: "/api/user/"+element.id,
+                    cartCount: element.dataValues.CartCount
+                }
+                
                 let cartCount = element.dataValues.CartCount;
                 salesAcc = salesAcc + cartCount;
-                userList.push(element.Users);
+
+                userList.push(actualUser)
             }
             let respuesta = {
                 meta: {
@@ -194,7 +224,7 @@ module.exports = {
                     sales: salesAcc,
                     url: '/api/products/sales'
                 },
-                data: respArray
+                data: userList
             }
                 res.json(respuesta);
             })

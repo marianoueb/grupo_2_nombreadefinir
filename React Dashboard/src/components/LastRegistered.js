@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import ListSubheader from '@mui/material/ListSubheader';
 import Paper from '@mui/material/Paper';
 
+import { Link } from "react-router-dom"
 
 class LastRegistered extends Component {
 
@@ -50,6 +51,7 @@ class LastRegistered extends Component {
                         }
                         >
                         { this.state.users.map(user => 
+                        <Link to={"/users/"+user.id} className="main-link" exact="true">
                             <ListItemButton>
                                 <ListItemAvatar>
                                     <Avatar src={user.avatar} alt="avatar" />
@@ -65,6 +67,7 @@ class LastRegistered extends Component {
                                     </div>
                                 </IconButton>
                             </ListItemButton>
+                        </Link>
                         )}
                     </List>
                 </Paper>

@@ -8,7 +8,7 @@ class UserInfo extends Component {
       user: 0
     }
   }
-
+/*
   componentDidMount(){
     fetch("")
       .then(respuesta => { 
@@ -20,7 +20,7 @@ class UserInfo extends Component {
         }) 
       })
       .catch(error => console.log(error))
-  }
+  }*/
 
     render(){
         return (

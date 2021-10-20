@@ -59,7 +59,6 @@ module.exports = {
             include: [
                 {association: "Products"}
             ],
-            limit: 3,
             attributes: {
                 include: [
                 [
@@ -73,7 +72,8 @@ module.exports = {
             ]},
             order : [[sequelize.literal('ProdCount'), 'DESC']]
         }).then(cats => {
-            let catCount = [ ]
+            let catCount = [ ];
+            let topCount = [ ];
             for (let i = 0; i < cats.length; i++) {
                 let actualCat = {}
                 const cat = cats[i];
@@ -83,6 +83,9 @@ module.exports = {
                 actualCat["count"] = cat.Products.length;
                 actualCat["detail"] = "/api/category/"+cat.id
                 catCount.push(actualCat)
+                if (i < 3) {
+                    topCount.push(actualCat)
+                }
                 }
                 let respuesta = {
                     meta: {
@@ -90,7 +93,8 @@ module.exports = {
                         count: cats.length,
                         url: '/api/categories/most'
                     },
-                    data: catCount 
+                    data: catCount,
+                    top: topCount
                 }
                 res.json(respuesta);
             })

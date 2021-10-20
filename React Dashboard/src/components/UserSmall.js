@@ -19,7 +19,7 @@ class UserSmall extends Component {
             })
             .then(usuarios => { 
                 this.setState({
-                    userCount: usuarios.meta.total
+                    userCount: usuarios.meta.count
                 }) 
             })
             .catch(error => console.log(error))

@@ -330,7 +330,12 @@ article p {
         justify-content: flex-start;
         align-items: center;
     }
-
+    #categorias article p {
+        font-size: 16px
+    }
+    #categorias article:hover p {
+        font-size: 16px
+    }
 
 }
 

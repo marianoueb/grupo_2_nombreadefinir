@@ -13,4 +13,6 @@ main {
     justify-content: flex-start;
     align-items: center;
     height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
 }

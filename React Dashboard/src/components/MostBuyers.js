@@ -11,23 +11,23 @@ import Paper from '@mui/material/Paper';
 import {Link} from 'react-router-dom'
 
 
-class MostBought extends Component {
+class MostBuyers extends Component {
 
     constructor(){
         super();
         this.state = {
-            products: [],
+            users: [],
         }
     }
 
     componentDidMount(){
-        fetch("http://localhost:3001/api/products/most")
+        fetch("http://localhost:3001/api/users/sales")
             .then(respuesta => { 
                 return respuesta.json() 
             })
             .then(resp => { 
                 this.setState({
-                    products: resp.data
+                    users: resp.data
                 }) 
             })
             .catch(error => console.log(error))
@@ -43,24 +43,24 @@ class MostBought extends Component {
                         aria-labelledby="nested-list-subheader"
                         subheader={
                             <ListSubheader component="div" id="nested-list-subheader">
-                                <h3><strong>Productos mas comprados</strong></h3>
+                                <h3><strong>Usuarios mas compradores</strong></h3>
                             </ListSubheader>
                         }
                         >
-                        { this.state.products.map((product, index) => 
-                            <Link to={"/products/"+product.product_id} className="main-link" exact="true">
+                        { this.state.users.map((user, index) => 
+                            <Link to={"/users/"+user.id} className="main-link" exact="true">
                                 <ListItemButton>
                                     <ListItemAvatar>
-                                        <Avatar src={product.image} alt="avatar" />
+                                        <Avatar src={user.avatar} alt="avatar" />
                                     </ListItemAvatar>
                                     <ListItemText
-                                        primary={product.product}
-                                        secondary={product.brand + " (ID:" + product.product_id + ")"}
+                                        primary={user.name}
+                                        secondary={user.email + " (ID:" + user.id + ")"}
                                     />
                                     <IconButton edge="end" aria-label="">
                                         <div>
                                             <h5>Compras</h5>
-                                            <p>{product.times}</p>
+                                            <p>{user.cartCount}</p>
                                         </div>
                                     </IconButton>
                                 </ListItemButton>
@@ -73,4 +73,4 @@ class MostBought extends Component {
     }
 }
 
-export default MostBought 
+export default MostBuyers

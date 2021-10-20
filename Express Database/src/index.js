@@ -64,3 +64,6 @@ app.use(brandApi)
 
 const catApi = require('./routes/api/category');
 app.use(catApi)
+
+const salesApi = require('./routes/api/sales');
+app.use(salesApi)

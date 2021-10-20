@@ -8,6 +8,8 @@ import IconButton from '@mui/material/IconButton';
 import ListSubheader from '@mui/material/ListSubheader';
 import Paper from '@mui/material/Paper';
 
+import { Link } from "react-router-dom"
+
 class LastUploaded extends Component {
 
     constructor(){
@@ -45,6 +47,7 @@ class LastUploaded extends Component {
                         }
                         >
                         { this.state.products.map(product => 
+                        <Link to={"/products/"+product.id} className="main-link" exact="true">
                             <ListItemButton>
                                 <ListItemAvatar>
                                     <Avatar src={product.image} alt="avatar" />
@@ -60,6 +63,7 @@ class LastUploaded extends Component {
                                     </div>
                                 </IconButton>
                             </ListItemButton>
+                        </Link>
                         )}
                     </List>
                 </Paper>

@@ -60,7 +60,6 @@ module.exports = {
             include: [
                 {association: "Products"}
             ],
-            limit: 3,
             attributes: {
                 include: [
                 [
@@ -75,6 +74,7 @@ module.exports = {
             order : [[sequelize.literal('ProdCount'), 'DESC']]
         }).then(brands => {
             let brandCount = [ ]
+            let topCount = []
             for (let i = 0; i < brands.length; i++) {
                 let actualBrand = {}
                 const brand = brands[i];
@@ -84,16 +84,20 @@ module.exports = {
                 actualBrand["logo"] = "http://localhost:3001/img/brands/" + brand.logo
                 actualBrand["detail"] = "/api/brand/"+brand.id
                 brandCount.push(actualBrand)
+                if (i < 3) {
+                    topCount.push(actualBrand)
                 }
-                let respuesta = {
-                    meta: {
-                        status : 200,
-                        count: brands.length,
-                        url: '/api/brands/most'
-                    },
-                    data: brandCount 
-                }
-                res.json(respuesta);
+            }
+            let respuesta = {
+                meta: {
+                    status : 200,
+                    count: brands.length,
+                    url: '/api/brands/most'
+                },
+                data: brandCount,
+                top: topCount
+            }
+            res.json(respuesta);
             })
             .catch(error => console.log(error))
     }

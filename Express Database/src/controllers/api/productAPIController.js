@@ -85,7 +85,7 @@ module.exports = {
                         price: producto.price,
                         brand: producto.Brand.brand,
                         category: producto.Categories.category,
-                        image: "http://localhost:3001/img/products/"+element.image
+                        image: "http://localhost:3001/img/products/"+producto.image
                     }
                 }
                 res.json(respuesta);
@@ -147,7 +147,7 @@ module.exports = {
                 ]
             ]},
             order : [[sequelize.literal('ProdCount'), 'DESC']], 
-            limit: 5,
+            limit: 3,
             group: ["Products.id"]
         })  
             .then(respArray => {
