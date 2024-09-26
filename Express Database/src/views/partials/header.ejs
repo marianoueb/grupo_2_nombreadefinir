@@ -1,0 +1,65 @@
+<header>
+    <nav id="barra-principal">
+        <div id="mobile-burger" class="respmenu">
+            <input type="checkbox">
+            <i class="fas fa-bars" id="burger-icon"></i>
+            <i class="fas fa-times"></i>
+            <nav id="navegacion">
+                <a href="/home/">Página principal</a>
+                <a href="/product/">Productos</a>
+                <a href="/brands/">Marcas</a>
+                <a href="/categories/">Categorías</a>
+            </nav>
+        </div>
+        <a href="/home/"><img src="/img/Logo.png" alt="Toolbox"></a>
+        <form class="formulario-busqueda" action="/search" method="get">
+            <div class="barra-busqueda">
+                <select name="category" id="categoria">
+                    <option value="">Todo</option>
+                    <option value="1">Ferretería</option>
+                    <option value="2">Pinturería</option>
+                    <option value="3">Plomería</option>
+                    <option value="4">Jardinería</option>
+                    <option value="5">Maquinaria</option>
+                </select>
+                <input id="linea" name="search" type="search" placeholder="¿Que buscas?">
+                <button id="buscar" type="submit"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
+
+        <% if ( isLogged ) { %>
+        <% } %>
+        <a id="carrito" href="/cart/"><i class="fas fa-shopping-cart"></i></a>
+        
+            
+    </nav>
+    <div id="barra-menu">
+        <nav id="navegacion">
+            <a href="/home/">Página principal</a>
+            <a href="/product/">Productos</a>
+            <a href="/brands/">Marcas</a>
+            <a href="/categories/">Categorías</a>
+        </nav>
+        <% if ( !isLogged ) { %>
+            <nav id="sesion">
+                <a href="/login/">Iniciar sesión</a>
+                <p>o</p>
+                <a href="/register/">Registrarse</a>
+            </nav>
+        <% } else { %>
+            <nav id="sesion">
+                <% if (loggedUser.type_id > 1) { %>
+                    <a href="http://localhost:3000/">Admin Dashboard</a>
+                    <p></p>
+                    <a href="/users/">Usuarios</a>
+                    <p></p>
+                <% } %>
+                <a href="/users/<%= loggedUser.id %> ">Perfil</a>
+                <p></p>
+                <form id="logoutForm" action="/logout/" method="POST">
+                    <button id="logoutButton" type="submit">Cerrar sesion</button>
+                </form>
+            </nav>
+        <% } %>
+    </div>
+</header>

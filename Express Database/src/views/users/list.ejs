@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <%- include("../partials/head.ejs") %> 
+    <body>
+        <%- include("../partials/header.ejs") %>
+        <main>
+            <% if (isLogged) { %>
+                <% if (loggedUser && loggedUser.type_id > 1) { %>
+                    <% list.forEach(user => { %>
+                        <a href="/users/<%= user.id %>">
+                            <article class="usuario">
+                                <figure><img class="avatar" src="/img/users/<%= user.avatar %>" alt=""></figure>
+                                <div class="datos">
+                                    <p class="nombre"><%= user.name%></p>
+                                    <p class="apellido"><%= user.surname %></p>
+                                </div>
+                            </article>
+                        </a>
+                    <% }) %>
+                <% } else { %>
+                    <span id="error">
+                        <h2>Error</h2>
+                        <h3>No estás autorizado para ver esta página</h3>
+                        <a href="/home"><button>Volver al menu principal</button></a>
+                        <a href="/users/<%= loggedUser.id %>"><button>Ir a mi perfil</button></a>
+                    </span>
+                <% } %>
+            <% } else { %>
+                <span id="error">
+                    <h2>Error</h2>
+                    <h3>Debes loguearte para acceder a esta página</h3>
+                    <a href="/login"><button>Iniciar sesión</button></a>
+                    <a href="/home"><button>Volver al menu principal</button></a>
+                </span>
+            <% } %>%>
+        </main>
+        <%- include("../partials/footer.ejs") %>
+    </body>
+</html>

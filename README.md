@@ -4,11 +4,13 @@
   #
 ***  
   #
+  (Aclaración: Para inicializar el proyecto, se debe iniciar dentro de cada proyecto una consola con el comando "npm start". React se maneja en el localhost:3000 y el proyecto en express se ubica en el localhost:3001)
+  #
+***
+  #
   #
 ## Miembros del grupo
 #
-### María Eugenia Rabanal
-> Mi nombre es María, tengo 33 años, vivo en San Isidro y tengo un bebé de un año. Soy licenciada en turismo y trabajo en una agencia de viajes.
 
 ### Mariano Moranchel
 > Hola soy Mariano, vivo en Mar del plata y soy un aficionado a todo lo que tenga pilas y/o se enchufe. Soy papa de Male y Paloma y trabajo en una empresa de telecomunicaciones como responsable de mercado.
@@ -60,29 +62,35 @@
 #
 #
 ## Bocetos de las páginas
-## Se hallan todos [aquí (click)], realizados en Figma. También se encuentran en /wireframes/ToolboxWireframes.pdf
+## Se hallan todos [aquí (click)], realizados en Figma. También se encuentran en ./Design/ToolboxWireframes.pdf
 #
 #
 ***
 #
 #
 ## Recursos del diseño
-## Fuentes sugeridas:
+## Fuentes:
 #### [Rubik (Ligth 300 o Regular 400, para textos, descripciones, etc.)]
 #### [Open Sans (Regular 400, para los títulos y Bold 700, para el logo)]
 #
 #
 ## Paleta de colores:
-![Paleta](https://i.imgur.com/zDLgFsU.png)
-### También se hallan en /design/Paleta.png
+![Paleta](https://imgur.com/KTWQ6RR)
+### También se hallan en ./Design/Paleta.png
 #
 #
 ***
 #
 #
 ## Logo elegido:
-![Logo](https://i.imgur.com/9GEdlwO.png)
-### El cual también está en /design/Logo.png
+![Logo](https://imgur.com/amft72E)
+### El cual también está en ./Design/Logo.png
+#
+#
+***
+#
+#
+### El DER (DER-toolbox.png) y los SQL iniciales (Data.sql y Structure.sql) también se encuentran en la carpeta ./Design.
 #
 #
 

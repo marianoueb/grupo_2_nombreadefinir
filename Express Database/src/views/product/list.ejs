@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head.ejs") %>
+<body>
+    <%- include ("../partials/header") %> 
+    <main>
+        <section id="list">
+            <section id="prod-sect"> 
+                <h1 id="listTitle"><%= listTitle %></h1>
+                <section id="galeria-recomendados">
+                    <% list.forEach(product => { %>
+                        <article class="recomendado">
+                            <a href="/product/<%= product.id %>"></a>
+                                <img class="foto-producto" src="/img/products/<%= product.image%>" alt="">
+                                <div class="descripcion">
+                                    <a href="/product/<%= product.id %>"><p class="nombre-producto"><%= product.name%></p></a>
+                                    <%
+                                        function mil(numero) {
+                                            return numero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                        }
+                                    %>
+                                    <p class="precio-producto">$<%= mil(product.price) %></p>
+                                </div>
+                            </a>
+                        </article>
+                        <% }) %>
+                </section>
+            </section>
+        </section>
+        <section id="filter">
+            <form action="/product/filter/" method="post" class="product-filter">
+                <h1>Filtro</h1>
+                <section>
+                    <h2>Categoría</h2>
+                        <div>
+                            <input type="radio" name="category" value="0" <% if (search.category == false) { %>checked<% } %>>
+                            <p>Todas</p>
+                        </div>
+                    <% cats.forEach(cat => { %>
+                        <div>
+                            <input type="radio" name="category" value="<%= cat.id %>" <% if( search.categoryParam == cat.id ){ %>checked<% } %>>
+                            <p><%= cat.category %></p>
+                        </div>
+                    <% }) %> 
+                </section>
+                <h1></h1>
+                <section>
+                    <h2>Marca</h2>
+                        <div>
+                            <input type="radio" name="brand" value="0" <% if (search.brand == false) { %>checked<% } %>>
+                            <p>Todas</p> 
+                        </div>
+                    <% brands.forEach(brand => { %>
+                        <div>
+                            <input type="radio" name="brand" value="<%= brand.id %>" <% if( search.brandParam == brand.id ){ %>checked<% } %>>
+                            <p><%= brand.brand %></p>
+                        </div>
+                    <% }) %> 
+                </section>
+                <button type="submit">Aplicar</button>
+            </form>
+            <form action="/product/" method="get" class="reset-filter">
+                <button type="submit">Reiniciar busqueda</button>
+            </form>
+        </section>
+        <% if ( isLogged ) { %>
+            <% if (loggedUser.type_id > 1) { %>
+                <a href="/product/create" id="add-product">+</a>
+            <% } %>
+        <% } %>
+         
+    </main>
+    <%- include("../partials/footer.ejs") %>
+    <script type="text/javascript" src="/script/product/list.js"></script>
+</body>
+</html>

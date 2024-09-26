@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <%- include("../partials/head.ejs") %> 
+    <body>
+        <%- include("../partials/header.ejs") %>
+<main>   
+                   <!-- SECCION QUE CONTIENE FORM Y POR QUE REGISTRARSE -->
+<section id =register-main>  
+    <form class="register" action="" id="registerform" method="POST" enctype="multipart/form-data">
+        <p class="titulo-register">Crea tu Cuenta</p>
+<section id = registerForm>
+    <div class="error-div">
+        <% if(backErrors.length > 0){ %> 
+            <% if (backErrors.length > 0) { %>
+                <section class="error-span">
+                    <% for( let i = 0; i < backErrors.length; i++ ) { %>
+                        <% let errorA = backErrors[i] %> 
+                        <h2 class="backError"> - <%= errorA.msg %></h2>
+                    <% } %>
+                </section>
+            <% } %>
+        <% } %> 
+    </div>
+    <input type="file" name="avatar" id="avatar" >
+    <input type="text" id="name" name="name" placeholder="Nombre:"  >
+    <input type="text" id="surname" name="surname" placeholder="Apellido:" >
+    <input type="text" id="email" name="email" placeholder="E-Mail:" >
+    <input type="password" id="password" name="password" placeholder="Contraseña:" >
+    <input type="tel" id="tel" name="tel" placeholder="Telefono:" >
+  </section>
+                    <!-- SECCION QUE CONTIENE BOTONES -->
+  <section id="botones">
+    <button type="submit" id="submitBtn">Registrarme</button><br>
+    <!-- <button type="button">Ya estoy registrado </button> -->
+    <a href="/login">Ya estoy registrado!</a>
+  </section>  
+
+    </form> 
+                    <!-- FIN DE FORMULARIO -->
+</section>
+
+                    <!-- INICIO SECCION DE POR QUE REGISTRARSE -->
+<section id="whyRegister">
+    <p class="titulo-why">¿Por que Registrarse?</p><br>
+  
+<section id="lista-whyRegister">
+    <ul>
+        <li>
+        <a id="resp-fast"><i class="fas fa-shipping-fast"></i></a>
+            Respuesta mas rapida
+        </li>
+        <br><br>
+        <li>
+        <a id="coti-prefe"><i class="fas fa-angle-double-up"></i></a>  
+            Cotizacion preferencial
+        </li>
+        <br><br>
+        <li>
+        <a id="asist-person"><i class="fas fa-hands-helping"></i></a>
+            Asistencia personalizada
+        </li>
+    </ul>
+
+</section>
+                        <!-- FOTO PIE DE SECCION -->
+<div class="foto-producto">
+<figure>	
+    <img src="/img/fotoproducto.jpg" alt="Foto de producto">
+</figure>
+</div>
+
+</section>
+                        <!-- FIN DE SECCION -->
+        </main>
+        <%- include("../partials/footer.ejs") %>
+        <script type="text/javascript" src="/script/user/register.js"></script>
+    </body>
+</html>

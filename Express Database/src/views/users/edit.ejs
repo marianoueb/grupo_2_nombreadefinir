@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <%- include("../partials/head.ejs") %> 
+    <body>
+        <%- include("../partials/header.ejs") %>
+<main>   
+                   <!-- SECCION QUE CONTIENE FORM Y POR QUE REGISTRARSE -->
+<section id =register-main>  
+    <form class="register"action="" id="editform" method="POST" enctype="multipart/form-data">
+        <p class="titulo-register">Edita tus datos</p>
+<section id = registerForm>
+    <div class="error-div">
+        <% if(backErrors.length > 0){ %> 
+            <% if (backErrors.length > 0) { %>
+                <section class="error-span">
+                    <% for( let i = 0; i < backErrors.length; i++ ) { %>
+                        <% let errorA = backErrors[i] %> 
+                        <h2 class="backError"> - <%= errorA.msg %></h2>
+                    <% } %>
+                </section>
+            <% } %>
+        <% } %> 
+    </div>
+    <input type="file" name="avatar" id="avatar" >
+    <input type="text" id="name" name="name" placeholder="Nombre:" value="<%= user.name %>"  >
+    <input type="text" id="surname" name="surname" placeholder="Apellido:" value="<%= user.surname %>" >
+    <input type="email" id="email" name="email" placeholder="E-Mail:" value="<%= user.email %>" >
+    <input type="tel" id="tel" name="tel" placeholder="Telefono:" value="<%= user.tel %>" >
+  </section>
+                    <!-- SECCION QUE CONTIENE BOTONES -->
+  <section id="botones">
+    <button type="submit" id="submitBtn">Guardar cambios</button>
+  </section>  
+
+    </form> 
+                    <!-- FIN DE FORMULARIO -->
+</section>
+        </main>
+        <%- include("../partials/footer.ejs") %>
+        <script type="text/javascript" src="/script/user/update.js"></script>
+    </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head.ejs") %>
+<body>
+    <%- include ("../partials/header") %> 
+    <main>
+        <section id="list">
+            <h1 id="listTitle"><%= listTitle %></h1>
+            <section id="galeria-recomendados">
+                <% list.forEach(product => { %>
+                <article class="recomendado">
+                    <a href="/product/<%= product.id %>">
+                        <figure><img class="foto-producto" src="/img/products/<%= product.image%>" alt=""></figure>
+                        <div class="descripcion">
+                            <p class="nombre-producto"><%= product.name%></p>
+                            <%
+                                function mil(numero) {
+                                return numero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }
+                            %>
+                            <p class="precio-producto">$<%= mil(product.price) %></p>
+                        </div>
+                    </a>
+                </article>
+                <% }) %>
+            </section>
+        </section>
+        <section id="filter">
+            <form action="/product/filter/" method="post">
+                <h2>Marca</h2>
+                <% brands.forEach(brand => { %>
+                    <div>
+                        <input type="radio" name="brand" value="<%= brand.id %>" <% if( brand.id == query){ %>checked<% } %>>
+                        <p><%= brand.brand %></p>
+                    </div>
+                <% }) %> 
+                <!-- <h2>Categoria</h2>
+                <div>
+                    <input type="radio" name="category" value="Ferreteria">
+                    <p>Ferretería</p>
+                </div>
+                <div>
+                    <input type="radio" name="category" value="Jardineria">
+                    <p>Jardinería</p>
+                </div>
+                <div>
+                    <input type="radio" name="category" value="Maquinaria">
+                    <p>Maquinaria</p>
+                </div>
+                <div>
+                    <input type="radio" name="category" value="Plomeria">
+                    <p>Plomería</p>
+                </div>
+                <div>
+                    <input type="radio" name="category" value="Pintureria">
+                    <p>Pinturería</p>
+                </div> -->
+                <button type="submit">Aplicar</button>
+            </form>
+            <form action="/product/" method="get">
+                <button>Reiniciar busqueda</button>
+            </form>
+        </section>
+        <% if ( isLogged ) { %>
+            <% if (loggedUser.admin) { %>
+                <a href="/product/create" id="add-product">+</a>
+            <% } %>
+        <% } %>
+         
+    </main>
+    <%- include("../partials/footer.ejs") %>
+    <script src="js/list.js"></script>
+</body>
+</html>

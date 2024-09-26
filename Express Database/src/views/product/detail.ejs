@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <%- include("../partials/head.ejs") %> 
+    <body>
+         <%- include("../partials/header.ejs") %> 
+         
+  <body>
+    <% var thisId = product.id %> 
+    <main id="detail" class="flex-container">
+        <section id="galery" class="flex-container">
+          <%
+            function mil(numero) {
+            return numero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+          %>
+          <figure><img class="foto-producto" src="/img/products/<%= product.image%>" alt=""></figure>
+        </section>
+  
+        <article class="flex-container" id="product">
+          <section>
+            <h2><%= product.name%></h2>
+            <p class="precio-prod">$<%= mil(product.price) %></p>
+            <section id="description" class="flex-container">
+              <h3>Descripción del Producto</h3>
+              <p>
+                <%= product.description%>
+              </p>
+            </section>
+          </section>
+          <div>
+            <section>
+              <form action="/cart/order" method="post" class="flex-container" id="product-low">
+                <select name="producto" id="hidden">
+                  <option value="<%= product.id %>" selected></option>
+                </select>
+                <section id="amount-addcart">
+                  <div id="amount">
+                    <p>Cantidad</p>
+                    <select name="cantidad" id="cantidad">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                    </select>
+                  </div>
+                  <button id="carro" type="submit">
+                    Agregar al Carrito
+                    <i class="fas fa-shopping-cart"></i>
+                  </button>
+                </section>
+              </form>
+            </section>
+            <% if ( isLogged ) { %>
+              <% if (loggedUser.type_id > 1) { %>
+                <section id="crud-forms">
+                  <form action="/product/deleted/<%= product.id %>" method="POST">
+                    <button type="submit" id="erase">Borrar producto</button>
+                  </form>
+                  <form action="/product/edit/<%= product.id %>" method="GET">
+                    <button type="submit" id="edit">Editar producto</button>
+                  </form>
+                </section>
+              <% } %>
+          <% } %>
+        </div>
+        </article>
+      </main>
+
+      <section id="prod-sect">
+        <h1>Productos relacionados</h1>
+        <div id="galeria-recomendados">
+          <% list.forEach(product => { 
+            if(product.id < 7){
+              if( product.id != thisId ){ %>
+              <article class="relacionado">
+                  <figure><img class="foto-producto" src="/img/products/<%= product.image%>" alt=""></figure>
+                  <div class="descripcion">
+                      <p class="nombre-producto"><a href="/product/<%= product.id %>"><%= product.name%></a></p>
+                      <p class="precio-producto">$<%= mil(product.price) %></p>
+                  </div>
+              </article>
+              <% }
+            }
+          }) %>
+        </div>
+    </section>
+
+  <%- include("../partials/footer.ejs") %>
+  </body>
+</html>

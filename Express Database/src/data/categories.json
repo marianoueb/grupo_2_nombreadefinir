@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "category": "Ferreteria",
+      "icon": "fas fa-hammer"
+    },
+    {
+        "id": 2,
+        "category": "Pintureria",
+        "icon": "fas fa-paint-roller"
+      },
+      {
+        "id": 3,
+        "category": "Plomeria",
+        "icon": "fas fa-sink"
+      },
+      {
+        "id": 4,
+        "category": "Jardineria",
+        "icon": "fas fa-fan"
+      },
+      {
+        "id": 5,
+        "category": "Maquinaria",
+        "icon": "fas fa-snowplow"
+      }
+  ]
